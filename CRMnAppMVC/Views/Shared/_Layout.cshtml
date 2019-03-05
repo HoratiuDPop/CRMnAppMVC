@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - CRM_MVC Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href="~/Content/StyleGlobaleCRM.css" rel="stylesheet" />
+    <link href="~/Content/StyleMyTopMenu.css" rel="stylesheet" />
+    <link href="~/Content/StyleChatProspecte.css" rel="stylesheet" />
+    <link href="~/Content/StyleProspectareFilters.css" rel="stylesheet" />
+
+
+</head>
+<body>
+    <div class="MyTopMenu">
+        @* div MyTopMenu =f(css)*@
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <div class="row">
+                    @*container row*@
+
+                    <div class="navbar-collapse collapse">
+
+                        <div class="col-sm-11">
+                            @*div BigNavbar*@
+
+                            <div class="col-sm-3">
+                                @*div BigNavbar-r1-c1*@
+                                @*~CHART PROSPECTARE~*@
+                                @Html.Partial("_PartVw_ChartProspecte")
+                            </div>
+
+                            <div class="col-sm-9">
+                                @*div NavCR*@
+                                @Html.Partial("_PartVw_NavCR")
+                            </div>@* end div NavCR*@
+
+                        </div>@* end div BigNavbar*@
+
+                        <div class="col-sm-1">
+                            @*div NavRight*@
+                            @Html.Partial("_PartVw_NavRight")
+                        </div> @*end div NavRight*@
+
+                    </div> @*end navbar-collapse*@
+
+                </div> @*end container row*@
+
+            </div> @*end container*@
+
+        </div> @*end navbar-fixed-top*@
+
+    </div> @*end MyTopMenu*@
+
+    <div class="container body-content">
+        <hr /><hr />
+        @RenderBody()
+        <hr />
+        <footer>
+            <p style="color:deeppink">&copy; @DateTime.Now.Year -- CRM & Sales Helper -- <span style="color:darkgrey"> (c) -- design IT -- H.Pop --  design ec. -- D. Cadariu -- </span> </p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

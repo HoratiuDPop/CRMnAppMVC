@@ -1,0 +1,43 @@
+﻿
+@using GridMvc.Html;
+@using CRMnAppMVC.Models;
+
+@model IEnumerable<CRMnAppMVC.Models.ActiuneCRM>
+
+@{
+    ViewBag.Title = "AgendaArhivaActiuni";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AgendaArhivaActiuni</title>
+</head>
+<body>
+    @*Render Grid.Mvc:*@
+    <div class="jumbotron small well-sm">
+
+        @Html.Grid(Model).Columns(columns =>
+    {
+
+       columns.Add(ac  => ac.Id, true).Titled("").SetWidth(1).Filterable(true); // coloana ascunsa -param 2 al fctiei Add este invisible=true
+       columns.Add(ac  => ac.TipActiune).Titled("&#9998").SetWidth(6).Filterable(true).Css("MyBrightText");
+       columns.Add(ac  => ac.NumeActiune).Titled("Actiune /Pas Urmator").SetWidth(100).Filterable(true);
+       columns.Add(ac  => ac.SubiectActiune).Titled("Subiect").SetWidth(100).Filterable(true).Sanitized(false).Encoded(false)
+       .RenderValueAs(ac  => Html.ActionLink(ac.TextField(ac.SubiectActiune),"AgendaZilei","Agenda", new { id = ac.Id }).ToHtmlString());  //Html.ActionLink --are parm Metoda, contrller etc
+                                                                                                                                         // aici trebuie introdusa spEditeazaActivitate
+       columns.Add(ac  => ac.PrioritateActiune).Titled("Prioritate").SetWidth(20).Filterable(true).RenderValueAs(ac  => ac.DrawNumberField(ac.PrioritateActiune)).Css("MyStars");
+       columns.Add(ac  => ac.OraActiune).Titled("Ora").SetWidth(4).Filterable(true);
+       columns.Add(ac  => ac.DurataActiune).Titled("Timp").SetWidth(4).Filterable(true).RenderValueAs(ac  => ac.DurataActiune+"'");
+       columns.Add(ac  => ac.ComentariuActiune).Titled("Comentariu").SetWidth(200).Filterable(true);
+       columns.Add(ac => ac.MesajActiune).Titled("Mesaj").SetWidth(12).Filterable(true)
+       .Css(@Model.Count()>0 ? (@Model.First().MesajActiune=="Reprogrameaza!" ? "MyRedText" : "MyGreyText") : "MyGreyText");
+
+    }).WithPaging(7).Sortable().Filterable().EmptyText("No data found!").WithMultipleFilters()
+
+    </div>
+</body>
+</html>
+

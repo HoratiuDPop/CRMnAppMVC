@@ -1,0 +1,40 @@
+﻿body {
+    --main-bk-color: rgb(255, 255, 100);
+    --main-color: rgb(0, 0, 0);
+    --color-CONTACT-status: rgb(255,255,255);
+    --color-PROSPECT-status: rgb(255,255,153);
+    --color-INTERLOCUTOR-status: rgb(255,178,102);
+    --color-CLIENT-status: rgb(102,255,102);
+    --color-INCORECT-status: rgb(128,125,170);
+    --color-DUBLURA-status: rgb(210,150,137);
+    --color-INDISPONIBIL-status: rgb(176,130,77);
+    --color-NEINTERESAT-status: rgb(210,60,60);
+    --color-NETARGETABIL-status: rgb(160,160,160);
+}
+.color-CONTACT {
+    background-color: var(--color-CONTACT-status);
+}
+.color-PROSPECT {
+    background-color: var(--color-PROSPECT-status);
+}
+.color-INTERLOCUTOR {
+    background-color: var(--color-INTERLOCUTOR-status);
+}
+.color-CLIENT {
+    background-color: var(--color-CLIENT-status);
+}
+.color-INCORECT {
+    background-color: var(--color-INCORECT-status);
+}
+.color-DUBLURA {
+    background-color: var(--color-DUBLURA-status);
+}
+.color-INDISPONIBIL {
+    background-color: var(--color-INDISPONIBIL-status);
+}
+.color-NEINTERESAT {
+    background-color: var(--color-NEINTERESAT-status);
+}
+.color-NETARGETABIL {
+    background-color: var(--color-NETARGETABIL-status);
+}

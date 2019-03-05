@@ -1,0 +1,22 @@
+﻿#ChartProspecte {
+    font-size: 0.8em;
+    color: orangered;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius:1em;
+    vertical-align:middle;
+}
+#ChartProspecte, #ChartProspecte tr, #ChartProspecte td {
+    margin: 0 auto;
+    padding:0;
+}
+#ChartProspecte .ChatProspecte_Categories {
+    color: orangered;
+    font-size: 1.2em;
+    font-weight:bolder;
+}
+#ChartProspecte .ChatProspecte_Lines {
+    font-weight:bolder;
+}
+

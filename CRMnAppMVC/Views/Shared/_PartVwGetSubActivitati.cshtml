@@ -1,0 +1,22 @@
+﻿@using CRMnAppMVC
+@model  IEnumerable<Predef_SubTipuri_Activitati>
+@{ ViewBag.Title = "GetSubActivitatiPartVw";}
+
+<option value=""> Selecteaza SubActivitate</option>
+
+@if (Model.Any())
+{
+    foreach (Predef_SubTipuri_Activitati item in @Model)
+    {
+        <option value=@item.Nume_SubAct> @item.Nume_SubAct</option>
+    }
+}
+
+
+@*@if (ViewBag.ListaSubActivitati!=null)
+    {
+        foreach (var item in ViewBag.Detalii_Tip_Activitate)
+        {
+        <option value=@item.Value> @item.Text</option>
+        }
+    }*@

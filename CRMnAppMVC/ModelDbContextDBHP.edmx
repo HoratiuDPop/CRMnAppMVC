@@ -1,0 +1,801 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CRM_DBHPContextSpace.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Audit_CRUD">
+          <Key>
+            <PropertyRef Name="ID_Audit" />
+          </Key>
+          <Property Name="ID_Audit" Type="int" Nullable="false" />
+          <Property Name="Nume_Client_Audit" Type="nchar" MaxLength="255" />
+          <Property Name="ID_User_Audit" Type="nvarchar" MaxLength="60" />
+          <Property Name="Data_Operatiune" Type="datetime" />
+          <Property Name="Operatiune_CRUD" Type="nchar" MaxLength="255" />
+          <Property Name="Mesaj_Audit" Type="nchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="Clienti_Contact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_PRE_Client" Type="int" />
+          <Property Name="Persoana_Decizie" Type="nvarchar" MaxLength="60" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="20" />
+          <Property Name="Regiune_Reper" Type="nvarchar" MaxLength="60" />
+          <Property Name="Adresa_Text" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cod_Postal" Type="nvarchar" MaxLength="60" />
+          <Property Name="Email" Type="nvarchar" MaxLength="60" />
+          <Property Name="Web_Site" Type="nvarchar" MaxLength="60" />
+          <Property Name="Adresa_Numar" Type="nvarchar" MaxLength="10" />
+          <Property Name="Adresa_Strada" Type="nvarchar" MaxLength="60" />
+          <Property Name="Adresa_Oras" Type="nvarchar" MaxLength="60" />
+          <Property Name="Adresa_Unitate_Regionala" Type="nvarchar" MaxLength="60" />
+          <Property Name="Adresa_SubUnitate_Regionala" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Nume" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Prenume" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Nume_Alt" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Prenume_Alt" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Sex" Type="nvarchar" MaxLength="10" />
+          <Property Name="Persoana_Decizie_Functie" Type="nvarchar" MaxLength="60" />
+          <Property Name="Telefon_Alt" Type="nvarchar" MaxLength="60" />
+          <Property Name="Email_Alt" Type="nvarchar" MaxLength="60" />
+          <Property Name="ID_USER" Type="nvarchar" MaxLength="60" />
+          <Property Name="Data_Intro" Type="date" />
+          <Property Name="Data_Modif" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Clienti_Interlocutor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_PRE_Client" Type="int" />
+          <Property Name="Data_Discutie" Type="date" />
+          <Property Name="Obs_Tipuri_Produse_Cautate" Type="nvarchar" MaxLength="255" />
+          <Property Name="Obs_Furnizori_Actuali_Client" Type="nvarchar" MaxLength="255" />
+          <Property Name="Obs_Dureri_Client" Type="nvarchar" MaxLength="255" />
+          <Property Name="Obs_Alte_Observatii" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Durata_Discutie_Minute" Type="int" />
+          <Property Name="ID_Discutie" Type="int" />
+          <Property Name="Tip_Discutie" Type="nvarchar" MaxLength="60" />
+          <Property Name="Tip_STADIU_DISCUTIE" Type="nvarchar" MaxLength="60" />
+          <Property Name="ID_USER" Type="nvarchar" MaxLength="60" />
+          <Property Name="Data_Intro" Type="date" />
+          <Property Name="Data_Modif" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Clienti_Profil">
+          <Key>
+            <PropertyRef Name="ID_PRE_Client" />
+          </Key>
+          <Property Name="ID_PRE_Client" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tip_Client_PF_PJ" Type="nvarchar" MaxLength="10" />
+          <Property Name="Nume_Client" Type="nvarchar" MaxLength="60" />
+          <Property Name="Cod_Client" Type="nvarchar" MaxLength="255" />
+          <Property Name="Tara" Type="nvarchar" MaxLength="60" />
+          <Property Name="Domeniu" Type="nvarchar" MaxLength="60" />
+          <Property Name="Cod_Domeniu" Type="nvarchar" MaxLength="60" />
+          <Property Name="CA_Ultimul_An" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Nr_Angajati" Type="int" />
+          <Property Name="Sursa_Info_Client" Type="nvarchar" MaxLength="60" />
+          <Property Name="Sursa_Info_Client_Alt" Type="nvarchar" MaxLength="60" />
+          <Property Name="ID_USER" Type="nvarchar" MaxLength="60" />
+          <Property Name="Data_Intro" Type="date" />
+          <Property Name="Data_Modif" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CRM_DBHP.dbo.VwDashboardClient' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VwDashboardClient">
+          <Key>
+            <PropertyRef Name="ID_Vw" />
+          </Key>
+          <Property Name="ID_Vw" Type="bigint" Nullable="false" />
+          <Property Name="ID_PRE_Client_Profil" Type="int" Nullable="false" />
+          <Property Name="Tip_Client_PF_PJ_Profil" Type="nvarchar" MaxLength="10" />
+          <Property Name="Nume_Client" Type="nvarchar" MaxLength="60" />
+          <Property Name="Cod_Client" Type="nvarchar" MaxLength="255" />
+          <Property Name="Tara" Type="nvarchar" MaxLength="60" />
+          <Property Name="Domeniu" Type="nvarchar" MaxLength="60" />
+          <Property Name="Cod_Domeniu" Type="nvarchar" MaxLength="60" />
+          <Property Name="CA_Ultimul_An" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Nr_Angajati" Type="int" />
+          <Property Name="Sursa_Info_Client" Type="nvarchar" MaxLength="60" />
+          <Property Name="ID_USER" Type="nvarchar" MaxLength="60" />
+          <Property Name="Data_Intro" Type="date" />
+          <Property Name="Sursa_Info_Client_Alt" Type="nvarchar" MaxLength="60" />
+          <Property Name="Data_Modif" Type="datetime" />
+          <Property Name="ID_Contact" Type="int" />
+          <Property Name="ID_PRE_Client_Contact" Type="int" />
+          <Property Name="Persoana_Decizie" Type="nvarchar" MaxLength="60" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="20" />
+          <Property Name="Regiune_Reper" Type="nvarchar" MaxLength="60" />
+          <Property Name="Adresa_Text" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cod_Postal" Type="nvarchar" MaxLength="60" />
+          <Property Name="Email" Type="nvarchar" MaxLength="60" />
+          <Property Name="Web_Site" Type="nvarchar" MaxLength="60" />
+          <Property Name="Adresa_Numar" Type="nvarchar" MaxLength="10" />
+          <Property Name="Adresa_Strada" Type="nvarchar" MaxLength="60" />
+          <Property Name="Adresa_Oras" Type="nvarchar" MaxLength="60" />
+          <Property Name="Adresa_Unitate_Regionala" Type="nvarchar" MaxLength="60" />
+          <Property Name="Adresa_SubUnitate_Regionala" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Nume" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Prenume" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Nume_Alt" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Prenume_Alt" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Sex" Type="nvarchar" MaxLength="10" />
+          <Property Name="Persoana_Decizie_Functie" Type="nvarchar" MaxLength="60" />
+          <Property Name="Telefon_Alt" Type="nvarchar" MaxLength="60" />
+          <Property Name="Email_Alt" Type="nvarchar" MaxLength="60" />
+          <Property Name="ID_USER_Contact" Type="nvarchar" MaxLength="60" />
+          <Property Name="Data_Intro_Contact" Type="date" />
+          <Property Name="Data_Modif_Contact" Type="datetime" />
+          <Property Name="ID_Interlocutor" Type="int" />
+          <Property Name="ID_PRE_Client_Interlocutor" Type="int" />
+          <Property Name="Obs_Tipuri_Produse_Cautate" Type="nvarchar" MaxLength="255" />
+          <Property Name="Data_Discutie" Type="date" />
+          <Property Name="Obs_Furnizori_Actuali_Client" Type="nvarchar" MaxLength="255" />
+          <Property Name="Obs_Dureri_Client" Type="nvarchar" MaxLength="255" />
+          <Property Name="Obs_Alte_Observatii" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Durata_Discutie_Minute" Type="int" />
+          <Property Name="ID_Discutie" Type="int" />
+          <Property Name="Tip_Discutie" Type="nvarchar" MaxLength="60" />
+          <Property Name="Tip_STADIU_DISCUTIE" Type="nvarchar" MaxLength="60" />
+          <Property Name="ID_USER_Interlocutor" Type="nvarchar" MaxLength="60" />
+          <Property Name="Data_Intro_Interlocutor" Type="date" />
+          <Property Name="Data_Modif_Interlocutor" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_Clienti_Contact_Clienti_Profil">
+          <End Role="Clienti_Profil" Type="Self.Clienti_Profil" Multiplicity="0..1" />
+          <End Role="Clienti_Contact" Type="Self.Clienti_Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clienti_Profil">
+              <PropertyRef Name="ID_PRE_Client" />
+            </Principal>
+            <Dependent Role="Clienti_Contact">
+              <PropertyRef Name="ID_PRE_Client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="spAddClienti_Contact" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDparam" Type="int" Mode="In" />
+          <Parameter Name="Persoana_Decizie" Type="nvarchar" Mode="In" />
+          <Parameter Name="Telefon" Type="nvarchar" Mode="In" />
+          <Parameter Name="Regiune_Reper" Type="nvarchar" Mode="In" />
+          <Parameter Name="Adresa_Text" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Postal" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="Web_Site" Type="nvarchar" Mode="In" />
+          <Parameter Name="Adresa_Numar" Type="nvarchar" Mode="In" />
+          <Parameter Name="Adresa_Strada" Type="nvarchar" Mode="In" />
+          <Parameter Name="Adresa_Oras" Type="nvarchar" Mode="In" />
+          <Parameter Name="Adresa_Unitate_Regionala" Type="nvarchar" Mode="In" />
+          <Parameter Name="Adresa_SubUnitate_Regionala" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Numenvar" Type="char" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Prenume" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Nume_Alt" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Prenume_Alt" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Sex" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Functie" Type="nvarchar" Mode="In" />
+          <Parameter Name="Telefon_Alt" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email_Alt" Type="nvarchar" Mode="In" />
+          <Parameter Name="ID_USER" Type="nvarchar" Mode="In" />
+          <Parameter Name="Data_Intro" Type="date" Mode="In" />
+          <Parameter Name="Data_Modif" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spAddClienti_Interlocutor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_PRE_Client" Type="int" Mode="In" />
+          <Parameter Name="Data_Discutie" Type="date" Mode="In" />
+          <Parameter Name="Obs_Tipuri_Produse_Cautate" Type="nvarchar" Mode="In" />
+          <Parameter Name="Obs_Furnizori_Actuali_Client" Type="nvarchar" Mode="In" />
+          <Parameter Name="Obs_Dureri_Client" Type="nvarchar" Mode="In" />
+          <Parameter Name="Obs_Alte_Observatii" Type="nvarchar" Mode="In" />
+          <Parameter Name="Durata_Discutie_Minute" Type="int" Mode="In" />
+          <Parameter Name="ID_Discutie" Type="int" Mode="In" />
+          <Parameter Name="Tip_Discutie" Type="nvarchar" Mode="In" />
+          <Parameter Name="Tip_STADIU_DISCUTIE" Type="nvarchar" Mode="In" />
+          <Parameter Name="ID_USER" Type="nvarchar" Mode="In" />
+          <Parameter Name="Data_Intro" Type="date" Mode="In" />
+          <Parameter Name="Data_Modif" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spAddClienti_Profil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Tip_Client_PF_PJ" Type="nvarchar" Mode="In" />
+          <Parameter Name="Nume_Client" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Client" Type="nvarchar" Mode="In" />
+          <Parameter Name="Tara" Type="nvarchar" Mode="In" />
+          <Parameter Name="Domeniu" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Domeniu" Type="nvarchar" Mode="In" />
+          <Parameter Name="CA_Ultimul_An" Type="int" Mode="In" />
+          <Parameter Name="Nr_Angajati" Type="int" Mode="In" />
+          <Parameter Name="Sursa_Info_Client" Type="nvarchar" Mode="In" />
+          <Parameter Name="Sursa_Info_Client_Alt" Type="nvarchar" Mode="In" />
+          <Parameter Name="ID_USER" Type="nvarchar" Mode="In" />
+          <Parameter Name="Data_Intro" Type="date" Mode="In" />
+          <Parameter Name="Data_Modif" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spDeleteClientWithID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDparam" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spUpdateClienti_Contact" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDparam" Type="int" Mode="In" />
+          <Parameter Name="Persoana_Decizie" Type="nvarchar" Mode="In" />
+          <Parameter Name="Telefon" Type="nvarchar" Mode="In" />
+          <Parameter Name="Regiune_Reper" Type="nvarchar" Mode="In" />
+          <Parameter Name="Adresa_Text" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Postal" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="Web_Site" Type="nvarchar" Mode="In" />
+          <Parameter Name="Adresa_Numar" Type="nvarchar" Mode="In" />
+          <Parameter Name="Adresa_Strada" Type="nvarchar" Mode="In" />
+          <Parameter Name="Adresa_Oras" Type="nvarchar" Mode="In" />
+          <Parameter Name="Adresa_Unitate_Regionala" Type="nvarchar" Mode="In" />
+          <Parameter Name="Adresa_SubUnitate_Regionala" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Nume" Type="char" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Prenume" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Nume_Alt" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Prenume_Alt" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Sex" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Functie" Type="nvarchar" Mode="In" />
+          <Parameter Name="Telefon_Alt" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email_Alt" Type="nvarchar" Mode="In" />
+          <Parameter Name="ID_USER" Type="nvarchar" Mode="In" />
+          <Parameter Name="Data_Modif" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spUpdateClienti_Interlocutor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDparam" Type="int" Mode="In" />
+          <Parameter Name="Data_Discutie" Type="date" Mode="In" />
+          <Parameter Name="Obs_Tipuri_Produse_Cautate" Type="nvarchar" Mode="In" />
+          <Parameter Name="Obs_Furnizori_Actuali_Client" Type="nvarchar" Mode="In" />
+          <Parameter Name="Obs_Dureri_Client" Type="nvarchar" Mode="In" />
+          <Parameter Name="Obs_Alte_Observatii" Type="nvarchar" Mode="In" />
+          <Parameter Name="Durata_Discutie_Minute" Type="int" Mode="In" />
+          <Parameter Name="ID_Discutie" Type="int" Mode="In" />
+          <Parameter Name="Tip_Discutie" Type="nvarchar" Mode="In" />
+          <Parameter Name="Tip_STADIU_DISCUTIE" Type="nvarchar" Mode="In" />
+          <Parameter Name="ID_USER" Type="nvarchar" Mode="In" />
+          <Parameter Name="Data_Modif" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spUpdateClienti_Profil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDparam" Type="int" Mode="In" />
+          <Parameter Name="Tip_Client_PF_PJ" Type="nvarchar" Mode="In" />
+          <Parameter Name="Nume_Client" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Client" Type="nvarchar" Mode="In" />
+          <Parameter Name="Tara" Type="nvarchar" Mode="In" />
+          <Parameter Name="Domeniu" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Domeniu" Type="nvarchar" Mode="In" />
+          <Parameter Name="CA_Ultimul_An" Type="int" Mode="In" />
+          <Parameter Name="Nr_Angajati" Type="int" Mode="In" />
+          <Parameter Name="Sursa_Info_Client" Type="nvarchar" Mode="In" />
+          <Parameter Name="Sursa_Info_Client_Alt" Type="nvarchar" Mode="In" />
+          <Parameter Name="ID_USER" Type="nvarchar" Mode="In" />
+          <Parameter Name="Data_Modif" Type="datetime" Mode="In" />
+        </Function>
+        <EntityContainer Name="CRM_DBHPContextSpaceStoreContainer">
+          <EntitySet Name="Audit_CRUD" EntityType="Self.Audit_CRUD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clienti_Contact" EntityType="Self.Clienti_Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clienti_Interlocutor" EntityType="Self.Clienti_Interlocutor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clienti_Profil" EntityType="Self.Clienti_Profil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VwDashboardClient" EntityType="Self.VwDashboardClient" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VwDashboardClient].[ID_Vw] AS [ID_Vw], 
+    [VwDashboardClient].[ID_PRE_Client_Profil] AS [ID_PRE_Client_Profil], 
+    [VwDashboardClient].[Tip_Client_PF_PJ_Profil] AS [Tip_Client_PF_PJ_Profil], 
+    [VwDashboardClient].[Nume_Client] AS [Nume_Client], 
+    [VwDashboardClient].[Cod_Client] AS [Cod_Client], 
+    [VwDashboardClient].[Tara] AS [Tara], 
+    [VwDashboardClient].[Domeniu] AS [Domeniu], 
+    [VwDashboardClient].[Cod_Domeniu] AS [Cod_Domeniu], 
+    [VwDashboardClient].[CA_Ultimul_An] AS [CA_Ultimul_An], 
+    [VwDashboardClient].[Nr_Angajati] AS [Nr_Angajati], 
+    [VwDashboardClient].[Sursa_Info_Client] AS [Sursa_Info_Client], 
+    [VwDashboardClient].[ID_USER] AS [ID_USER], 
+    [VwDashboardClient].[Data_Intro] AS [Data_Intro], 
+    [VwDashboardClient].[Sursa_Info_Client_Alt] AS [Sursa_Info_Client_Alt], 
+    [VwDashboardClient].[Data_Modif] AS [Data_Modif], 
+    [VwDashboardClient].[ID_Contact] AS [ID_Contact], 
+    [VwDashboardClient].[ID_PRE_Client_Contact] AS [ID_PRE_Client_Contact], 
+    [VwDashboardClient].[Persoana_Decizie] AS [Persoana_Decizie], 
+    [VwDashboardClient].[Telefon] AS [Telefon], 
+    [VwDashboardClient].[Regiune_Reper] AS [Regiune_Reper], 
+    [VwDashboardClient].[Adresa_Text] AS [Adresa_Text], 
+    [VwDashboardClient].[Cod_Postal] AS [Cod_Postal], 
+    [VwDashboardClient].[Email] AS [Email], 
+    [VwDashboardClient].[Web_Site] AS [Web_Site], 
+    [VwDashboardClient].[Adresa_Numar] AS [Adresa_Numar], 
+    [VwDashboardClient].[Adresa_Strada] AS [Adresa_Strada], 
+    [VwDashboardClient].[Adresa_Oras] AS [Adresa_Oras], 
+    [VwDashboardClient].[Adresa_Unitate_Regionala] AS [Adresa_Unitate_Regionala], 
+    [VwDashboardClient].[Adresa_SubUnitate_Regionala] AS [Adresa_SubUnitate_Regionala], 
+    [VwDashboardClient].[Persoana_Decizie_Nume] AS [Persoana_Decizie_Nume], 
+    [VwDashboardClient].[Persoana_Decizie_Prenume] AS [Persoana_Decizie_Prenume], 
+    [VwDashboardClient].[Persoana_Decizie_Nume_Alt] AS [Persoana_Decizie_Nume_Alt], 
+    [VwDashboardClient].[Persoana_Decizie_Prenume_Alt] AS [Persoana_Decizie_Prenume_Alt], 
+    [VwDashboardClient].[Persoana_Decizie_Sex] AS [Persoana_Decizie_Sex], 
+    [VwDashboardClient].[Persoana_Decizie_Functie] AS [Persoana_Decizie_Functie], 
+    [VwDashboardClient].[Telefon_Alt] AS [Telefon_Alt], 
+    [VwDashboardClient].[Email_Alt] AS [Email_Alt], 
+    [VwDashboardClient].[ID_USER_Contact] AS [ID_USER_Contact], 
+    [VwDashboardClient].[Data_Intro_Contact] AS [Data_Intro_Contact], 
+    [VwDashboardClient].[Data_Modif_Contact] AS [Data_Modif_Contact], 
+    [VwDashboardClient].[ID_Interlocutor] AS [ID_Interlocutor], 
+    [VwDashboardClient].[ID_PRE_Client_Interlocutor] AS [ID_PRE_Client_Interlocutor], 
+    [VwDashboardClient].[Obs_Tipuri_Produse_Cautate] AS [Obs_Tipuri_Produse_Cautate], 
+    [VwDashboardClient].[Data_Discutie] AS [Data_Discutie], 
+    [VwDashboardClient].[Obs_Furnizori_Actuali_Client] AS [Obs_Furnizori_Actuali_Client], 
+    [VwDashboardClient].[Obs_Dureri_Client] AS [Obs_Dureri_Client], 
+    [VwDashboardClient].[Obs_Alte_Observatii] AS [Obs_Alte_Observatii], 
+    [VwDashboardClient].[Durata_Discutie_Minute] AS [Durata_Discutie_Minute], 
+    [VwDashboardClient].[ID_Discutie] AS [ID_Discutie], 
+    [VwDashboardClient].[Tip_Discutie] AS [Tip_Discutie], 
+    [VwDashboardClient].[Tip_STADIU_DISCUTIE] AS [Tip_STADIU_DISCUTIE], 
+    [VwDashboardClient].[ID_USER_Interlocutor] AS [ID_USER_Interlocutor], 
+    [VwDashboardClient].[Data_Intro_Interlocutor] AS [Data_Intro_Interlocutor], 
+    [VwDashboardClient].[Data_Modif_Interlocutor] AS [Data_Modif_Interlocutor]
+    FROM [dbo].[VwDashboardClient] AS [VwDashboardClient]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Clienti_Contact_Clienti_Profil" Association="Self.FK_Clienti_Contact_Clienti_Profil">
+            <End Role="Clienti_Profil" EntitySet="Clienti_Profil" />
+            <End Role="Clienti_Contact" EntitySet="Clienti_Contact" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CRM_DBHPContextSpace" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Audit_CRUD">
+          <Key>
+            <PropertyRef Name="ID_Audit" />
+          </Key>
+          <Property Name="ID_Audit" Type="Int32" Nullable="false" />
+          <Property Name="Nume_Client_Audit" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="ID_User_Audit" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Operatiune" Type="DateTime" Precision="3" />
+          <Property Name="Operatiune_CRUD" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="Mesaj_Audit" Type="String" MaxLength="1000" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Clienti_Contact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_PRE_Client" Type="Int32" />
+          <Property Name="Persoana_Decizie" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Regiune_Reper" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa_Text" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Postal" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Web_Site" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa_Numar" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa_Strada" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa_Oras" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa_Unitate_Regionala" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa_SubUnitate_Regionala" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Nume" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Prenume" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Nume_Alt" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Prenume_Alt" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Sex" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Functie" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon_Alt" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Email_Alt" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ID_USER" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Intro" Type="DateTime" Precision="0" />
+          <Property Name="Data_Modif" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Clienti_Profil" Relationship="Self.FK_Clienti_Contact_Clienti_Profil" FromRole="Clienti_Contact" ToRole="Clienti_Profil" />
+        </EntityType>
+        <EntityType Name="Clienti_Interlocutor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_PRE_Client" Type="Int32" />
+          <Property Name="Data_Discutie" Type="DateTime" Precision="0" />
+          <Property Name="Obs_Tipuri_Produse_Cautate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Obs_Furnizori_Actuali_Client" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Obs_Dureri_Client" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Obs_Alte_Observatii" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Durata_Discutie_Minute" Type="Int32" />
+          <Property Name="ID_Discutie" Type="Int32" />
+          <Property Name="Tip_Discutie" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Tip_STADIU_DISCUTIE" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ID_USER" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Intro" Type="DateTime" Precision="0" />
+          <Property Name="Data_Modif" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Clienti_Profil">
+          <Key>
+            <PropertyRef Name="ID_PRE_Client" />
+          </Key>
+          <Property Name="ID_PRE_Client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tip_Client_PF_PJ" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Nume_Client" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Client" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Tara" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Domeniu" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Domeniu" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="CA_Ultimul_An" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Nr_Angajati" Type="Int32" />
+          <Property Name="Sursa_Info_Client" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Sursa_Info_Client_Alt" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ID_USER" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Intro" Type="DateTime" Precision="0" />
+          <Property Name="Data_Modif" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Clienti_Contact" Relationship="Self.FK_Clienti_Contact_Clienti_Profil" FromRole="Clienti_Profil" ToRole="Clienti_Contact" />
+        </EntityType>
+        <EntityType Name="VwDashboardClient">
+          <Key>
+            <PropertyRef Name="ID_Vw" />
+          </Key>
+          <Property Name="ID_Vw" Type="Int64" Nullable="false" />
+          <Property Name="ID_PRE_Client_Profil" Type="Int32" Nullable="false" />
+          <Property Name="Tip_Client_PF_PJ_Profil" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Nume_Client" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Client" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Tara" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Domeniu" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Domeniu" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="CA_Ultimul_An" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Nr_Angajati" Type="Int32" />
+          <Property Name="Sursa_Info_Client" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ID_USER" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Intro" Type="DateTime" Precision="0" />
+          <Property Name="Sursa_Info_Client_Alt" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Modif" Type="DateTime" Precision="3" />
+          <Property Name="ID_Contact" Type="Int32" />
+          <Property Name="ID_PRE_Client_Contact" Type="Int32" />
+          <Property Name="Persoana_Decizie" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Regiune_Reper" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa_Text" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Postal" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Web_Site" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa_Numar" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa_Strada" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa_Oras" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa_Unitate_Regionala" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa_SubUnitate_Regionala" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Nume" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Prenume" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Nume_Alt" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Prenume_Alt" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Sex" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Functie" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon_Alt" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Email_Alt" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ID_USER_Contact" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Intro_Contact" Type="DateTime" Precision="0" />
+          <Property Name="Data_Modif_Contact" Type="DateTime" Precision="3" />
+          <Property Name="ID_Interlocutor" Type="Int32" />
+          <Property Name="ID_PRE_Client_Interlocutor" Type="Int32" />
+          <Property Name="Obs_Tipuri_Produse_Cautate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Discutie" Type="DateTime" Precision="0" />
+          <Property Name="Obs_Furnizori_Actuali_Client" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Obs_Dureri_Client" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Obs_Alte_Observatii" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Durata_Discutie_Minute" Type="Int32" />
+          <Property Name="ID_Discutie" Type="Int32" />
+          <Property Name="Tip_Discutie" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Tip_STADIU_DISCUTIE" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ID_USER_Interlocutor" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Intro_Interlocutor" Type="DateTime" Precision="0" />
+          <Property Name="Data_Modif_Interlocutor" Type="DateTime" Precision="3" />
+        </EntityType>
+        <Association Name="FK_Clienti_Contact_Clienti_Profil">
+          <End Role="Clienti_Profil" Type="Self.Clienti_Profil" Multiplicity="0..1" />
+          <End Role="Clienti_Contact" Type="Self.Clienti_Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clienti_Profil">
+              <PropertyRef Name="ID_PRE_Client" />
+            </Principal>
+            <Dependent Role="Clienti_Contact">
+              <PropertyRef Name="ID_PRE_Client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CRM_DBHP_Context" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Audit_CRUD" EntityType="Self.Audit_CRUD" />
+          <EntitySet Name="Clienti_Contact" EntityType="Self.Clienti_Contact" />
+          <EntitySet Name="Clienti_Interlocutor" EntityType="Self.Clienti_Interlocutor" />
+          <EntitySet Name="Clienti_Profil" EntityType="Self.Clienti_Profil" />
+          <EntitySet Name="VwDashboardClients" EntityType="Self.VwDashboardClient" />
+          <AssociationSet Name="FK_Clienti_Contact_Clienti_Profil" Association="Self.FK_Clienti_Contact_Clienti_Profil">
+            <End Role="Clienti_Profil" EntitySet="Clienti_Profil" />
+            <End Role="Clienti_Contact" EntitySet="Clienti_Contact" />
+          </AssociationSet>
+          <FunctionImport Name="spAddClienti_Contact">
+            <Parameter Name="IDparam" Mode="In" Type="Int32" />
+            <Parameter Name="Persoana_Decizie" Mode="In" Type="String" />
+            <Parameter Name="Telefon" Mode="In" Type="String" />
+            <Parameter Name="Regiune_Reper" Mode="In" Type="String" />
+            <Parameter Name="Adresa_Text" Mode="In" Type="String" />
+            <Parameter Name="Cod_Postal" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Web_Site" Mode="In" Type="String" />
+            <Parameter Name="Adresa_Numar" Mode="In" Type="String" />
+            <Parameter Name="Adresa_Strada" Mode="In" Type="String" />
+            <Parameter Name="Adresa_Oras" Mode="In" Type="String" />
+            <Parameter Name="Adresa_Unitate_Regionala" Mode="In" Type="String" />
+            <Parameter Name="Adresa_SubUnitate_Regionala" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Numenvar" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Prenume" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Nume_Alt" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Prenume_Alt" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Sex" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Functie" Mode="In" Type="String" />
+            <Parameter Name="Telefon_Alt" Mode="In" Type="String" />
+            <Parameter Name="Email_Alt" Mode="In" Type="String" />
+            <Parameter Name="ID_USER" Mode="In" Type="String" />
+            <Parameter Name="Data_Intro" Mode="In" Type="DateTime" />
+            <Parameter Name="Data_Modif" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spAddClienti_Interlocutor">
+            <Parameter Name="ID_PRE_Client" Mode="In" Type="Int32" />
+            <Parameter Name="Data_Discutie" Mode="In" Type="DateTime" />
+            <Parameter Name="Obs_Tipuri_Produse_Cautate" Mode="In" Type="String" />
+            <Parameter Name="Obs_Furnizori_Actuali_Client" Mode="In" Type="String" />
+            <Parameter Name="Obs_Dureri_Client" Mode="In" Type="String" />
+            <Parameter Name="Obs_Alte_Observatii" Mode="In" Type="String" />
+            <Parameter Name="Durata_Discutie_Minute" Mode="In" Type="Int32" />
+            <Parameter Name="ID_Discutie" Mode="In" Type="Int32" />
+            <Parameter Name="Tip_Discutie" Mode="In" Type="String" />
+            <Parameter Name="Tip_STADIU_DISCUTIE" Mode="In" Type="String" />
+            <Parameter Name="ID_USER" Mode="In" Type="String" />
+            <Parameter Name="Data_Intro" Mode="In" Type="DateTime" />
+            <Parameter Name="Data_Modif" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spAddClienti_Profil">
+            <Parameter Name="Tip_Client_PF_PJ" Mode="In" Type="String" />
+            <Parameter Name="Nume_Client" Mode="In" Type="String" />
+            <Parameter Name="Cod_Client" Mode="In" Type="String" />
+            <Parameter Name="Tara" Mode="In" Type="String" />
+            <Parameter Name="Domeniu" Mode="In" Type="String" />
+            <Parameter Name="Cod_Domeniu" Mode="In" Type="String" />
+            <Parameter Name="CA_Ultimul_An" Mode="In" Type="Int32" />
+            <Parameter Name="Nr_Angajati" Mode="In" Type="Int32" />
+            <Parameter Name="Sursa_Info_Client" Mode="In" Type="String" />
+            <Parameter Name="Sursa_Info_Client_Alt" Mode="In" Type="String" />
+            <Parameter Name="ID_USER" Mode="In" Type="String" />
+            <Parameter Name="Data_Intro" Mode="In" Type="DateTime" />
+            <Parameter Name="Data_Modif" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spDeleteClientWithID">
+            <Parameter Name="IDparam" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdateClienti_Contact">
+            <Parameter Name="IDparam" Mode="In" Type="Int32" />
+            <Parameter Name="Persoana_Decizie" Mode="In" Type="String" />
+            <Parameter Name="Telefon" Mode="In" Type="String" />
+            <Parameter Name="Regiune_Reper" Mode="In" Type="String" />
+            <Parameter Name="Adresa_Text" Mode="In" Type="String" />
+            <Parameter Name="Cod_Postal" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Web_Site" Mode="In" Type="String" />
+            <Parameter Name="Adresa_Numar" Mode="In" Type="String" />
+            <Parameter Name="Adresa_Strada" Mode="In" Type="String" />
+            <Parameter Name="Adresa_Oras" Mode="In" Type="String" />
+            <Parameter Name="Adresa_Unitate_Regionala" Mode="In" Type="String" />
+            <Parameter Name="Adresa_SubUnitate_Regionala" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Nume" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Prenume" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Nume_Alt" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Prenume_Alt" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Sex" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Functie" Mode="In" Type="String" />
+            <Parameter Name="Telefon_Alt" Mode="In" Type="String" />
+            <Parameter Name="Email_Alt" Mode="In" Type="String" />
+            <Parameter Name="ID_USER" Mode="In" Type="String" />
+            <Parameter Name="Data_Modif" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdateClienti_Interlocutor">
+            <Parameter Name="IDparam" Mode="In" Type="Int32" />
+            <Parameter Name="Data_Discutie" Mode="In" Type="DateTime" />
+            <Parameter Name="Obs_Tipuri_Produse_Cautate" Mode="In" Type="String" />
+            <Parameter Name="Obs_Furnizori_Actuali_Client" Mode="In" Type="String" />
+            <Parameter Name="Obs_Dureri_Client" Mode="In" Type="String" />
+            <Parameter Name="Obs_Alte_Observatii" Mode="In" Type="String" />
+            <Parameter Name="Durata_Discutie_Minute" Mode="In" Type="Int32" />
+            <Parameter Name="ID_Discutie" Mode="In" Type="Int32" />
+            <Parameter Name="Tip_Discutie" Mode="In" Type="String" />
+            <Parameter Name="Tip_STADIU_DISCUTIE" Mode="In" Type="String" />
+            <Parameter Name="ID_USER" Mode="In" Type="String" />
+            <Parameter Name="Data_Modif" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdateClienti_Profil">
+            <Parameter Name="IDparam" Mode="In" Type="Int32" />
+            <Parameter Name="Tip_Client_PF_PJ" Mode="In" Type="String" />
+            <Parameter Name="Nume_Client" Mode="In" Type="String" />
+            <Parameter Name="Cod_Client" Mode="In" Type="String" />
+            <Parameter Name="Tara" Mode="In" Type="String" />
+            <Parameter Name="Domeniu" Mode="In" Type="String" />
+            <Parameter Name="Cod_Domeniu" Mode="In" Type="String" />
+            <Parameter Name="CA_Ultimul_An" Mode="In" Type="Int32" />
+            <Parameter Name="Nr_Angajati" Mode="In" Type="Int32" />
+            <Parameter Name="Sursa_Info_Client" Mode="In" Type="String" />
+            <Parameter Name="Sursa_Info_Client_Alt" Mode="In" Type="String" />
+            <Parameter Name="ID_USER" Mode="In" Type="String" />
+            <Parameter Name="Data_Modif" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CRM_DBHPContextSpaceStoreContainer" CdmEntityContainer="CRM_DBHP_Context">
+          <EntitySetMapping Name="Audit_CRUD">
+            <EntityTypeMapping TypeName="CRM_DBHPContextSpace.Audit_CRUD">
+              <MappingFragment StoreEntitySet="Audit_CRUD">
+                <ScalarProperty Name="ID_Audit" ColumnName="ID_Audit" />
+                <ScalarProperty Name="Nume_Client_Audit" ColumnName="Nume_Client_Audit" />
+                <ScalarProperty Name="ID_User_Audit" ColumnName="ID_User_Audit" />
+                <ScalarProperty Name="Data_Operatiune" ColumnName="Data_Operatiune" />
+                <ScalarProperty Name="Operatiune_CRUD" ColumnName="Operatiune_CRUD" />
+                <ScalarProperty Name="Mesaj_Audit" ColumnName="Mesaj_Audit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clienti_Contact">
+            <EntityTypeMapping TypeName="CRM_DBHPContextSpace.Clienti_Contact">
+              <MappingFragment StoreEntitySet="Clienti_Contact">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_PRE_Client" ColumnName="ID_PRE_Client" />
+                <ScalarProperty Name="Persoana_Decizie" ColumnName="Persoana_Decizie" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Regiune_Reper" ColumnName="Regiune_Reper" />
+                <ScalarProperty Name="Adresa_Text" ColumnName="Adresa_Text" />
+                <ScalarProperty Name="Cod_Postal" ColumnName="Cod_Postal" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Web_Site" ColumnName="Web_Site" />
+                <ScalarProperty Name="Adresa_Numar" ColumnName="Adresa_Numar" />
+                <ScalarProperty Name="Adresa_Strada" ColumnName="Adresa_Strada" />
+                <ScalarProperty Name="Adresa_Oras" ColumnName="Adresa_Oras" />
+                <ScalarProperty Name="Adresa_Unitate_Regionala" ColumnName="Adresa_Unitate_Regionala" />
+                <ScalarProperty Name="Adresa_SubUnitate_Regionala" ColumnName="Adresa_SubUnitate_Regionala" />
+                <ScalarProperty Name="Persoana_Decizie_Nume" ColumnName="Persoana_Decizie_Nume" />
+                <ScalarProperty Name="Persoana_Decizie_Prenume" ColumnName="Persoana_Decizie_Prenume" />
+                <ScalarProperty Name="Persoana_Decizie_Nume_Alt" ColumnName="Persoana_Decizie_Nume_Alt" />
+                <ScalarProperty Name="Persoana_Decizie_Prenume_Alt" ColumnName="Persoana_Decizie_Prenume_Alt" />
+                <ScalarProperty Name="Persoana_Decizie_Sex" ColumnName="Persoana_Decizie_Sex" />
+                <ScalarProperty Name="Persoana_Decizie_Functie" ColumnName="Persoana_Decizie_Functie" />
+                <ScalarProperty Name="Telefon_Alt" ColumnName="Telefon_Alt" />
+                <ScalarProperty Name="Email_Alt" ColumnName="Email_Alt" />
+                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+                <ScalarProperty Name="Data_Intro" ColumnName="Data_Intro" />
+                <ScalarProperty Name="Data_Modif" ColumnName="Data_Modif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clienti_Interlocutor">
+            <EntityTypeMapping TypeName="CRM_DBHPContextSpace.Clienti_Interlocutor">
+              <MappingFragment StoreEntitySet="Clienti_Interlocutor">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_PRE_Client" ColumnName="ID_PRE_Client" />
+                <ScalarProperty Name="Data_Discutie" ColumnName="Data_Discutie" />
+                <ScalarProperty Name="Obs_Tipuri_Produse_Cautate" ColumnName="Obs_Tipuri_Produse_Cautate" />
+                <ScalarProperty Name="Obs_Furnizori_Actuali_Client" ColumnName="Obs_Furnizori_Actuali_Client" />
+                <ScalarProperty Name="Obs_Dureri_Client" ColumnName="Obs_Dureri_Client" />
+                <ScalarProperty Name="Obs_Alte_Observatii" ColumnName="Obs_Alte_Observatii" />
+                <ScalarProperty Name="Durata_Discutie_Minute" ColumnName="Durata_Discutie_Minute" />
+                <ScalarProperty Name="ID_Discutie" ColumnName="ID_Discutie" />
+                <ScalarProperty Name="Tip_Discutie" ColumnName="Tip_Discutie" />
+                <ScalarProperty Name="Tip_STADIU_DISCUTIE" ColumnName="Tip_STADIU_DISCUTIE" />
+                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+                <ScalarProperty Name="Data_Intro" ColumnName="Data_Intro" />
+                <ScalarProperty Name="Data_Modif" ColumnName="Data_Modif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clienti_Profil">
+            <EntityTypeMapping TypeName="CRM_DBHPContextSpace.Clienti_Profil">
+              <MappingFragment StoreEntitySet="Clienti_Profil">
+                <ScalarProperty Name="ID_PRE_Client" ColumnName="ID_PRE_Client" />
+                <ScalarProperty Name="Tip_Client_PF_PJ" ColumnName="Tip_Client_PF_PJ" />
+                <ScalarProperty Name="Nume_Client" ColumnName="Nume_Client" />
+                <ScalarProperty Name="Cod_Client" ColumnName="Cod_Client" />
+                <ScalarProperty Name="Tara" ColumnName="Tara" />
+                <ScalarProperty Name="Domeniu" ColumnName="Domeniu" />
+                <ScalarProperty Name="Cod_Domeniu" ColumnName="Cod_Domeniu" />
+                <ScalarProperty Name="CA_Ultimul_An" ColumnName="CA_Ultimul_An" />
+                <ScalarProperty Name="Nr_Angajati" ColumnName="Nr_Angajati" />
+                <ScalarProperty Name="Sursa_Info_Client" ColumnName="Sursa_Info_Client" />
+                <ScalarProperty Name="Sursa_Info_Client_Alt" ColumnName="Sursa_Info_Client_Alt" />
+                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+                <ScalarProperty Name="Data_Intro" ColumnName="Data_Intro" />
+                <ScalarProperty Name="Data_Modif" ColumnName="Data_Modif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VwDashboardClients">
+            <EntityTypeMapping TypeName="CRM_DBHPContextSpace.VwDashboardClient">
+              <MappingFragment StoreEntitySet="VwDashboardClient">
+                <ScalarProperty Name="ID_Vw" ColumnName="ID_Vw" />
+                <ScalarProperty Name="ID_PRE_Client_Profil" ColumnName="ID_PRE_Client_Profil" />
+                <ScalarProperty Name="Tip_Client_PF_PJ_Profil" ColumnName="Tip_Client_PF_PJ_Profil" />
+                <ScalarProperty Name="Nume_Client" ColumnName="Nume_Client" />
+                <ScalarProperty Name="Cod_Client" ColumnName="Cod_Client" />
+                <ScalarProperty Name="Tara" ColumnName="Tara" />
+                <ScalarProperty Name="Domeniu" ColumnName="Domeniu" />
+                <ScalarProperty Name="Cod_Domeniu" ColumnName="Cod_Domeniu" />
+                <ScalarProperty Name="CA_Ultimul_An" ColumnName="CA_Ultimul_An" />
+                <ScalarProperty Name="Nr_Angajati" ColumnName="Nr_Angajati" />
+                <ScalarProperty Name="Sursa_Info_Client" ColumnName="Sursa_Info_Client" />
+                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+                <ScalarProperty Name="Data_Intro" ColumnName="Data_Intro" />
+                <ScalarProperty Name="Sursa_Info_Client_Alt" ColumnName="Sursa_Info_Client_Alt" />
+                <ScalarProperty Name="Data_Modif" ColumnName="Data_Modif" />
+                <ScalarProperty Name="ID_Contact" ColumnName="ID_Contact" />
+                <ScalarProperty Name="ID_PRE_Client_Contact" ColumnName="ID_PRE_Client_Contact" />
+                <ScalarProperty Name="Persoana_Decizie" ColumnName="Persoana_Decizie" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Regiune_Reper" ColumnName="Regiune_Reper" />
+                <ScalarProperty Name="Adresa_Text" ColumnName="Adresa_Text" />
+                <ScalarProperty Name="Cod_Postal" ColumnName="Cod_Postal" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Web_Site" ColumnName="Web_Site" />
+                <ScalarProperty Name="Adresa_Numar" ColumnName="Adresa_Numar" />
+                <ScalarProperty Name="Adresa_Strada" ColumnName="Adresa_Strada" />
+                <ScalarProperty Name="Adresa_Oras" ColumnName="Adresa_Oras" />
+                <ScalarProperty Name="Adresa_Unitate_Regionala" ColumnName="Adresa_Unitate_Regionala" />
+                <ScalarProperty Name="Adresa_SubUnitate_Regionala" ColumnName="Adresa_SubUnitate_Regionala" />
+                <ScalarProperty Name="Persoana_Decizie_Nume" ColumnName="Persoana_Decizie_Nume" />
+                <ScalarProperty Name="Persoana_Decizie_Prenume" ColumnName="Persoana_Decizie_Prenume" />
+                <ScalarProperty Name="Persoana_Decizie_Nume_Alt" ColumnName="Persoana_Decizie_Nume_Alt" />
+                <ScalarProperty Name="Persoana_Decizie_Prenume_Alt" ColumnName="Persoana_Decizie_Prenume_Alt" />
+                <ScalarProperty Name="Persoana_Decizie_Sex" ColumnName="Persoana_Decizie_Sex" />
+                <ScalarProperty Name="Persoana_Decizie_Functie" ColumnName="Persoana_Decizie_Functie" />
+                <ScalarProperty Name="Telefon_Alt" ColumnName="Telefon_Alt" />
+                <ScalarProperty Name="Email_Alt" ColumnName="Email_Alt" />
+                <ScalarProperty Name="ID_USER_Contact" ColumnName="ID_USER_Contact" />
+                <ScalarProperty Name="Data_Intro_Contact" ColumnName="Data_Intro_Contact" />
+                <ScalarProperty Name="Data_Modif_Contact" ColumnName="Data_Modif_Contact" />
+                <ScalarProperty Name="ID_Interlocutor" ColumnName="ID_Interlocutor" />
+                <ScalarProperty Name="ID_PRE_Client_Interlocutor" ColumnName="ID_PRE_Client_Interlocutor" />
+                <ScalarProperty Name="Obs_Tipuri_Produse_Cautate" ColumnName="Obs_Tipuri_Produse_Cautate" />
+                <ScalarProperty Name="Data_Discutie" ColumnName="Data_Discutie" />
+                <ScalarProperty Name="Obs_Furnizori_Actuali_Client" ColumnName="Obs_Furnizori_Actuali_Client" />
+                <ScalarProperty Name="Obs_Dureri_Client" ColumnName="Obs_Dureri_Client" />
+                <ScalarProperty Name="Obs_Alte_Observatii" ColumnName="Obs_Alte_Observatii" />
+                <ScalarProperty Name="Durata_Discutie_Minute" ColumnName="Durata_Discutie_Minute" />
+                <ScalarProperty Name="ID_Discutie" ColumnName="ID_Discutie" />
+                <ScalarProperty Name="Tip_Discutie" ColumnName="Tip_Discutie" />
+                <ScalarProperty Name="Tip_STADIU_DISCUTIE" ColumnName="Tip_STADIU_DISCUTIE" />
+                <ScalarProperty Name="ID_USER_Interlocutor" ColumnName="ID_USER_Interlocutor" />
+                <ScalarProperty Name="Data_Intro_Interlocutor" ColumnName="Data_Intro_Interlocutor" />
+                <ScalarProperty Name="Data_Modif_Interlocutor" ColumnName="Data_Modif_Interlocutor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spAddClienti_Contact" FunctionName="CRM_DBHPContextSpace.Store.spAddClienti_Contact" />
+          <FunctionImportMapping FunctionImportName="spAddClienti_Interlocutor" FunctionName="CRM_DBHPContextSpace.Store.spAddClienti_Interlocutor" />
+          <FunctionImportMapping FunctionImportName="spAddClienti_Profil" FunctionName="CRM_DBHPContextSpace.Store.spAddClienti_Profil" />
+          <FunctionImportMapping FunctionImportName="spDeleteClientWithID" FunctionName="CRM_DBHPContextSpace.Store.spDeleteClientWithID" />
+          <FunctionImportMapping FunctionImportName="spUpdateClienti_Contact" FunctionName="CRM_DBHPContextSpace.Store.spUpdateClienti_Contact" />
+          <FunctionImportMapping FunctionImportName="spUpdateClienti_Interlocutor" FunctionName="CRM_DBHPContextSpace.Store.spUpdateClienti_Interlocutor" />
+          <FunctionImportMapping FunctionImportName="spUpdateClienti_Profil" FunctionName="CRM_DBHPContextSpace.Store.spUpdateClienti_Profil" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

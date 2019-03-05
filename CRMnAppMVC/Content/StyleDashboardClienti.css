@@ -1,0 +1,33 @@
+﻿body {
+}
+
+h4, h5 {
+    color: indigo;
+    font-weight: bolder;
+    background-color: lightpink;
+}
+
+h4 span {
+    background-color: purple;
+    color: white;
+}
+
+h5 span {
+    background-color: purple;
+    color: white;
+}
+
+.classDiscutieNoua {
+    color: purple;
+    font-weight: bold;
+    background-color: lightgrey;
+}
+
+dd {
+    color: darkviolet;
+    font-weight: bold;
+}
+.stylehtme;ActionLink {
+    color: yellow;
+    font-weight: bold;
+}

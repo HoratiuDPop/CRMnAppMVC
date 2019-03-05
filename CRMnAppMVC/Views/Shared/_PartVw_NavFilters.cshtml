@@ -1,0 +1,87 @@
+﻿@using CRMnAppMVC.Models
+
+<div class="ProspectareFilters">
+    @*div NavFilters*@
+
+    <div class="row">
+        @*div NavCR-row-1-empty*@
+        <div class="ColorBackFilterWhite">
+            &nbsp;
+        </div>
+    </div> @*end div NavFilters-row-1-empty*@
+
+    <div class="row">
+        @*div NavCR-row-2*@
+
+        <div class="col-sm-2 text-center ColorBackFilterRed">
+            @Html.TextBox("Tara", "Tara", new { style = "width:8em" })
+        </div>
+
+        <div class="col-sm-2 text-center ColorBackFilterRed">
+            @Html.TextBox("Regiune", "Regiune", new { style = "width:8em" })
+        </div>
+
+        <div class="col-sm-2  text-center ColorBackFilterWhite">
+            @*div NavFilters-r2-c3*@
+            <div class="align-self-sm-center">
+                <a href='@Url.Action("AgendaZilei", "Agenda")'>
+                    <div class="CrmLogo"> <img src='@Url.Content("~/Content/Images/LogoCRM_v1_1.jpg")' class="img-responsive img-rounded"></div>
+                </a>
+            </div>
+        </div> @* end div NavFilters-r2-c3*@
+
+        <div class="col-sm-2 text-center ColorBackFilterBlue">
+            @Html.TextBox("Domeniu", "Domeniu", new { style = "width:8em" })
+        </div>
+
+        <div class="col-sm-2 text-center ColorBackFilterBlue">
+            @Html.TextBox("Produse", "Produse", new { style = "width:8em" })
+        </div>
+
+        <div class="col-sm-2 text-center ColorBackFilterBlue">
+            @*div Status Dropdown*@
+            @Html.DropDownList("Status", new List<SelectListItem>
+              { new SelectListItem{ Text="Status",Value="Status"},
+                new SelectListItem{ Text="Contact",Value="Contact" },
+                new SelectListItem{ Text="Prospect",Value="Prospect" },
+                new SelectListItem{ Text="Interloc",Value="Interloc" },
+                new SelectListItem{ Text="Client",Value="Client" }}
+               , htmlAttributes: new { @class = "form-control selectpicker"})  @*data - live - search = "true"*@
+        </div>@*end div NavFilters-last-col-Status*@
+       
+    </div> @*end div NavFilters-row-2*@
+
+
+    <div class="row">
+        @*div NavCR-row-3*@
+
+        <div class="col-sm-2 text-center ColorBackFilterGreen">
+            @Html.TextBox("Filtru21", "Filtru21", new { style = "width:8em" })
+        </div>
+
+        <div class="col-sm-2 text-center ColorBackFilterGreen">
+            @Html.TextBox("Filtru22", "Filtru22", new { style = "width:8em" })
+        </div>
+
+        <div class="col-sm-2 text-center">
+            <div id="MyTopMenuDataAzi"> @DateTime.Now.ToString("dd.MM.yy")</div>
+        </div>
+
+        <div class="col-sm-2 text-center ColorBackFilterOrange">
+            @Html.TextBox("Filtru23", "Filtru23", new { style = "width:8em" })
+        </div>
+
+        <div class="col-sm-2 text-center ColorBackFilterOrange">
+            @Html.TextBox("Filtru24", "Filtru24", new { style = "width:8em" })
+        </div>
+
+        <div class="col-sm-2  text-center">
+            <input id="ButtonFiltrare" type="submit" value="FILTRARE" class="btn-primary" />
+        </div>
+
+    </div> @*end div NavFilters-row-3*@
+
+</div> @*end div NavFilters*@
+
+
+

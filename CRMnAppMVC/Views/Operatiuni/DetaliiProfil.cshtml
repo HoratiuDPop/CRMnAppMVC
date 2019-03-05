@@ -1,0 +1,132 @@
+﻿@model CRMnAppMVC.Clienti_Profil
+
+@{
+    ViewBag.Title = "Detalii Profil";
+    //Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DetaliiProfil</title>
+</head>
+<body>
+    <div>
+        <h4>Clienti_Profil</h4>
+        <hr />
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Nume_Client)
+            </dt>
+
+            <dd style="color:indigo; font-weight:bolder;">
+                @Html.DisplayFor(model => model.Nume_Client)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Tip_Client_PF_PJ)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tip_Client_PF_PJ)
+            </dd>
+            
+            <dt>
+                @Html.DisplayNameFor(model => model.Cod_Client)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cod_Client)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Tara)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tara)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Domeniu)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Domeniu)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cod_Domeniu)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cod_Domeniu)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CA_Ultimul_An)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CA_Ultimul_An)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Nr_Angajati)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nr_Angajati)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Sursa_Info_Client)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Sursa_Info_Client)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Sursa_Info_Client_Alt)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Sursa_Info_Client_Alt)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ID_USER)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ID_USER)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Data_Intro)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Data_Intro)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Data_Modif)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Data_Modif)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "EditProfil", new { id = Model.ID_PRE_Client }) |
+        @Html.ActionLink(">>Tabel Operatiuni", "TabelOperatiuni")
+    </p>
+</body>
+</html>

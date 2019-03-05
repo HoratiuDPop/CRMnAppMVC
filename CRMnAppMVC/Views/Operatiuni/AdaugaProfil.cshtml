@@ -1,0 +1,179 @@
+﻿@model CRMnAppMVC.Clienti_Profil
+
+@{
+    //Layout = null;
+    ViewBag.Title = "Editeaza Profil";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AdaugaProfil</title>
+    <link href="~/Content/StyleDashboardClienti.css" rel="stylesheet" />
+</head>
+<body>
+
+    <h4> Adaugare Profil Client</h4>
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <div class="container">
+                @*DIV CONTAINER*@
+                <div class="row">
+                    <div class="col-md-6">
+                        @*DIV Coloana 1*@
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @*@Html.HiddenFor(model => model.ID_PRE_Client)*@
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Tip_Client_PF_PJ, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.DropDownList("Tip_Client_PF_PJ", new List<SelectListItem>
+                                                  { new SelectListItem{ Text="PJ",Value="PJ" },
+                                                    new SelectListItem{ Text="PF",Value="PF" }}
+                                                   , htmlAttributes: new { @class = "control-label col-md-3" })
+                                @Html.ValidationMessageFor(model => model.Tip_Client_PF_PJ, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Nume_Client, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.Nume_Client, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Nume_Client, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Cod_Client, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.Cod_Client, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Cod_Client, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Tara, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.Tara, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Tara, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Domeniu, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.Domeniu, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Domeniu, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Cod_Domeniu, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.Cod_Domeniu, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Cod_Domeniu, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </div>@*end DIV Coloana 1*@
+
+                    <div class="col-md-6">
+                        @*DIV Coloana 2*@
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CA_Ultimul_An, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.CA_Ultimul_An, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.CA_Ultimul_An, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Nr_Angajati, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.Nr_Angajati, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Nr_Angajati, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Sursa_Info_Client, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.Sursa_Info_Client, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Sursa_Info_Client, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Sursa_Info_Client_Alt, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.Sursa_Info_Client_Alt, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Sursa_Info_Client_Alt, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ID_USER, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.ID_USER, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ID_USER, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Data_Intro, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.Data_Intro, new { htmlAttributes = new { @class = "label" } }) @*clasa "label" --efect de  needitabil*@
+                                @Html.ValidationMessageFor(model => model.Data_Intro, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Data_Modif, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.Data_Modif, new { htmlAttributes = new { @class = "label" } }) @*clasa "label" --efect de  needitabil*@
+                                @Html.ValidationMessageFor(model => model.Data_Modif, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>  @*end DIV Coloana 2*@
+                </div>@*end DIV Row 1*@
+            </div>@*end DIV Container*@
+        </div>@*end form-horizontal*@
+
+        <div class="container">
+            @*DIV CONTAINER 2*@
+            <div class="row">
+
+                <div class="col-md-6">
+                    @*DIV Coloana C2_1*@ @*empty*@
+                </div>  @*end DIV Coloana C2_1*@
+
+                <div class="col-md-6">
+                    @*DIV Coloana C2_2*@
+                    <div class="form-group">
+                        <div class="col-md-offset-3 col-md-9">
+                            <input type="submit" value="Save" class="btn btn-success" />
+                        </div>
+                    </div>
+                </div>@*end DIV C2_2*@
+            </div>@*end DIV Row 1*@
+
+        </div>@*end DIV Container 2*@
+    }
+
+    <div>
+        @Html.ActionLink("NO SAVE >> Back to >> Tabel Operatiuni", "TabelOperatiuni")
+    </div>
+
+
+</body>
+</html>

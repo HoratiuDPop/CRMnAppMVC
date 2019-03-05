@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Acasa-Clienti";
+}
+@model IEnumerable<CRMnAppMVC.Models.ClientiGrid>
+@using GridMvc.Html;
+<div class="jumbotron small">
+    <h5><b style="color:purple">Custormer Relationship Management & Sales Helper</b></h5>
+    <h6><span style="color:darkslategrey"> -- Tabel Clienti-Prospect: </span></h6>
+    @*Render Grid.Mvc:*@
+
+    @Html.Grid(Model).Columns(columns =>
+{
+    columns.Add(c => c.Nume_Client).Titled("Nume Client").SetWidth(75).Filterable(true);
+    columns.Add(c => c.Tara).Titled("Tara").SetWidth(75).Filterable(true);
+    columns.Add(c => c.Domeniu).Titled("Domeniu").SetWidth(75).Filterable(true);
+    columns.Add(c => c.CA_Ultimul_An).Titled("CA_Ultimul_An").SetWidth(75).Filterable(true);
+    columns.Add(c => c.Nr_Angajati).Titled("Nr_Angajati").SetWidth(75).Filterable(true);
+}).WithPaging(10).Sortable().Filterable().EmptyText("No data found!").WithMultipleFilters()
+
+</div>
+

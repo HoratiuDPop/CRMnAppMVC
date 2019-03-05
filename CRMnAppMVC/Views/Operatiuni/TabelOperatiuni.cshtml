@@ -1,0 +1,123 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@using CRMnAppMVC.Models;
+@*@model IEnumerable<CRMnAppMVC.Models.ClientiGrid>*@
+@model IPagedList<ClientiGrid>
+
+@{
+    /**/
+
+    ViewBag.Title = "TabelOperatiuni";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TabelOperatiuni</title>
+    <link href="~/Content/StyleGlobaleCRM.css" rel="stylesheet" />
+    <link href="~/Content/StyleTabelOperatiuni.css" rel="stylesheet" />
+</head>
+<body>
+    <p><span style="background-color:lightblue;text-decoration:underline;">
+    @Html.ActionLink("Adauga Client (+)", "AdaugaProfil")
+    </span></p>
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table" id="TabelClienti">
+                <tr>
+                    <th colspan="1">
+                        @*edit*@ <span style="background-color:lightblue ; font-size:2em">&#9998</span>
+                    </th>
+                    <th colspan="3">
+                        @*@Html.DisplayNameFor(model => model.Nume_Client)*@
+                        @Html.DisplayNameFor(model => model.First().Nume_Client) @*.First() se utilizeaza pentru paginare -cu pagedList*@
+                        <br />
+
+                        @using (Html.BeginForm("TabelOperatiuni", "Operatiuni", FormMethod.Get))
+                        {
+                            @Html.TextBox("searchName")
+                            <input type="submit" id="SubmitSearchName" value="&#8634" />
+                        }
+                    </th>
+                    <th colspan="1">
+                        @Html.DisplayNameFor(model => model.First().Tara)
+                    </th>
+                    <th colspan="2">
+                        @Html.DisplayNameFor(model => model.First().Persoana_Decizie)
+                        <br />
+                        @using (Html.BeginForm("TabelOperatiuni", "Operatiuni", FormMethod.Get))
+                        {
+                            @Html.TextBox("searchPers")
+                            <input type="submit" id="SubmitSearchPers" value="&#8634" />
+                        }
+                    </th>
+                    <th colspan="1">
+                        @Html.DisplayNameFor(model => model.First().Telefon)
+                    </th>
+                    <th colspan="2">
+                        @Html.DisplayNameFor(model => model.First().Email)
+                        <br />
+
+                        @using (Html.BeginForm("TabelOperatiuni", "Operatiuni", FormMethod.Get))
+                        {
+                            @Html.TextBox("searchEmail")
+                            <input type="submit" id="SubmitSearchEmail" value="&#8634" />
+                        }
+                    </th>
+                    <th colspan="2">
+                        @Html.DisplayNameFor(model => model.First().Data_Intro)
+                    </th>
+
+                    <th></th>
+                </tr>
+                @*@{string colorRow_Status = null; }*@
+
+                @foreach (var item in Model)
+                {
+                    @*@colorRow_Status= ClientCRM.GetFieldValue("Tip_STADIU_DISCUTIE", item.ID_PRE_Client).ToUpper();/*eroare de analizat*/*@
+                    <tr class="@String.Concat("color-",@ClientCRM.GetFieldValue("Tip_STADIU_DISCUTIE", item.ID_PRE_Client).ToUpper())">
+                        @*Edit Profil Link*@
+                        <td colspan="1" style="background-color:lightblue ;margin:0.3em;">
+                            |@Html.ActionLink("Edit", "EditProfil", new { id = item.ID_PRE_Client }) |
+
+                            @*@Html.ActionLink("Delete", "Delete", new { id = item.ID_PRE_Client })*@
+                        </td>
+
+                        <td colspan="3">
+                            @*//Client_Name se randeaza ca link si selectarea implica invocarea actiunii DashboarClient*@
+                            @Html.ActionLink(item.Nume_Client, "DashboardClient", new { id = item.ID_PRE_Client })
+                        </td>
+
+                        <td colspan="1">
+                            @Html.DisplayFor(modelItem => item.Tara)
+                        </td>
+
+                        <td colspan="2">
+                            @Html.DisplayFor(modelItem => item.Persoana_Decizie)
+                        </td>
+
+                        <td colspan="1">
+                            @Html.DisplayFor(modelItem => item.Telefon)
+                        </td>
+
+                        <td colspan="2">
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+
+                        <td colspan="2">
+                            @Html.DisplayFor(modelItem => item.Data_Intro)
+                        </td>
+
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    @Html.PagedListPager(Model, page => Url.Action("TabelOperatiuni",
+    new { page,searchName=Request.QueryString["searchName"],
+        searchPers = Request.QueryString["searchPers"],
+        searchEmail = Request.QueryString["searchEmail"]
+    }))
+</body>
+</html>

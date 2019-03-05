@@ -1,0 +1,2078 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Db_CRM_Prospectare_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Activitati_Curente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nume_Activitate" Type="nvarchar" MaxLength="60" />
+          <Property Name="Cod_Activitate" Type="int" />
+          <Property Name="Detalii_Tip_Activitate" Type="nvarchar" MaxLength="60" />
+          <Property Name="Subiect_Activitate" Type="nvarchar" MaxLength="60" />
+          <Property Name="Referinta_Subiect" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cod_Subiect" Type="int" />
+          <Property Name="Detalii_Subiect" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Nivel_Financiar_Subiect" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Timp_Afectat_Subiect" Type="tinyint" />
+          <Property Name="Data_Scadenta" Type="date" Nullable="false" />
+          <Property Name="Ora_Activitate" Type="tinyint" />
+          <Property Name="Durata_Activitate" Type="tinyint" />
+          <Property Name="Grad_Realizare" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Prioritate_Activitate" Type="tinyint" />
+          <Property Name="Stare_Activitate" Type="nvarchar" MaxLength="60" />
+          <Property Name="Cod_Stare_Activitate" Type="int" />
+          <Property Name="Comentariu_Activitate" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Index_Reprogramare_Activitate" Type="int" />
+          <Property Name="Index_Amanare_Activitate" Type="int" />
+          <Property Name="Activitate_Activa" Type="bit" />
+          <Property Name="Z_Bit_Field" Type="bit" />
+          <Property Name="Z_Int_Field" Type="int" />
+          <Property Name="Z_String_Field" Type="nvarchar" MaxLength="255" />
+          <Property Name="Z_Text_Field" Type="nvarchar" MaxLength="2000" />
+          <Property Name="User_Alocat" Type="nvarchar" MaxLength="60" />
+          <Property Name="Data_Alocare" Type="date" Nullable="false" />
+          <Property Name="Id_User" Type="nvarchar" MaxLength="60" />
+          <Property Name="Data_Intro" Type="date" />
+          <Property Name="Data_Modif" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Predef_Durate_Activitati">
+          <Key>
+            <PropertyRef Name="Id_Durata" />
+          </Key>
+          <Property Name="Id_Durata" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Durata_Activitate" Type="int" />
+        </EntityType>
+        <EntityType Name="Predef_SubTipuri_Activitati">
+          <Key>
+            <PropertyRef Name="Id_SubAct" />
+          </Key>
+          <Property Name="Id_SubAct" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Act" Type="int" />
+          <Property Name="Nume_SubAct" Type="nvarchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="Predef_Tipuri_Activitati">
+          <Key>
+            <PropertyRef Name="Id_Act" />
+          </Key>
+          <Property Name="Id_Act" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nume_Act" Type="nvarchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="Prospecte_Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Prospect" Type="int" Nullable="false" />
+          <Property Name="Persoana_Decizie" Type="nvarchar" MaxLength="120" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="20" />
+          <Property Name="Regiune_Reper" Type="nvarchar" MaxLength="60" />
+          <Property Name="Adresa_Text" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cod_Postal" Type="nvarchar" MaxLength="60" />
+          <Property Name="Email" Type="nvarchar" MaxLength="60" />
+          <Property Name="Web_Site" Type="nvarchar" MaxLength="60" />
+          <Property Name="Adresa_Numar" Type="nvarchar" MaxLength="10" />
+          <Property Name="Adresa_Strada" Type="nvarchar" MaxLength="60" />
+          <Property Name="Adresa_Oras" Type="nvarchar" MaxLength="60" />
+          <Property Name="Adresa_Unitate_Regionala" Type="nvarchar" MaxLength="60" />
+          <Property Name="Adresa_SubUnitate_Regionala" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Nume" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Prenume" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Nume_Alt" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Prenume_Alt" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Sex" Type="nvarchar" MaxLength="10" />
+          <Property Name="Persoana_Decizie_Functie" Type="nvarchar" MaxLength="60" />
+          <Property Name="Telefon_Alt" Type="nvarchar" MaxLength="60" />
+          <Property Name="Email_Alt" Type="nvarchar" MaxLength="60" />
+          <Property Name="Id_User" Type="nvarchar" MaxLength="60" />
+          <Property Name="Data_Intro" Type="date" Nullable="false" />
+          <Property Name="Data_Modif" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Prospecte_ContactPlus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Prospect" Type="int" Nullable="false" />
+          <Property Name="Telefon_Secretariat_1" Type="nvarchar" MaxLength="20" />
+          <Property Name="Telefon_Secretariat_2" Type="nvarchar" MaxLength="20" />
+          <Property Name="Telefon_Secretariat_3" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email_Office" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_PD2" Type="nvarchar" MaxLength="120" />
+          <Property Name="Telefon_PD2" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email_PD2" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Nume_PD2" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Prenume_PD2" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Nume_Alt_PD2" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Prenume_Alt_PD2" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Sex_PD2" Type="nvarchar" MaxLength="10" />
+          <Property Name="Persoana_Decizie_Functie_PD2" Type="nvarchar" MaxLength="60" />
+          <Property Name="Telefon_Alt_PD2" Type="nvarchar" MaxLength="60" />
+          <Property Name="Email_Alt_PD2" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_PD3" Type="nvarchar" MaxLength="120" />
+          <Property Name="Telefon_PD3" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email_PD3" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Nume_PD3" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Prenume_PD3" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Nume_Alt_PD3" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Prenume_Alt_PD3" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Sex_PD3" Type="nvarchar" MaxLength="10" />
+          <Property Name="Persoana_Decizie_Functie_PD3" Type="nvarchar" MaxLength="60" />
+          <Property Name="Telefon_Alt_PD3" Type="nvarchar" MaxLength="60" />
+          <Property Name="Email_Alt_PD3" Type="nvarchar" MaxLength="60" />
+          <Property Name="Comentariu_Date_Contact_1" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Comentariu_Date_Contact_2" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Comentariu_Date_Contact_3" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Id_User" Type="nvarchar" MaxLength="60" />
+          <Property Name="Data_Intro" Type="date" Nullable="false" />
+          <Property Name="Data_Modif" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Prospecte_Pasi_Urmatori">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Prospect" Type="int" Nullable="false" />
+          <Property Name="Nume_Pas" Type="nvarchar" MaxLength="60" />
+          <Property Name="Cod_Nume_Pas" Type="int" />
+          <Property Name="Data_Scadenta_Pas" Type="date" Nullable="false" />
+          <Property Name="Stare_Pas" Type="nvarchar" MaxLength="60" />
+          <Property Name="Cod_Stare_Pas" Type="int" />
+          <Property Name="Index_Efectuare_Pas" Type="int" />
+          <Property Name="Index_Neefectuare_Pas" Type="int" />
+          <Property Name="Index_Reprogramare_Pas" Type="int" />
+          <Property Name="Pas_Activ" Type="bit" />
+          <Property Name="Ora_Pas" Type="tinyint" />
+          <Property Name="Durata_Pas" Type="tinyint" />
+          <Property Name="Grad_Realizare_Pas" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Prioritate_Pas" Type="tinyint" />
+          <Property Name="Raspuns_Pas" Type="nvarchar" MaxLength="60" />
+          <Property Name="Referinta_Raspuns_Pas" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cod_Raspuns_Pas" Type="int" />
+          <Property Name="Detalii_Raspuns_Pas" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Nivel_Financiar_Subiect" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Timp_Afectat_Subiect_Pas" Type="int" />
+          <Property Name="Obstacol_Pas" Type="nvarchar" MaxLength="60" />
+          <Property Name="Cod_Obstacol_Pas" Type="int" />
+          <Property Name="Comentariu_Obstacol_Pas" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Comentariu_Automat_Pas" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Info_Tipuri_Produse_Cautate" Type="nvarchar" MaxLength="60" />
+          <Property Name="Info_Detalii_Produse_Cautate" Type="nvarchar" MaxLength="255" />
+          <Property Name="Info_Furnizori" Type="nvarchar" MaxLength="60" />
+          <Property Name="Info_Furnizor_Principal" Type="nvarchar" MaxLength="60" />
+          <Property Name="Info_Detalii_Furnizori" Type="nvarchar" MaxLength="255" />
+          <Property Name="Info_Tip_Motivatii" Type="nvarchar" MaxLength="60" />
+          <Property Name="Info_Detalii_Motivatii" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Info_Alte_Info" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Conexe_Subiect" Type="nvarchar" MaxLength="60" />
+          <Property Name="Referinta_Conexe_Subiect" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cod_Conexe_Subiect" Type="int" />
+          <Property Name="Detalii_Conexe_Subiect" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Id_User" Type="nvarchar" MaxLength="60" />
+          <Property Name="Data_Intro" Type="date" Nullable="false" />
+          <Property Name="Data_Modif" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Prospecte_Profil">
+          <Key>
+            <PropertyRef Name="Id_Prospect" />
+          </Key>
+          <Property Name="Id_Prospect" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tip_Prospect_PF_PJ" Type="nvarchar" MaxLength="10" />
+          <Property Name="Nume_Prospect" Type="nvarchar" MaxLength="60" />
+          <Property Name="Cod_Prospect" Type="nvarchar" MaxLength="255" />
+          <Property Name="Tara" Type="nvarchar" MaxLength="60" />
+          <Property Name="Domeniu" Type="nvarchar" MaxLength="60" />
+          <Property Name="Cod_Domeniu" Type="nvarchar" MaxLength="60" />
+          <Property Name="CA_Ultimul_An" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Nr_Angajati" Type="int" />
+          <Property Name="Sursa_Info_Prospect" Type="nvarchar" MaxLength="60" />
+          <Property Name="Sursa_Info_Prospect_Alt" Type="nvarchar" MaxLength="60" />
+          <Property Name="Id_User" Type="nvarchar" MaxLength="60" />
+          <Property Name="Data_Intro" Type="date" Nullable="false" />
+          <Property Name="Data_Modif" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Prospecte_ProfilPlus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Prospect" Type="int" Nullable="false" />
+          <Property Name="Aprobare_GDPR" Type="bit" />
+          <Property Name="Detalii_GDPR" Type="nvarchar" MaxLength="255" />
+          <Property Name="Referinta_GDPR" Type="nvarchar" MaxLength="60" />
+          <Property Name="Posibilitate_Montaj" Type="bit" />
+          <Property Name="Detalii_Tip_Montaj" Type="nvarchar" MaxLength="60" />
+          <Property Name="Referinta_Montaj" Type="nvarchar" MaxLength="60" />
+          <Property Name="Prospect_Activ" Type="bit" />
+          <Property Name="Status_Prospect" Type="nvarchar" MaxLength="60" />
+          <Property Name="Cod_Status_Prospect" Type="int" />
+          <Property Name="Comentariu_Prospect" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Z_Bit_Field" Type="bit" />
+          <Property Name="Z_Int_Field" Type="int" />
+          <Property Name="Z_String_Field" Type="nvarchar" MaxLength="255" />
+          <Property Name="Z_Text_Field" Type="nvarchar" MaxLength="2000" />
+          <Property Name="User_Alocat" Type="nvarchar" MaxLength="60" />
+          <Property Name="Data_Alocare" Type="date" Nullable="false" />
+          <Property Name="Id_User" Type="nvarchar" MaxLength="60" />
+          <Property Name="Data_Intro" Type="date" Nullable="false" />
+          <Property Name="Data_Modif" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Db_CRM_Prospectare.dbo.VwDashboardProspect' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VwDashboardProspect">
+          <Key>
+            <PropertyRef Name="Id_Prospect" />
+            <PropertyRef Name="Data_Intro_Profil" />
+            <PropertyRef Name="Data_Modif_Profil" />
+          </Key>
+          <Property Name="Id_Vw" Type="bigint" />
+          <Property Name="Id_Prospect" Type="int" Nullable="false" />
+          <Property Name="Tip_Prospect_PF_PJ" Type="nvarchar" MaxLength="10" />
+          <Property Name="Nume_Prospect" Type="nvarchar" MaxLength="60" />
+          <Property Name="Cod_Prospect" Type="nvarchar" MaxLength="255" />
+          <Property Name="Tara" Type="nvarchar" MaxLength="60" />
+          <Property Name="Domeniu" Type="nvarchar" MaxLength="60" />
+          <Property Name="Cod_Domeniu" Type="nvarchar" MaxLength="60" />
+          <Property Name="CA_Ultimul_An" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Nr_Angajati" Type="int" />
+          <Property Name="Sursa_Info_Prospect" Type="nvarchar" MaxLength="60" />
+          <Property Name="Sursa_Info_Prospect_Alt" Type="nvarchar" MaxLength="60" />
+          <Property Name="Id_User_Profil" Type="nvarchar" MaxLength="60" />
+          <Property Name="Data_Intro_Profil" Type="date" Nullable="false" />
+          <Property Name="Data_Modif_Profil" Type="datetime" Nullable="false" />
+          <Property Name="Id" Type="int" />
+          <Property Name="Id_Prospect_Contact" Type="int" />
+          <Property Name="Persoana_Decizie" Type="nvarchar" MaxLength="60" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="20" />
+          <Property Name="Regiune_Reper" Type="nvarchar" MaxLength="60" />
+          <Property Name="Adresa_Text" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cod_Postal" Type="nvarchar" MaxLength="60" />
+          <Property Name="Email" Type="nvarchar" MaxLength="60" />
+          <Property Name="Web_Site" Type="nvarchar" MaxLength="60" />
+          <Property Name="Adresa_Numar" Type="nvarchar" MaxLength="10" />
+          <Property Name="Adresa_Strada" Type="nvarchar" MaxLength="60" />
+          <Property Name="Adresa_Oras" Type="nvarchar" MaxLength="60" />
+          <Property Name="Adresa_Unitate_Regionala" Type="nvarchar" MaxLength="60" />
+          <Property Name="Adresa_SubUnitate_Regionala" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Nume" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Prenume" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Nume_Alt" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Prenume_Alt" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Sex" Type="nvarchar" MaxLength="10" />
+          <Property Name="Persoana_Decizie_Functie" Type="nvarchar" MaxLength="60" />
+          <Property Name="Telefon_Alt" Type="nvarchar" MaxLength="60" />
+          <Property Name="Email_Alt" Type="nvarchar" MaxLength="60" />
+          <Property Name="Id_User_Contact" Type="nvarchar" MaxLength="60" />
+          <Property Name="Data_Intro_Contact" Type="date" />
+          <Property Name="Data_Modif_Contact" Type="datetime" />
+          <Property Name="Id_ContactPlus" Type="int" />
+          <Property Name="Id_Prospect_ContactPlus" Type="int" />
+          <Property Name="Telefon_Secretariat_1" Type="nvarchar" MaxLength="20" />
+          <Property Name="Telefon_Secretariat_2" Type="nvarchar" MaxLength="20" />
+          <Property Name="Telefon_Secretariat_3" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email_Office" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_PD2" Type="nvarchar" MaxLength="60" />
+          <Property Name="Telefon_PD2" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email_PD2" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Nume_PD2" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Prenume_PD2" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Nume_Alt_PD2" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Prenume_Alt_PD2" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Sex_PD2" Type="nvarchar" MaxLength="10" />
+          <Property Name="Persoana_Decizie_Functie_PD2" Type="nvarchar" MaxLength="60" />
+          <Property Name="Telefon_Alt_PD2" Type="nvarchar" MaxLength="60" />
+          <Property Name="Email_Alt_PD2" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_PD3" Type="nvarchar" MaxLength="60" />
+          <Property Name="Telefon_PD3" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email_PD3" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Nume_PD3" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Prenume_PD3" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Nume_Alt_PD3" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Prenume_Alt_PD3" Type="nvarchar" MaxLength="60" />
+          <Property Name="Persoana_Decizie_Sex_PD3" Type="nvarchar" MaxLength="10" />
+          <Property Name="Persoana_Decizie_Functie_PD3" Type="nvarchar" MaxLength="60" />
+          <Property Name="Telefon_Alt_PD3" Type="nvarchar" MaxLength="60" />
+          <Property Name="Email_Alt_PD3" Type="nvarchar" MaxLength="60" />
+          <Property Name="Comentariu_Date_Contact_1" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Comentariu_Date_Contact_2" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Comentariu_Date_Contact_3" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Id_User_ContactPlus" Type="nvarchar" MaxLength="60" />
+          <Property Name="Data_Intro_ContactPlus" Type="date" />
+          <Property Name="Data_Modif_ContactPlus" Type="datetime" />
+          <Property Name="Id_ProfilPlus" Type="int" />
+          <Property Name="Id_Prospect_ProfilPlus" Type="int" />
+          <Property Name="Aprobare_GDPR" Type="bit" />
+          <Property Name="Detalii_GDPR" Type="nvarchar" MaxLength="255" />
+          <Property Name="Referinta_GDPR" Type="nvarchar" MaxLength="60" />
+          <Property Name="Posibilitate_Montaj" Type="bit" />
+          <Property Name="Detalii_Tip_Montaj" Type="nvarchar" MaxLength="60" />
+          <Property Name="Referinta_Montaj" Type="nvarchar" MaxLength="60" />
+          <Property Name="Prospect_Activ" Type="bit" />
+          <Property Name="Status_Prospect" Type="nvarchar" MaxLength="60" />
+          <Property Name="Cod_Status_Prospect" Type="int" />
+          <Property Name="Comentariu_Prospect" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Z_Bit_Field" Type="bit" />
+          <Property Name="Z_Int_Field" Type="int" />
+          <Property Name="Z_String_Field" Type="nvarchar" MaxLength="255" />
+          <Property Name="Z_Text_Field" Type="nvarchar" MaxLength="2000" />
+          <Property Name="User_Alocat" Type="nvarchar" MaxLength="60" />
+          <Property Name="Data_Alocare" Type="date" />
+          <Property Name="Id_User_ProfilPlus" Type="nvarchar" MaxLength="60" />
+          <Property Name="Data_Intro_ProfilPlus" Type="date" />
+          <Property Name="Data_Modif_ProfilPlus" Type="datetime" />
+          <Property Name="Id_Pasi" Type="int" />
+          <Property Name="Id_Prospect_Pasi" Type="int" />
+          <Property Name="Nume_Pas" Type="nvarchar" MaxLength="60" />
+          <Property Name="Cod_Nume_Pas" Type="int" />
+          <Property Name="Data_Scadenta_Pas" Type="date" />
+          <Property Name="Stare_Pas" Type="nvarchar" MaxLength="60" />
+          <Property Name="Cod_Stare_Pas" Type="int" />
+          <Property Name="Index_Efectuare_Pas" Type="int" />
+          <Property Name="Index_Neefectuare_Pas" Type="int" />
+          <Property Name="Index_Reprogramare_Pas" Type="int" />
+          <Property Name="Pas_Activ" Type="bit" />
+          <Property Name="Ora_Pas" Type="tinyint" />
+          <Property Name="Durata_Pas" Type="tinyint" />
+          <Property Name="Grad_Realizare_Pas" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Prioritate_Pas" Type="tinyint" />
+          <Property Name="Raspuns_Pas" Type="nvarchar" MaxLength="60" />
+          <Property Name="Referinta_Raspuns_Pas" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cod_Raspuns_Pas" Type="int" />
+          <Property Name="Detalii_Raspuns_Pas" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Nivel_Financiar_Subiect" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Timp_Afectat_Subiect_Pas" Type="int" />
+          <Property Name="Obstacol_Pas" Type="nvarchar" MaxLength="60" />
+          <Property Name="Cod_Obstacol_Pas" Type="int" />
+          <Property Name="Comentariu_Obstacol_Pas" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Comentariu_Automat_Pas" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Info_Tipuri_Produse_Cautate" Type="nvarchar" MaxLength="60" />
+          <Property Name="Info_Detalii_Produse_Cautate" Type="nvarchar" MaxLength="255" />
+          <Property Name="Info_Furnizori" Type="nvarchar" MaxLength="60" />
+          <Property Name="Info_Furnizor_Principal" Type="nvarchar" MaxLength="60" />
+          <Property Name="Info_Detalii_Furnizori" Type="nvarchar" MaxLength="255" />
+          <Property Name="Info_Tip_Motivatii" Type="nvarchar" MaxLength="60" />
+          <Property Name="Info_Detalii_Motivatii" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Info_Alte_Info" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Conexe_Subiect" Type="nvarchar" MaxLength="60" />
+          <Property Name="Referinta_Conexe_Subiect" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cod_Conexe_Subiect" Type="int" />
+          <Property Name="Detalii_Conexe_Subiect" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Id_User_Pasi" Type="nvarchar" MaxLength="60" />
+          <Property Name="Data_Intro_Pasi" Type="date" />
+          <Property Name="Data_Modif_Pasi" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_Prospecte_ContactPlus_Prospecte_Profil">
+          <End Role="Prospecte_Profil" Type="Self.Prospecte_Profil" Multiplicity="1" />
+          <End Role="Prospecte_ContactPlus" Type="Self.Prospecte_ContactPlus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prospecte_Profil">
+              <PropertyRef Name="Id_Prospect" />
+            </Principal>
+            <Dependent Role="Prospecte_ContactPlus">
+              <PropertyRef Name="Id_Prospect" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prospecte_Pasi_Urmatori_Prospecte_Profil">
+          <End Role="Prospecte_Profil" Type="Self.Prospecte_Profil" Multiplicity="1" />
+          <End Role="Prospecte_Pasi_Urmatori" Type="Self.Prospecte_Pasi_Urmatori" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prospecte_Profil">
+              <PropertyRef Name="Id_Prospect" />
+            </Principal>
+            <Dependent Role="Prospecte_Pasi_Urmatori">
+              <PropertyRef Name="Id_Prospect" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prospecte_ProfilPlus_Prospecte_Profil">
+          <End Role="Prospecte_Profil" Type="Self.Prospecte_Profil" Multiplicity="1" />
+          <End Role="Prospecte_ProfilPlus" Type="Self.Prospecte_ProfilPlus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prospecte_Profil">
+              <PropertyRef Name="Id_Prospect" />
+            </Principal>
+            <Dependent Role="Prospecte_ProfilPlus">
+              <PropertyRef Name="Id_Prospect" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubTipuri_Activitati_SubTipuri_Activitati">
+          <End Role="Predef_Tipuri_Activitati" Type="Self.Predef_Tipuri_Activitati" Multiplicity="0..1" />
+          <End Role="Predef_SubTipuri_Activitati" Type="Self.Predef_SubTipuri_Activitati" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Predef_Tipuri_Activitati">
+              <PropertyRef Name="Id_Act" />
+            </Principal>
+            <Dependent Role="Predef_SubTipuri_Activitati">
+              <PropertyRef Name="Id_Act" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="spAdaugaActivitateCurenta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nume_Activitate" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Activitate" Type="int" Mode="In" />
+          <Parameter Name="Detalii_Tip_Activitate" Type="nvarchar" Mode="In" />
+          <Parameter Name="Subiect_Activitate" Type="nvarchar" Mode="In" />
+          <Parameter Name="Referinta_Subiect" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Subiect" Type="int" Mode="In" />
+          <Parameter Name="Detalii_Subiect" Type="nvarchar" Mode="In" />
+          <Parameter Name="Nivel_Financiar_Subiect" Type="decimal" Mode="In" />
+          <Parameter Name="Timp_Afectat_Subiect" Type="tinyint" Mode="In" />
+          <Parameter Name="Data_Scadenta" Type="date" Mode="In" />
+          <Parameter Name="Ora_Activitate" Type="tinyint" Mode="In" />
+          <Parameter Name="Durata_Activitate" Type="tinyint" Mode="In" />
+          <Parameter Name="Grad_Realizare" Type="decimal" Mode="In" />
+          <Parameter Name="Prioritate_Activitate" Type="tinyint" Mode="In" />
+          <Parameter Name="Stare_Activitate" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Stare_Activitate" Type="int" Mode="In" />
+          <Parameter Name="Comentariu_Activitate" Type="nvarchar" Mode="In" />
+          <Parameter Name="Index_Reprogramare_Activitate" Type="int" Mode="In" />
+          <Parameter Name="Index_Amanare_Activitate" Type="int" Mode="In" />
+          <Parameter Name="Activitate_Activa" Type="bit" Mode="In" />
+          <Parameter Name="Z_Bit_Field" Type="bit" Mode="In" />
+          <Parameter Name="Z_Int_Field" Type="int" Mode="In" />
+          <Parameter Name="Z_String_Field" Type="nvarchar" Mode="In" />
+          <Parameter Name="Z_Text_Field" Type="nvarchar" Mode="In" />
+          <Parameter Name="User_Alocat" Type="nvarchar" Mode="In" />
+          <Parameter Name="Data_Alocare" Type="date" Mode="In" />
+          <Parameter Name="Id_User" Type="nvarchar" Mode="In" />
+          <Parameter Name="Data_Intro" Type="date" Mode="In" />
+          <Parameter Name="Data_Modif" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spAdaugaPasUrmator" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id_Prospect" Type="int" Mode="In" />
+          <Parameter Name="Nume_Pas" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Nume_Pas" Type="int" Mode="In" />
+          <Parameter Name="Data_Scadenta_Pas" Type="date" Mode="In" />
+          <Parameter Name="Stare_Pas" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Stare_Pas" Type="int" Mode="In" />
+          <Parameter Name="Index_Efectuare_Pas" Type="int" Mode="In" />
+          <Parameter Name="Index_Neefectuare_Pas" Type="int" Mode="In" />
+          <Parameter Name="Index_Reprogramare_Pas" Type="int" Mode="In" />
+          <Parameter Name="Pas_Activ" Type="bit" Mode="In" />
+          <Parameter Name="Ora_Pas" Type="tinyint" Mode="In" />
+          <Parameter Name="Durata_Pas" Type="tinyint" Mode="In" />
+          <Parameter Name="Grad_Realizare_Pas" Type="decimal" Mode="In" />
+          <Parameter Name="Prioritate_Pas" Type="tinyint" Mode="In" />
+          <Parameter Name="Raspuns_Pas" Type="nvarchar" Mode="In" />
+          <Parameter Name="Referinta_Raspuns_Pas" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Raspuns_Pas" Type="int" Mode="In" />
+          <Parameter Name="Detalii_Raspuns_Pas" Type="nvarchar" Mode="In" />
+          <Parameter Name="Nivel_Financiar_Subiect" Type="decimal" Mode="In" />
+          <Parameter Name="Timp_Afectat_Subiect_Pas" Type="int" Mode="In" />
+          <Parameter Name="Obstacol_Pas" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Obstacol_Pas" Type="int" Mode="In" />
+          <Parameter Name="Comentariu_Obstacol_Pas" Type="nvarchar" Mode="In" />
+          <Parameter Name="Comentariu_Automat_Pas" Type="nvarchar" Mode="In" />
+          <Parameter Name="Info_Tipuri_Produse_Cautate" Type="nvarchar" Mode="In" />
+          <Parameter Name="Info_Detalii_Produse_Cautate" Type="nvarchar" Mode="In" />
+          <Parameter Name="Info_Furnizori" Type="nvarchar" Mode="In" />
+          <Parameter Name="Info_Furnizor_Principal" Type="nvarchar" Mode="In" />
+          <Parameter Name="Info_Detalii_Furnizori" Type="nvarchar" Mode="In" />
+          <Parameter Name="Info_Tip_Motivatii" Type="nvarchar" Mode="In" />
+          <Parameter Name="Info_Detalii_Motivatii" Type="nvarchar" Mode="In" />
+          <Parameter Name="Info_Alte_Info" Type="nvarchar" Mode="In" />
+          <Parameter Name="Conexe_Subiect" Type="nvarchar" Mode="In" />
+          <Parameter Name="Referinta_Conexe_Subiect" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Conexe_Subiect" Type="int" Mode="In" />
+          <Parameter Name="Detalii_Conexe_Subiect" Type="nvarchar" Mode="In" />
+          <Parameter Name="Id_User" Type="nvarchar" Mode="In" />
+          <Parameter Name="Data_Intro" Type="date" Mode="In" />
+          <Parameter Name="Data_Modif" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spAdaugaProspectProfil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Tip_Prospect_PF_PJ" Type="nvarchar" Mode="In" />
+          <Parameter Name="Nume_Prospect" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Prospect" Type="nvarchar" Mode="In" />
+          <Parameter Name="Tara" Type="nvarchar" Mode="In" />
+          <Parameter Name="Domeniu" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Domeniu" Type="nvarchar" Mode="In" />
+          <Parameter Name="CA_Ultimul_An" Type="int" Mode="In" />
+          <Parameter Name="Nr_Angajati" Type="int" Mode="In" />
+          <Parameter Name="Sursa_Info_Prospect" Type="nvarchar" Mode="In" />
+          <Parameter Name="Sursa_Info_Prospect_Alt" Type="nvarchar" Mode="In" />
+          <Parameter Name="Id_User" Type="nvarchar" Mode="In" />
+          <Parameter Name="Data_Intro" Type="date" Mode="In" />
+          <Parameter Name="Data_Modif" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spEditeazaActivitateCurenta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDparam" Type="int" Mode="In" />
+          <Parameter Name="Nume_Activitate" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Activitate" Type="int" Mode="In" />
+          <Parameter Name="Detalii_Tip_Activitate" Type="nvarchar" Mode="In" />
+          <Parameter Name="Subiect_Activitate" Type="nvarchar" Mode="In" />
+          <Parameter Name="Referinta_Subiect" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Subiect" Type="int" Mode="In" />
+          <Parameter Name="Detalii_Subiect" Type="nvarchar" Mode="In" />
+          <Parameter Name="Nivel_Financiar_Subiect" Type="decimal" Mode="In" />
+          <Parameter Name="Timp_Afectat_Subiect" Type="tinyint" Mode="In" />
+          <Parameter Name="Data_Scadenta" Type="date" Mode="In" />
+          <Parameter Name="Ora_Activitate" Type="tinyint" Mode="In" />
+          <Parameter Name="Durata_Activitate" Type="tinyint" Mode="In" />
+          <Parameter Name="Grad_Realizare" Type="decimal" Mode="In" />
+          <Parameter Name="Prioritate_Activitate" Type="tinyint" Mode="In" />
+          <Parameter Name="Stare_Activitate" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Stare_Activitate" Type="int" Mode="In" />
+          <Parameter Name="Comentariu_Activitate" Type="nvarchar" Mode="In" />
+          <Parameter Name="Index_Reprogramare_Activitate" Type="int" Mode="In" />
+          <Parameter Name="Index_Amanare_Activitate" Type="int" Mode="In" />
+          <Parameter Name="Activitate_Activa" Type="bit" Mode="In" />
+          <Parameter Name="Z_Bit_Field" Type="bit" Mode="In" />
+          <Parameter Name="Z_Int_Field" Type="int" Mode="In" />
+          <Parameter Name="Z_String_Field" Type="nvarchar" Mode="In" />
+          <Parameter Name="Z_Text_Field" Type="nvarchar" Mode="In" />
+          <Parameter Name="User_Alocat" Type="nvarchar" Mode="In" />
+          <Parameter Name="Data_Alocare" Type="date" Mode="In" />
+          <Parameter Name="Id_User" Type="nvarchar" Mode="In" />
+          <Parameter Name="Data_Intro" Type="date" Mode="In" />
+          <Parameter Name="Data_Modif" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spEditeazaDataScadentaActivitate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDparam" Type="int" Mode="In" />
+          <Parameter Name="Data_Scadenta" Type="date" Mode="In" />
+          <Parameter Name="Ora_Activitate" Type="tinyint" Mode="In" />
+          <Parameter Name="Durata_Activitate" Type="tinyint" Mode="In" />
+          <Parameter Name="Id_User" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spEditeazaDataScadentaPasi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDparam" Type="int" Mode="In" />
+          <Parameter Name="Data_Scadenta_Pas" Type="date" Mode="In" />
+          <Parameter Name="Ora_Pas" Type="tinyint" Mode="In" />
+          <Parameter Name="Durata_Pas" Type="tinyint" Mode="In" />
+          <Parameter Name="Id_User" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spEditeazaDinamicCampActivitate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdName" Type="nvarchar" Mode="In" />
+          <Parameter Name="IdValue" Type="int" Mode="In" />
+          <Parameter Name="TypeField" Type="nvarchar" Mode="In" />
+          <Parameter Name="FieldName" Type="nvarchar" Mode="In" />
+          <Parameter Name="FieldValue" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spEditeazaDinamicCampProspect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdName" Type="nvarchar" Mode="In" />
+          <Parameter Name="IdValue" Type="int" Mode="In" />
+          <Parameter Name="TypeField" Type="nvarchar" Mode="In" />
+          <Parameter Name="FieldName" Type="nvarchar" Mode="In" />
+          <Parameter Name="FieldValue" Type="nvarchar" Mode="In" />
+          <Parameter Name="FieldFileName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spEditeazaProspectAdresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDparam" Type="int" Mode="In" />
+          <Parameter Name="Regiune_Reper" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Postal" Type="nvarchar" Mode="In" />
+          <Parameter Name="Adresa_Numar" Type="nvarchar" Mode="In" />
+          <Parameter Name="Adresa_Strada" Type="nvarchar" Mode="In" />
+          <Parameter Name="Adresa_Oras" Type="nvarchar" Mode="In" />
+          <Parameter Name="Adresa_Unitate_Regionala" Type="nvarchar" Mode="In" />
+          <Parameter Name="Adresa_SubUnitate_Regionala" Type="nvarchar" Mode="In" />
+          <Parameter Name="Id_User" Type="nvarchar" Mode="In" />
+          <Parameter Name="Data_Intro" Type="date" Mode="In" />
+          <Parameter Name="Data_Modif" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spEditeazaProspectPasi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDparam" Type="int" Mode="In" />
+          <Parameter Name="Id_Prospect" Type="int" Mode="In" />
+          <Parameter Name="Nume_Pas" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Nume_Pas" Type="int" Mode="In" />
+          <Parameter Name="Data_Scadenta_Pas" Type="date" Mode="In" />
+          <Parameter Name="Stare_Pas" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Stare_Pas" Type="int" Mode="In" />
+          <Parameter Name="Index_Efectuare_Pas" Type="int" Mode="In" />
+          <Parameter Name="Index_Neefectuare_Pas" Type="int" Mode="In" />
+          <Parameter Name="Index_Reprogramare_Pas" Type="int" Mode="In" />
+          <Parameter Name="Pas_Activ" Type="bit" Mode="In" />
+          <Parameter Name="Ora_Pas" Type="tinyint" Mode="In" />
+          <Parameter Name="Durata_Pas" Type="tinyint" Mode="In" />
+          <Parameter Name="Grad_Realizare_Pas" Type="decimal" Mode="In" />
+          <Parameter Name="Prioritate_Pas" Type="tinyint" Mode="In" />
+          <Parameter Name="Raspuns_Pas" Type="nvarchar" Mode="In" />
+          <Parameter Name="Referinta_Raspuns_Pas" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Raspuns_Pas" Type="int" Mode="In" />
+          <Parameter Name="Detalii_Raspuns_Pas" Type="nvarchar" Mode="In" />
+          <Parameter Name="Nivel_Financiar_Subiect" Type="decimal" Mode="In" />
+          <Parameter Name="Timp_Afectat_Subiect_Pas" Type="int" Mode="In" />
+          <Parameter Name="Obstacol_Pas" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Obstacol_Pas" Type="int" Mode="In" />
+          <Parameter Name="Comentariu_Obstacol_Pas" Type="nvarchar" Mode="In" />
+          <Parameter Name="Comentariu_Automat_Pas" Type="nvarchar" Mode="In" />
+          <Parameter Name="Info_Tipuri_Produse_Cautate" Type="nvarchar" Mode="In" />
+          <Parameter Name="Info_Detalii_Produse_Cautate" Type="nvarchar" Mode="In" />
+          <Parameter Name="Info_Furnizori" Type="nvarchar" Mode="In" />
+          <Parameter Name="Info_Furnizor_Principal" Type="nvarchar" Mode="In" />
+          <Parameter Name="Info_Detalii_Furnizori" Type="nvarchar" Mode="In" />
+          <Parameter Name="Info_Tip_Motivatii" Type="nvarchar" Mode="In" />
+          <Parameter Name="Info_Detalii_Motivatii" Type="nvarchar" Mode="In" />
+          <Parameter Name="Info_Alte_Info" Type="nvarchar" Mode="In" />
+          <Parameter Name="Conexe_Subiect" Type="nvarchar" Mode="In" />
+          <Parameter Name="Referinta_Conexe_Subiect" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Conexe_Subiect" Type="int" Mode="In" />
+          <Parameter Name="Detalii_Conexe_Subiect" Type="nvarchar" Mode="In" />
+          <Parameter Name="Id_User" Type="nvarchar" Mode="In" />
+          <Parameter Name="Data_Intro" Type="date" Mode="In" />
+          <Parameter Name="Data_Modif" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spEditeazaProspectPD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDparam" Type="int" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Nume" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Prenume" Type="nvarchar" Mode="In" />
+          <Parameter Name="Telefon" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Functie" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Sex" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Nume_Alt" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Prenume_Alt" Type="nvarchar" Mode="In" />
+          <Parameter Name="Telefon_Alt" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email_Alt" Type="nvarchar" Mode="In" />
+          <Parameter Name="Comentariu_Date_Contact" Type="nvarchar" Mode="In" />
+          <Parameter Name="Id_User" Type="nvarchar" Mode="In" />
+          <Parameter Name="Data_Intro" Type="date" Mode="In" />
+          <Parameter Name="Data_Modif" Type="datetime" Mode="In" />
+          <Parameter Name="Telefon_Secretariat_1" Type="nvarchar" Mode="In" />
+          <Parameter Name="Telefon_Secretariat_2" Type="nvarchar" Mode="In" />
+          <Parameter Name="Telefon_Secretariat_3" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email_Office" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_PD2" Type="nvarchar" Mode="In" />
+          <Parameter Name="Telefon_PD2" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email_PD2" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Nume_PD2" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Prenume_PD2" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Nume_Alt_PD2" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Prenume_Alt_PD2" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Sex_PD2" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Functie_PD2" Type="nvarchar" Mode="In" />
+          <Parameter Name="Telefon_Alt_PD2" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email_Alt_PD2" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_PD3" Type="nvarchar" Mode="In" />
+          <Parameter Name="Telefon_PD3" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email_PD3" Type="varchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Nume_PD3" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Prenume_PD3" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Nume_Alt_PD3" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Prenume_Alt_PD3" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Sex_PD3" Type="nvarchar" Mode="In" />
+          <Parameter Name="Persoana_Decizie_Functie_PD3" Type="nvarchar" Mode="In" />
+          <Parameter Name="Telefon_Alt_PD3" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email_Alt_PD3" Type="nvarchar" Mode="In" />
+          <Parameter Name="Comentariu_Date_Contact_1" Type="nvarchar" Mode="In" />
+          <Parameter Name="Comentariu_Date_Contact_2" Type="nvarchar" Mode="In" />
+          <Parameter Name="Comentariu_Date_Contact_3" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spEditeazaProspectProfil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDparam" Type="int" Mode="In" />
+          <Parameter Name="Tip_Prospect_PF_PJ" Type="nvarchar" Mode="In" />
+          <Parameter Name="Nume_Prospect" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Prospect" Type="nvarchar" Mode="In" />
+          <Parameter Name="Tara" Type="nvarchar" Mode="In" />
+          <Parameter Name="Domeniu" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Domeniu" Type="nvarchar" Mode="In" />
+          <Parameter Name="CA_Ultimul_An" Type="decimal" Mode="In" />
+          <Parameter Name="Nr_Angajati" Type="int" Mode="In" />
+          <Parameter Name="Sursa_Info_Prospect" Type="nvarchar" Mode="In" />
+          <Parameter Name="Sursa_Info_Prospect_Alt" Type="nvarchar" Mode="In" />
+          <Parameter Name="Id_User" Type="nvarchar" Mode="In" />
+          <Parameter Name="Data_Intro" Type="date" Mode="In" />
+          <Parameter Name="Data_Modif" Type="datetime" Mode="In" />
+          <Parameter Name="Aprobare_GDPR" Type="bit" Mode="In" />
+          <Parameter Name="Detalii_GDPR" Type="nvarchar" Mode="In" />
+          <Parameter Name="Referinta_GDPR" Type="nvarchar" Mode="In" />
+          <Parameter Name="Posibilitate_Montaj" Type="bit" Mode="In" />
+          <Parameter Name="Detalii_Tip_Montaj" Type="nvarchar" Mode="In" />
+          <Parameter Name="Referinta_Montaj" Type="nvarchar" Mode="In" />
+          <Parameter Name="Prospect_Activ" Type="bit" Mode="In" />
+          <Parameter Name="Status_Prospect" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_Status_Prospect" Type="int" Mode="In" />
+          <Parameter Name="Comentariu_Prospect" Type="nvarchar" Mode="In" />
+          <Parameter Name="Z_Bit_Field" Type="bit" Mode="In" />
+          <Parameter Name="Z_Int_Field" Type="int" Mode="In" />
+          <Parameter Name="Z_String_Field" Type="nvarchar" Mode="In" />
+          <Parameter Name="Z_Text_Field" Type="nvarchar" Mode="In" />
+          <Parameter Name="User_Alocat" Type="nvarchar" Mode="In" />
+          <Parameter Name="Data_Alocare" Type="date" Mode="In" />
+        </Function>
+        <Function Name="spSeteazaActivInactivActivitate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDparam" Type="int" Mode="In" />
+          <Parameter Name="Activitate_Activa" Type="bit" Mode="In" />
+          <Parameter Name="Id_User" Type="nvarchar" Mode="In" />
+          <Parameter Name="Data_Modif" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spSeteazaActivInactivPasi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDparam" Type="int" Mode="In" />
+          <Parameter Name="Id_Prospect" Type="int" Mode="In" />
+          <Parameter Name="Pas_Activ" Type="bit" Mode="In" />
+          <Parameter Name="Id_User" Type="nvarchar" Mode="In" />
+          <Parameter Name="Data_Modif" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spSeteazaActivInactivProspect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDparam" Type="int" Mode="In" />
+          <Parameter Name="Prospect_Activ" Type="bit" Mode="In" />
+          <Parameter Name="Id_User" Type="nvarchar" Mode="In" />
+          <Parameter Name="Data_Modif" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spStergeActivitateCurenta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDparam" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spStergeProspectID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDparam" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spTransferActivitate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TipTransfer" Type="nvarchar" Mode="In" />
+          <Parameter Name="IDparam" Type="int" Mode="In" />
+          <Parameter Name="Id_User" Type="nvarchar" Mode="In" />
+          <Parameter Name="User_Alocat" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spTransferProspect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TipTransfer" Type="nvarchar" Mode="In" />
+          <Parameter Name="IDparam" Type="int" Mode="In" />
+          <Parameter Name="Id_User" Type="nvarchar" Mode="In" />
+          <Parameter Name="User_Alocat" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="Db_CRM_Prospectare_ModelStoreContainer">
+          <EntitySet Name="Activitati_Curente" EntityType="Self.Activitati_Curente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Predef_Durate_Activitati" EntityType="Self.Predef_Durate_Activitati" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Predef_SubTipuri_Activitati" EntityType="Self.Predef_SubTipuri_Activitati" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Predef_Tipuri_Activitati" EntityType="Self.Predef_Tipuri_Activitati" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prospecte_Contact" EntityType="Self.Prospecte_Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prospecte_ContactPlus" EntityType="Self.Prospecte_ContactPlus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prospecte_Pasi_Urmatori" EntityType="Self.Prospecte_Pasi_Urmatori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prospecte_Profil" EntityType="Self.Prospecte_Profil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prospecte_ProfilPlus" EntityType="Self.Prospecte_ProfilPlus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VwDashboardProspect" EntityType="Self.VwDashboardProspect" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VwDashboardProspect].[Id_Vw] AS [Id_Vw], 
+    [VwDashboardProspect].[Id_Prospect] AS [Id_Prospect], 
+    [VwDashboardProspect].[Tip_Prospect_PF_PJ] AS [Tip_Prospect_PF_PJ], 
+    [VwDashboardProspect].[Nume_Prospect] AS [Nume_Prospect], 
+    [VwDashboardProspect].[Cod_Prospect] AS [Cod_Prospect], 
+    [VwDashboardProspect].[Tara] AS [Tara], 
+    [VwDashboardProspect].[Domeniu] AS [Domeniu], 
+    [VwDashboardProspect].[Cod_Domeniu] AS [Cod_Domeniu], 
+    [VwDashboardProspect].[CA_Ultimul_An] AS [CA_Ultimul_An], 
+    [VwDashboardProspect].[Nr_Angajati] AS [Nr_Angajati], 
+    [VwDashboardProspect].[Sursa_Info_Prospect] AS [Sursa_Info_Prospect], 
+    [VwDashboardProspect].[Sursa_Info_Prospect_Alt] AS [Sursa_Info_Prospect_Alt], 
+    [VwDashboardProspect].[Id_User_Profil] AS [Id_User_Profil], 
+    [VwDashboardProspect].[Data_Intro_Profil] AS [Data_Intro_Profil], 
+    [VwDashboardProspect].[Data_Modif_Profil] AS [Data_Modif_Profil], 
+    [VwDashboardProspect].[Id] AS [Id], 
+    [VwDashboardProspect].[Id_Prospect_Contact] AS [Id_Prospect_Contact], 
+    [VwDashboardProspect].[Persoana_Decizie] AS [Persoana_Decizie], 
+    [VwDashboardProspect].[Telefon] AS [Telefon], 
+    [VwDashboardProspect].[Regiune_Reper] AS [Regiune_Reper], 
+    [VwDashboardProspect].[Adresa_Text] AS [Adresa_Text], 
+    [VwDashboardProspect].[Cod_Postal] AS [Cod_Postal], 
+    [VwDashboardProspect].[Email] AS [Email], 
+    [VwDashboardProspect].[Web_Site] AS [Web_Site], 
+    [VwDashboardProspect].[Adresa_Numar] AS [Adresa_Numar], 
+    [VwDashboardProspect].[Adresa_Strada] AS [Adresa_Strada], 
+    [VwDashboardProspect].[Adresa_Oras] AS [Adresa_Oras], 
+    [VwDashboardProspect].[Adresa_Unitate_Regionala] AS [Adresa_Unitate_Regionala], 
+    [VwDashboardProspect].[Adresa_SubUnitate_Regionala] AS [Adresa_SubUnitate_Regionala], 
+    [VwDashboardProspect].[Persoana_Decizie_Nume] AS [Persoana_Decizie_Nume], 
+    [VwDashboardProspect].[Persoana_Decizie_Prenume] AS [Persoana_Decizie_Prenume], 
+    [VwDashboardProspect].[Persoana_Decizie_Nume_Alt] AS [Persoana_Decizie_Nume_Alt], 
+    [VwDashboardProspect].[Persoana_Decizie_Prenume_Alt] AS [Persoana_Decizie_Prenume_Alt], 
+    [VwDashboardProspect].[Persoana_Decizie_Sex] AS [Persoana_Decizie_Sex], 
+    [VwDashboardProspect].[Persoana_Decizie_Functie] AS [Persoana_Decizie_Functie], 
+    [VwDashboardProspect].[Telefon_Alt] AS [Telefon_Alt], 
+    [VwDashboardProspect].[Email_Alt] AS [Email_Alt], 
+    [VwDashboardProspect].[Id_User_Contact] AS [Id_User_Contact], 
+    [VwDashboardProspect].[Data_Intro_Contact] AS [Data_Intro_Contact], 
+    [VwDashboardProspect].[Data_Modif_Contact] AS [Data_Modif_Contact], 
+    [VwDashboardProspect].[Id_ContactPlus] AS [Id_ContactPlus], 
+    [VwDashboardProspect].[Id_Prospect_ContactPlus] AS [Id_Prospect_ContactPlus], 
+    [VwDashboardProspect].[Telefon_Secretariat_1] AS [Telefon_Secretariat_1], 
+    [VwDashboardProspect].[Telefon_Secretariat_2] AS [Telefon_Secretariat_2], 
+    [VwDashboardProspect].[Telefon_Secretariat_3] AS [Telefon_Secretariat_3], 
+    [VwDashboardProspect].[Email_Office] AS [Email_Office], 
+    [VwDashboardProspect].[Persoana_Decizie_PD2] AS [Persoana_Decizie_PD2], 
+    [VwDashboardProspect].[Telefon_PD2] AS [Telefon_PD2], 
+    [VwDashboardProspect].[Email_PD2] AS [Email_PD2], 
+    [VwDashboardProspect].[Persoana_Decizie_Nume_PD2] AS [Persoana_Decizie_Nume_PD2], 
+    [VwDashboardProspect].[Persoana_Decizie_Prenume_PD2] AS [Persoana_Decizie_Prenume_PD2], 
+    [VwDashboardProspect].[Persoana_Decizie_Nume_Alt_PD2] AS [Persoana_Decizie_Nume_Alt_PD2], 
+    [VwDashboardProspect].[Persoana_Decizie_Prenume_Alt_PD2] AS [Persoana_Decizie_Prenume_Alt_PD2], 
+    [VwDashboardProspect].[Persoana_Decizie_Sex_PD2] AS [Persoana_Decizie_Sex_PD2], 
+    [VwDashboardProspect].[Persoana_Decizie_Functie_PD2] AS [Persoana_Decizie_Functie_PD2], 
+    [VwDashboardProspect].[Telefon_Alt_PD2] AS [Telefon_Alt_PD2], 
+    [VwDashboardProspect].[Email_Alt_PD2] AS [Email_Alt_PD2], 
+    [VwDashboardProspect].[Persoana_Decizie_PD3] AS [Persoana_Decizie_PD3], 
+    [VwDashboardProspect].[Telefon_PD3] AS [Telefon_PD3], 
+    [VwDashboardProspect].[Email_PD3] AS [Email_PD3], 
+    [VwDashboardProspect].[Persoana_Decizie_Nume_PD3] AS [Persoana_Decizie_Nume_PD3], 
+    [VwDashboardProspect].[Persoana_Decizie_Prenume_PD3] AS [Persoana_Decizie_Prenume_PD3], 
+    [VwDashboardProspect].[Persoana_Decizie_Nume_Alt_PD3] AS [Persoana_Decizie_Nume_Alt_PD3], 
+    [VwDashboardProspect].[Persoana_Decizie_Prenume_Alt_PD3] AS [Persoana_Decizie_Prenume_Alt_PD3], 
+    [VwDashboardProspect].[Persoana_Decizie_Sex_PD3] AS [Persoana_Decizie_Sex_PD3], 
+    [VwDashboardProspect].[Persoana_Decizie_Functie_PD3] AS [Persoana_Decizie_Functie_PD3], 
+    [VwDashboardProspect].[Telefon_Alt_PD3] AS [Telefon_Alt_PD3], 
+    [VwDashboardProspect].[Email_Alt_PD3] AS [Email_Alt_PD3], 
+    [VwDashboardProspect].[Comentariu_Date_Contact_1] AS [Comentariu_Date_Contact_1], 
+    [VwDashboardProspect].[Comentariu_Date_Contact_2] AS [Comentariu_Date_Contact_2], 
+    [VwDashboardProspect].[Comentariu_Date_Contact_3] AS [Comentariu_Date_Contact_3], 
+    [VwDashboardProspect].[Id_User_ContactPlus] AS [Id_User_ContactPlus], 
+    [VwDashboardProspect].[Data_Intro_ContactPlus] AS [Data_Intro_ContactPlus], 
+    [VwDashboardProspect].[Data_Modif_ContactPlus] AS [Data_Modif_ContactPlus], 
+    [VwDashboardProspect].[Id_ProfilPlus] AS [Id_ProfilPlus], 
+    [VwDashboardProspect].[Id_Prospect_ProfilPlus] AS [Id_Prospect_ProfilPlus], 
+    [VwDashboardProspect].[Aprobare_GDPR] AS [Aprobare_GDPR], 
+    [VwDashboardProspect].[Detalii_GDPR] AS [Detalii_GDPR], 
+    [VwDashboardProspect].[Referinta_GDPR] AS [Referinta_GDPR], 
+    [VwDashboardProspect].[Posibilitate_Montaj] AS [Posibilitate_Montaj], 
+    [VwDashboardProspect].[Detalii_Tip_Montaj] AS [Detalii_Tip_Montaj], 
+    [VwDashboardProspect].[Referinta_Montaj] AS [Referinta_Montaj], 
+    [VwDashboardProspect].[Prospect_Activ] AS [Prospect_Activ], 
+    [VwDashboardProspect].[Status_Prospect] AS [Status_Prospect], 
+    [VwDashboardProspect].[Cod_Status_Prospect] AS [Cod_Status_Prospect], 
+    [VwDashboardProspect].[Comentariu_Prospect] AS [Comentariu_Prospect], 
+    [VwDashboardProspect].[Z_Bit_Field] AS [Z_Bit_Field], 
+    [VwDashboardProspect].[Z_Int_Field] AS [Z_Int_Field], 
+    [VwDashboardProspect].[Z_String_Field] AS [Z_String_Field], 
+    [VwDashboardProspect].[Z_Text_Field] AS [Z_Text_Field], 
+    [VwDashboardProspect].[User_Alocat] AS [User_Alocat], 
+    [VwDashboardProspect].[Data_Alocare] AS [Data_Alocare], 
+    [VwDashboardProspect].[Id_User_ProfilPlus] AS [Id_User_ProfilPlus], 
+    [VwDashboardProspect].[Data_Intro_ProfilPlus] AS [Data_Intro_ProfilPlus], 
+    [VwDashboardProspect].[Data_Modif_ProfilPlus] AS [Data_Modif_ProfilPlus], 
+    [VwDashboardProspect].[Id_Pasi] AS [Id_Pasi], 
+    [VwDashboardProspect].[Id_Prospect_Pasi] AS [Id_Prospect_Pasi], 
+    [VwDashboardProspect].[Nume_Pas] AS [Nume_Pas], 
+    [VwDashboardProspect].[Cod_Nume_Pas] AS [Cod_Nume_Pas], 
+    [VwDashboardProspect].[Data_Scadenta_Pas] AS [Data_Scadenta_Pas], 
+    [VwDashboardProspect].[Stare_Pas] AS [Stare_Pas], 
+    [VwDashboardProspect].[Cod_Stare_Pas] AS [Cod_Stare_Pas], 
+    [VwDashboardProspect].[Index_Efectuare_Pas] AS [Index_Efectuare_Pas], 
+    [VwDashboardProspect].[Index_Neefectuare_Pas] AS [Index_Neefectuare_Pas], 
+    [VwDashboardProspect].[Index_Reprogramare_Pas] AS [Index_Reprogramare_Pas], 
+    [VwDashboardProspect].[Pas_Activ] AS [Pas_Activ], 
+    [VwDashboardProspect].[Ora_Pas] AS [Ora_Pas], 
+    [VwDashboardProspect].[Durata_Pas] AS [Durata_Pas], 
+    [VwDashboardProspect].[Grad_Realizare_Pas] AS [Grad_Realizare_Pas], 
+    [VwDashboardProspect].[Prioritate_Pas] AS [Prioritate_Pas], 
+    [VwDashboardProspect].[Raspuns_Pas] AS [Raspuns_Pas], 
+    [VwDashboardProspect].[Referinta_Raspuns_Pas] AS [Referinta_Raspuns_Pas], 
+    [VwDashboardProspect].[Cod_Raspuns_Pas] AS [Cod_Raspuns_Pas], 
+    [VwDashboardProspect].[Detalii_Raspuns_Pas] AS [Detalii_Raspuns_Pas], 
+    [VwDashboardProspect].[Nivel_Financiar_Subiect] AS [Nivel_Financiar_Subiect], 
+    [VwDashboardProspect].[Timp_Afectat_Subiect_Pas] AS [Timp_Afectat_Subiect_Pas], 
+    [VwDashboardProspect].[Obstacol_Pas] AS [Obstacol_Pas], 
+    [VwDashboardProspect].[Cod_Obstacol_Pas] AS [Cod_Obstacol_Pas], 
+    [VwDashboardProspect].[Comentariu_Obstacol_Pas] AS [Comentariu_Obstacol_Pas], 
+    [VwDashboardProspect].[Comentariu_Automat_Pas] AS [Comentariu_Automat_Pas], 
+    [VwDashboardProspect].[Info_Tipuri_Produse_Cautate] AS [Info_Tipuri_Produse_Cautate], 
+    [VwDashboardProspect].[Info_Detalii_Produse_Cautate] AS [Info_Detalii_Produse_Cautate], 
+    [VwDashboardProspect].[Info_Furnizori] AS [Info_Furnizori], 
+    [VwDashboardProspect].[Info_Furnizor_Principal] AS [Info_Furnizor_Principal], 
+    [VwDashboardProspect].[Info_Detalii_Furnizori] AS [Info_Detalii_Furnizori], 
+    [VwDashboardProspect].[Info_Tip_Motivatii] AS [Info_Tip_Motivatii], 
+    [VwDashboardProspect].[Info_Detalii_Motivatii] AS [Info_Detalii_Motivatii], 
+    [VwDashboardProspect].[Info_Alte_Info] AS [Info_Alte_Info], 
+    [VwDashboardProspect].[Conexe_Subiect] AS [Conexe_Subiect], 
+    [VwDashboardProspect].[Referinta_Conexe_Subiect] AS [Referinta_Conexe_Subiect], 
+    [VwDashboardProspect].[Cod_Conexe_Subiect] AS [Cod_Conexe_Subiect], 
+    [VwDashboardProspect].[Detalii_Conexe_Subiect] AS [Detalii_Conexe_Subiect], 
+    [VwDashboardProspect].[Id_User_Pasi] AS [Id_User_Pasi], 
+    [VwDashboardProspect].[Data_Intro_Pasi] AS [Data_Intro_Pasi], 
+    [VwDashboardProspect].[Data_Modif_Pasi] AS [Data_Modif_Pasi]
+    FROM [dbo].[VwDashboardProspect] AS [VwDashboardProspect]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Prospecte_ContactPlus_Prospecte_Profil" Association="Self.FK_Prospecte_ContactPlus_Prospecte_Profil">
+            <End Role="Prospecte_Profil" EntitySet="Prospecte_Profil" />
+            <End Role="Prospecte_ContactPlus" EntitySet="Prospecte_ContactPlus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prospecte_Pasi_Urmatori_Prospecte_Profil" Association="Self.FK_Prospecte_Pasi_Urmatori_Prospecte_Profil">
+            <End Role="Prospecte_Profil" EntitySet="Prospecte_Profil" />
+            <End Role="Prospecte_Pasi_Urmatori" EntitySet="Prospecte_Pasi_Urmatori" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prospecte_ProfilPlus_Prospecte_Profil" Association="Self.FK_Prospecte_ProfilPlus_Prospecte_Profil">
+            <End Role="Prospecte_Profil" EntitySet="Prospecte_Profil" />
+            <End Role="Prospecte_ProfilPlus" EntitySet="Prospecte_ProfilPlus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubTipuri_Activitati_SubTipuri_Activitati" Association="Self.FK_SubTipuri_Activitati_SubTipuri_Activitati">
+            <End Role="Predef_Tipuri_Activitati" EntitySet="Predef_Tipuri_Activitati" />
+            <End Role="Predef_SubTipuri_Activitati" EntitySet="Predef_SubTipuri_Activitati" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Db_CRM_Prospectare_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Prospecte_Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Prospect" Type="Int32" Nullable="false" />
+          <Property Name="Persoana_Decizie" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Regiune_Reper" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa_Text" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Postal" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Web_Site" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa_Numar" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa_Strada" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa_Oras" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa_Unitate_Regionala" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa_SubUnitate_Regionala" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Nume" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Prenume" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Nume_Alt" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Prenume_Alt" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Sex" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Functie" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon_Alt" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Email_Alt" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Id_User" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Intro" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_Modif" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Prospecte_ContactPlus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Prospect" Type="Int32" Nullable="false" />
+          <Property Name="Telefon_Secretariat_1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon_Secretariat_2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon_Secretariat_3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email_Office" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_PD2" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon_PD2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email_PD2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Nume_PD2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Prenume_PD2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Nume_Alt_PD2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Prenume_Alt_PD2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Sex_PD2" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Functie_PD2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon_Alt_PD2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Email_Alt_PD2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_PD3" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon_PD3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email_PD3" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Nume_PD3" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Prenume_PD3" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Nume_Alt_PD3" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Prenume_Alt_PD3" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Sex_PD3" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Functie_PD3" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon_Alt_PD3" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Email_Alt_PD3" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Comentariu_Date_Contact_1" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Comentariu_Date_Contact_2" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Comentariu_Date_Contact_3" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Id_User" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Intro" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_Modif" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Prospecte_Profil" Relationship="Self.FK_Prospecte_ContactPlus_Prospecte_Profil" FromRole="Prospecte_ContactPlus" ToRole="Prospecte_Profil" />
+        </EntityType>
+        <EntityType Name="Prospecte_Pasi_Urmatori">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Prospect" Type="Int32" Nullable="false" />
+          <Property Name="Nume_Pas" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Nume_Pas" Type="Int32" />
+          <Property Name="Data_Scadenta_Pas" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Stare_Pas" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Stare_Pas" Type="Int32" />
+          <Property Name="Index_Efectuare_Pas" Type="Int32" />
+          <Property Name="Index_Neefectuare_Pas" Type="Int32" />
+          <Property Name="Index_Reprogramare_Pas" Type="Int32" />
+          <Property Name="Pas_Activ" Type="Boolean" />
+          <Property Name="Ora_Pas" Type="Byte" />
+          <Property Name="Durata_Pas" Type="Byte" />
+          <Property Name="Grad_Realizare_Pas" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Prioritate_Pas" Type="Byte" />
+          <Property Name="Raspuns_Pas" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Referinta_Raspuns_Pas" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Raspuns_Pas" Type="Int32" />
+          <Property Name="Detalii_Raspuns_Pas" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Nivel_Financiar_Subiect" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Timp_Afectat_Subiect_Pas" Type="Int32" />
+          <Property Name="Obstacol_Pas" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Obstacol_Pas" Type="Int32" />
+          <Property Name="Comentariu_Obstacol_Pas" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Comentariu_Automat_Pas" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Info_Tipuri_Produse_Cautate" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Info_Detalii_Produse_Cautate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Info_Furnizori" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Info_Furnizor_Principal" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Info_Detalii_Furnizori" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Info_Tip_Motivatii" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Info_Detalii_Motivatii" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Info_Alte_Info" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Conexe_Subiect" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Referinta_Conexe_Subiect" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Conexe_Subiect" Type="Int32" />
+          <Property Name="Detalii_Conexe_Subiect" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Id_User" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Intro" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_Modif" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Prospecte_Profil" Relationship="Self.FK_Prospecte_Pasi_Urmatori_Prospecte_Profil" FromRole="Prospecte_Pasi_Urmatori" ToRole="Prospecte_Profil" />
+        </EntityType>
+        <EntityType Name="Prospecte_Profil">
+          <Key>
+            <PropertyRef Name="Id_Prospect" />
+          </Key>
+          <Property Name="Id_Prospect" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tip_Prospect_PF_PJ" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Nume_Prospect" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Prospect" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Tara" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Domeniu" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Domeniu" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="CA_Ultimul_An" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Nr_Angajati" Type="Int32" />
+          <Property Name="Sursa_Info_Prospect" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Sursa_Info_Prospect_Alt" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Id_User" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Intro" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_Modif" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Prospecte_ContactPlus" Relationship="Self.FK_Prospecte_ContactPlus_Prospecte_Profil" FromRole="Prospecte_Profil" ToRole="Prospecte_ContactPlus" />
+          <NavigationProperty Name="Prospecte_Pasi_Urmatori" Relationship="Self.FK_Prospecte_Pasi_Urmatori_Prospecte_Profil" FromRole="Prospecte_Profil" ToRole="Prospecte_Pasi_Urmatori" />
+          <NavigationProperty Name="Prospecte_ProfilPlus" Relationship="Self.FK_Prospecte_ProfilPlus_Prospecte_Profil" FromRole="Prospecte_Profil" ToRole="Prospecte_ProfilPlus" />
+        </EntityType>
+        <EntityType Name="Prospecte_ProfilPlus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Prospect" Type="Int32" Nullable="false" />
+          <Property Name="Aprobare_GDPR" Type="Boolean" />
+          <Property Name="Detalii_GDPR" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Referinta_GDPR" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Posibilitate_Montaj" Type="Boolean" />
+          <Property Name="Detalii_Tip_Montaj" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Referinta_Montaj" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Prospect_Activ" Type="Boolean" />
+          <Property Name="Status_Prospect" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Status_Prospect" Type="Int32" />
+          <Property Name="Comentariu_Prospect" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Z_Bit_Field" Type="Boolean" />
+          <Property Name="Z_Int_Field" Type="Int32" />
+          <Property Name="Z_String_Field" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Z_Text_Field" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="User_Alocat" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Alocare" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Id_User" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Intro" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_Modif" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Prospecte_Profil" Relationship="Self.FK_Prospecte_ProfilPlus_Prospecte_Profil" FromRole="Prospecte_ProfilPlus" ToRole="Prospecte_Profil" />
+        </EntityType>
+        <EntityType Name="VwDashboardProspect">
+          <Key>
+            <PropertyRef Name="Id_Prospect" />
+            <PropertyRef Name="Data_Intro_Profil" />
+            <PropertyRef Name="Data_Modif_Profil" />
+          </Key>
+          <Property Name="Id_Vw" Type="Int64" />
+          <Property Name="Id_Prospect" Type="Int32" Nullable="false" />
+          <Property Name="Tip_Prospect_PF_PJ" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Nume_Prospect" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Prospect" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Tara" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Domeniu" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Domeniu" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="CA_Ultimul_An" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Nr_Angajati" Type="Int32" />
+          <Property Name="Sursa_Info_Prospect" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Sursa_Info_Prospect_Alt" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Id_User_Profil" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Intro_Profil" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_Modif_Profil" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Id" Type="Int32" />
+          <Property Name="Id_Prospect_Contact" Type="Int32" />
+          <Property Name="Persoana_Decizie" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Regiune_Reper" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa_Text" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Postal" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Web_Site" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa_Numar" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa_Strada" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa_Oras" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa_Unitate_Regionala" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Adresa_SubUnitate_Regionala" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Nume" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Prenume" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Nume_Alt" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Prenume_Alt" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Sex" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Functie" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon_Alt" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Email_Alt" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Id_User_Contact" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Intro_Contact" Type="DateTime" Precision="0" />
+          <Property Name="Data_Modif_Contact" Type="DateTime" Precision="3" />
+          <Property Name="Id_ContactPlus" Type="Int32" />
+          <Property Name="Id_Prospect_ContactPlus" Type="Int32" />
+          <Property Name="Telefon_Secretariat_1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon_Secretariat_2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon_Secretariat_3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email_Office" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_PD2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon_PD2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email_PD2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Nume_PD2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Prenume_PD2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Nume_Alt_PD2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Prenume_Alt_PD2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Sex_PD2" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Functie_PD2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon_Alt_PD2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Email_Alt_PD2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_PD3" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon_PD3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email_PD3" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Nume_PD3" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Prenume_PD3" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Nume_Alt_PD3" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Prenume_Alt_PD3" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Sex_PD3" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Persoana_Decizie_Functie_PD3" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon_Alt_PD3" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Email_Alt_PD3" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Comentariu_Date_Contact_1" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Comentariu_Date_Contact_2" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Comentariu_Date_Contact_3" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Id_User_ContactPlus" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Intro_ContactPlus" Type="DateTime" Precision="0" />
+          <Property Name="Data_Modif_ContactPlus" Type="DateTime" Precision="3" />
+          <Property Name="Id_ProfilPlus" Type="Int32" />
+          <Property Name="Id_Prospect_ProfilPlus" Type="Int32" />
+          <Property Name="Aprobare_GDPR" Type="Boolean" />
+          <Property Name="Detalii_GDPR" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Referinta_GDPR" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Posibilitate_Montaj" Type="Boolean" />
+          <Property Name="Detalii_Tip_Montaj" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Referinta_Montaj" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Prospect_Activ" Type="Boolean" />
+          <Property Name="Status_Prospect" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Status_Prospect" Type="Int32" />
+          <Property Name="Comentariu_Prospect" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Z_Bit_Field" Type="Boolean" />
+          <Property Name="Z_Int_Field" Type="Int32" />
+          <Property Name="Z_String_Field" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Z_Text_Field" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="User_Alocat" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Alocare" Type="DateTime" Precision="0" />
+          <Property Name="Id_User_ProfilPlus" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Intro_ProfilPlus" Type="DateTime" Precision="0" />
+          <Property Name="Data_Modif_ProfilPlus" Type="DateTime" Precision="3" />
+          <Property Name="Id_Pasi" Type="Int32" />
+          <Property Name="Id_Prospect_Pasi" Type="Int32" />
+          <Property Name="Nume_Pas" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Nume_Pas" Type="Int32" />
+          <Property Name="Data_Scadenta_Pas" Type="DateTime" Precision="0" />
+          <Property Name="Stare_Pas" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Stare_Pas" Type="Int32" />
+          <Property Name="Index_Efectuare_Pas" Type="Int32" />
+          <Property Name="Index_Neefectuare_Pas" Type="Int32" />
+          <Property Name="Index_Reprogramare_Pas" Type="Int32" />
+          <Property Name="Pas_Activ" Type="Boolean" />
+          <Property Name="Ora_Pas" Type="Byte" />
+          <Property Name="Durata_Pas" Type="Byte" />
+          <Property Name="Grad_Realizare_Pas" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Prioritate_Pas" Type="Byte" />
+          <Property Name="Raspuns_Pas" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Referinta_Raspuns_Pas" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Raspuns_Pas" Type="Int32" />
+          <Property Name="Detalii_Raspuns_Pas" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Nivel_Financiar_Subiect" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Timp_Afectat_Subiect_Pas" Type="Int32" />
+          <Property Name="Obstacol_Pas" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Obstacol_Pas" Type="Int32" />
+          <Property Name="Comentariu_Obstacol_Pas" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Comentariu_Automat_Pas" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Info_Tipuri_Produse_Cautate" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Info_Detalii_Produse_Cautate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Info_Furnizori" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Info_Furnizor_Principal" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Info_Detalii_Furnizori" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Info_Tip_Motivatii" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Info_Detalii_Motivatii" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Info_Alte_Info" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Conexe_Subiect" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Referinta_Conexe_Subiect" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Conexe_Subiect" Type="Int32" />
+          <Property Name="Detalii_Conexe_Subiect" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Id_User_Pasi" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Intro_Pasi" Type="DateTime" Precision="0" />
+          <Property Name="Data_Modif_Pasi" Type="DateTime" Precision="3" />
+        </EntityType>
+        <Association Name="FK_Prospecte_ContactPlus_Prospecte_Profil">
+          <End Role="Prospecte_Profil" Type="Self.Prospecte_Profil" Multiplicity="1" />
+          <End Role="Prospecte_ContactPlus" Type="Self.Prospecte_ContactPlus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prospecte_Profil">
+              <PropertyRef Name="Id_Prospect" />
+            </Principal>
+            <Dependent Role="Prospecte_ContactPlus">
+              <PropertyRef Name="Id_Prospect" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prospecte_Pasi_Urmatori_Prospecte_Profil">
+          <End Role="Prospecte_Profil" Type="Self.Prospecte_Profil" Multiplicity="1" />
+          <End Role="Prospecte_Pasi_Urmatori" Type="Self.Prospecte_Pasi_Urmatori" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prospecte_Profil">
+              <PropertyRef Name="Id_Prospect" />
+            </Principal>
+            <Dependent Role="Prospecte_Pasi_Urmatori">
+              <PropertyRef Name="Id_Prospect" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prospecte_ProfilPlus_Prospecte_Profil">
+          <End Role="Prospecte_Profil" Type="Self.Prospecte_Profil" Multiplicity="1" />
+          <End Role="Prospecte_ProfilPlus" Type="Self.Prospecte_ProfilPlus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prospecte_Profil">
+              <PropertyRef Name="Id_Prospect" />
+            </Principal>
+            <Dependent Role="Prospecte_ProfilPlus">
+              <PropertyRef Name="Id_Prospect" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CRM_Prospectare_Context" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Prospecte_Contact" EntityType="Self.Prospecte_Contact" />
+          <EntitySet Name="Prospecte_ContactPlus" EntityType="Self.Prospecte_ContactPlus" />
+          <EntitySet Name="Prospecte_Pasi_Urmatori" EntityType="Self.Prospecte_Pasi_Urmatori" />
+          <EntitySet Name="Prospecte_Profil" EntityType="Self.Prospecte_Profil" />
+          <EntitySet Name="Prospecte_ProfilPlus" EntityType="Self.Prospecte_ProfilPlus" />
+          <EntitySet Name="VwDashboardProspects" EntityType="Self.VwDashboardProspect" />
+          <AssociationSet Name="FK_Prospecte_ContactPlus_Prospecte_Profil" Association="Self.FK_Prospecte_ContactPlus_Prospecte_Profil">
+            <End Role="Prospecte_Profil" EntitySet="Prospecte_Profil" />
+            <End Role="Prospecte_ContactPlus" EntitySet="Prospecte_ContactPlus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prospecte_Pasi_Urmatori_Prospecte_Profil" Association="Self.FK_Prospecte_Pasi_Urmatori_Prospecte_Profil">
+            <End Role="Prospecte_Profil" EntitySet="Prospecte_Profil" />
+            <End Role="Prospecte_Pasi_Urmatori" EntitySet="Prospecte_Pasi_Urmatori" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prospecte_ProfilPlus_Prospecte_Profil" Association="Self.FK_Prospecte_ProfilPlus_Prospecte_Profil">
+            <End Role="Prospecte_Profil" EntitySet="Prospecte_Profil" />
+            <End Role="Prospecte_ProfilPlus" EntitySet="Prospecte_ProfilPlus" />
+          </AssociationSet>
+          <FunctionImport Name="spAdaugaPasUrmator">
+            <Parameter Name="Id_Prospect" Mode="In" Type="Int32" />
+            <Parameter Name="Nume_Pas" Mode="In" Type="String" />
+            <Parameter Name="Cod_Nume_Pas" Mode="In" Type="Int32" />
+            <Parameter Name="Data_Scadenta_Pas" Mode="In" Type="DateTime" />
+            <Parameter Name="Stare_Pas" Mode="In" Type="String" />
+            <Parameter Name="Cod_Stare_Pas" Mode="In" Type="Int32" />
+            <Parameter Name="Index_Efectuare_Pas" Mode="In" Type="Int32" />
+            <Parameter Name="Index_Neefectuare_Pas" Mode="In" Type="Int32" />
+            <Parameter Name="Index_Reprogramare_Pas" Mode="In" Type="Int32" />
+            <Parameter Name="Pas_Activ" Mode="In" Type="Boolean" />
+            <Parameter Name="Ora_Pas" Mode="In" Type="Byte" />
+            <Parameter Name="Durata_Pas" Mode="In" Type="Byte" />
+            <Parameter Name="Grad_Realizare_Pas" Mode="In" Type="Decimal" />
+            <Parameter Name="Prioritate_Pas" Mode="In" Type="Byte" />
+            <Parameter Name="Raspuns_Pas" Mode="In" Type="String" />
+            <Parameter Name="Referinta_Raspuns_Pas" Mode="In" Type="String" />
+            <Parameter Name="Cod_Raspuns_Pas" Mode="In" Type="Int32" />
+            <Parameter Name="Detalii_Raspuns_Pas" Mode="In" Type="String" />
+            <Parameter Name="Nivel_Financiar_Subiect" Mode="In" Type="Decimal" />
+            <Parameter Name="Timp_Afectat_Subiect_Pas" Mode="In" Type="Int32" />
+            <Parameter Name="Obstacol_Pas" Mode="In" Type="String" />
+            <Parameter Name="Cod_Obstacol_Pas" Mode="In" Type="Int32" />
+            <Parameter Name="Comentariu_Obstacol_Pas" Mode="In" Type="String" />
+            <Parameter Name="Comentariu_Automat_Pas" Mode="In" Type="String" />
+            <Parameter Name="Info_Tipuri_Produse_Cautate" Mode="In" Type="String" />
+            <Parameter Name="Info_Detalii_Produse_Cautate" Mode="In" Type="String" />
+            <Parameter Name="Info_Furnizori" Mode="In" Type="String" />
+            <Parameter Name="Info_Furnizor_Principal" Mode="In" Type="String" />
+            <Parameter Name="Info_Detalii_Furnizori" Mode="In" Type="String" />
+            <Parameter Name="Info_Tip_Motivatii" Mode="In" Type="String" />
+            <Parameter Name="Info_Detalii_Motivatii" Mode="In" Type="String" />
+            <Parameter Name="Info_Alte_Info" Mode="In" Type="String" />
+            <Parameter Name="Conexe_Subiect" Mode="In" Type="String" />
+            <Parameter Name="Referinta_Conexe_Subiect" Mode="In" Type="String" />
+            <Parameter Name="Cod_Conexe_Subiect" Mode="In" Type="Int32" />
+            <Parameter Name="Detalii_Conexe_Subiect" Mode="In" Type="String" />
+            <Parameter Name="Id_User" Mode="In" Type="String" />
+            <Parameter Name="Data_Intro" Mode="In" Type="DateTime" />
+            <Parameter Name="Data_Modif" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spAdaugaProspectProfil">
+            <Parameter Name="Tip_Prospect_PF_PJ" Mode="In" Type="String" />
+            <Parameter Name="Nume_Prospect" Mode="In" Type="String" />
+            <Parameter Name="Cod_Prospect" Mode="In" Type="String" />
+            <Parameter Name="Tara" Mode="In" Type="String" />
+            <Parameter Name="Domeniu" Mode="In" Type="String" />
+            <Parameter Name="Cod_Domeniu" Mode="In" Type="String" />
+            <Parameter Name="CA_Ultimul_An" Mode="In" Type="Int32" />
+            <Parameter Name="Nr_Angajati" Mode="In" Type="Int32" />
+            <Parameter Name="Sursa_Info_Prospect" Mode="In" Type="String" />
+            <Parameter Name="Sursa_Info_Prospect_Alt" Mode="In" Type="String" />
+            <Parameter Name="Id_User" Mode="In" Type="String" />
+            <Parameter Name="Data_Intro" Mode="In" Type="DateTime" />
+            <Parameter Name="Data_Modif" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spEditeazaDataScadentaPasi">
+            <Parameter Name="IDparam" Mode="In" Type="Int32" />
+            <Parameter Name="Data_Scadenta_Pas" Mode="In" Type="DateTime" />
+            <Parameter Name="Ora_Pas" Mode="In" Type="Byte" />
+            <Parameter Name="Durata_Pas" Mode="In" Type="Byte" />
+            <Parameter Name="Id_User" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spEditeazaDinamicCampProspect">
+            <Parameter Name="IdName" Mode="In" Type="String" />
+            <Parameter Name="IdValue" Mode="In" Type="Int32" />
+            <Parameter Name="TypeField" Mode="In" Type="String" />
+            <Parameter Name="FieldName" Mode="In" Type="String" />
+            <Parameter Name="FieldValue" Mode="In" Type="String" />
+            <Parameter Name="FieldFileName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spEditeazaProspectAdresa">
+            <Parameter Name="IDparam" Mode="In" Type="Int32" />
+            <Parameter Name="Regiune_Reper" Mode="In" Type="String" />
+            <Parameter Name="Cod_Postal" Mode="In" Type="String" />
+            <Parameter Name="Adresa_Numar" Mode="In" Type="String" />
+            <Parameter Name="Adresa_Strada" Mode="In" Type="String" />
+            <Parameter Name="Adresa_Oras" Mode="In" Type="String" />
+            <Parameter Name="Adresa_Unitate_Regionala" Mode="In" Type="String" />
+            <Parameter Name="Adresa_SubUnitate_Regionala" Mode="In" Type="String" />
+            <Parameter Name="Id_User" Mode="In" Type="String" />
+            <Parameter Name="Data_Intro" Mode="In" Type="DateTime" />
+            <Parameter Name="Data_Modif" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spEditeazaProspectPasi">
+            <Parameter Name="IDparam" Mode="In" Type="Int32" />
+            <Parameter Name="Id_Prospect" Mode="In" Type="Int32" />
+            <Parameter Name="Nume_Pas" Mode="In" Type="String" />
+            <Parameter Name="Cod_Nume_Pas" Mode="In" Type="Int32" />
+            <Parameter Name="Data_Scadenta_Pas" Mode="In" Type="DateTime" />
+            <Parameter Name="Stare_Pas" Mode="In" Type="String" />
+            <Parameter Name="Cod_Stare_Pas" Mode="In" Type="Int32" />
+            <Parameter Name="Index_Efectuare_Pas" Mode="In" Type="Int32" />
+            <Parameter Name="Index_Neefectuare_Pas" Mode="In" Type="Int32" />
+            <Parameter Name="Index_Reprogramare_Pas" Mode="In" Type="Int32" />
+            <Parameter Name="Pas_Activ" Mode="In" Type="Boolean" />
+            <Parameter Name="Ora_Pas" Mode="In" Type="Byte" />
+            <Parameter Name="Durata_Pas" Mode="In" Type="Byte" />
+            <Parameter Name="Grad_Realizare_Pas" Mode="In" Type="Decimal" />
+            <Parameter Name="Prioritate_Pas" Mode="In" Type="Byte" />
+            <Parameter Name="Raspuns_Pas" Mode="In" Type="String" />
+            <Parameter Name="Referinta_Raspuns_Pas" Mode="In" Type="String" />
+            <Parameter Name="Cod_Raspuns_Pas" Mode="In" Type="Int32" />
+            <Parameter Name="Detalii_Raspuns_Pas" Mode="In" Type="String" />
+            <Parameter Name="Nivel_Financiar_Subiect" Mode="In" Type="Decimal" />
+            <Parameter Name="Timp_Afectat_Subiect_Pas" Mode="In" Type="Int32" />
+            <Parameter Name="Obstacol_Pas" Mode="In" Type="String" />
+            <Parameter Name="Cod_Obstacol_Pas" Mode="In" Type="Int32" />
+            <Parameter Name="Comentariu_Obstacol_Pas" Mode="In" Type="String" />
+            <Parameter Name="Comentariu_Automat_Pas" Mode="In" Type="String" />
+            <Parameter Name="Info_Tipuri_Produse_Cautate" Mode="In" Type="String" />
+            <Parameter Name="Info_Detalii_Produse_Cautate" Mode="In" Type="String" />
+            <Parameter Name="Info_Furnizori" Mode="In" Type="String" />
+            <Parameter Name="Info_Furnizor_Principal" Mode="In" Type="String" />
+            <Parameter Name="Info_Detalii_Furnizori" Mode="In" Type="String" />
+            <Parameter Name="Info_Tip_Motivatii" Mode="In" Type="String" />
+            <Parameter Name="Info_Detalii_Motivatii" Mode="In" Type="String" />
+            <Parameter Name="Info_Alte_Info" Mode="In" Type="String" />
+            <Parameter Name="Conexe_Subiect" Mode="In" Type="String" />
+            <Parameter Name="Referinta_Conexe_Subiect" Mode="In" Type="String" />
+            <Parameter Name="Cod_Conexe_Subiect" Mode="In" Type="Int32" />
+            <Parameter Name="Detalii_Conexe_Subiect" Mode="In" Type="String" />
+            <Parameter Name="Id_User" Mode="In" Type="String" />
+            <Parameter Name="Data_Intro" Mode="In" Type="DateTime" />
+            <Parameter Name="Data_Modif" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spEditeazaProspectPD">
+            <Parameter Name="IDparam" Mode="In" Type="Int32" />
+            <Parameter Name="Persoana_Decizie_Nume" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Prenume" Mode="In" Type="String" />
+            <Parameter Name="Telefon" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Functie" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Sex" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Nume_Alt" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Prenume_Alt" Mode="In" Type="String" />
+            <Parameter Name="Telefon_Alt" Mode="In" Type="String" />
+            <Parameter Name="Email_Alt" Mode="In" Type="String" />
+            <Parameter Name="Comentariu_Date_Contact" Mode="In" Type="String" />
+            <Parameter Name="Id_User" Mode="In" Type="String" />
+            <Parameter Name="Data_Intro" Mode="In" Type="DateTime" />
+            <Parameter Name="Data_Modif" Mode="In" Type="DateTime" />
+            <Parameter Name="Telefon_Secretariat_1" Mode="In" Type="String" />
+            <Parameter Name="Telefon_Secretariat_2" Mode="In" Type="String" />
+            <Parameter Name="Telefon_Secretariat_3" Mode="In" Type="String" />
+            <Parameter Name="Email_Office" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_PD2" Mode="In" Type="String" />
+            <Parameter Name="Telefon_PD2" Mode="In" Type="String" />
+            <Parameter Name="Email_PD2" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Nume_PD2" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Prenume_PD2" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Nume_Alt_PD2" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Prenume_Alt_PD2" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Sex_PD2" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Functie_PD2" Mode="In" Type="String" />
+            <Parameter Name="Telefon_Alt_PD2" Mode="In" Type="String" />
+            <Parameter Name="Email_Alt_PD2" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_PD3" Mode="In" Type="String" />
+            <Parameter Name="Telefon_PD3" Mode="In" Type="String" />
+            <Parameter Name="Email_PD3" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Nume_PD3" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Prenume_PD3" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Nume_Alt_PD3" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Prenume_Alt_PD3" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Sex_PD3" Mode="In" Type="String" />
+            <Parameter Name="Persoana_Decizie_Functie_PD3" Mode="In" Type="String" />
+            <Parameter Name="Telefon_Alt_PD3" Mode="In" Type="String" />
+            <Parameter Name="Email_Alt_PD3" Mode="In" Type="String" />
+            <Parameter Name="Comentariu_Date_Contact_1" Mode="In" Type="String" />
+            <Parameter Name="Comentariu_Date_Contact_2" Mode="In" Type="String" />
+            <Parameter Name="Comentariu_Date_Contact_3" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spEditeazaProspectProfil">
+            <Parameter Name="IDparam" Mode="In" Type="Int32" />
+            <Parameter Name="Tip_Prospect_PF_PJ" Mode="In" Type="String" />
+            <Parameter Name="Nume_Prospect" Mode="In" Type="String" />
+            <Parameter Name="Cod_Prospect" Mode="In" Type="String" />
+            <Parameter Name="Tara" Mode="In" Type="String" />
+            <Parameter Name="Domeniu" Mode="In" Type="String" />
+            <Parameter Name="Cod_Domeniu" Mode="In" Type="String" />
+            <Parameter Name="CA_Ultimul_An" Mode="In" Type="Decimal" />
+            <Parameter Name="Nr_Angajati" Mode="In" Type="Int32" />
+            <Parameter Name="Sursa_Info_Prospect" Mode="In" Type="String" />
+            <Parameter Name="Sursa_Info_Prospect_Alt" Mode="In" Type="String" />
+            <Parameter Name="Id_User" Mode="In" Type="String" />
+            <Parameter Name="Data_Intro" Mode="In" Type="DateTime" />
+            <Parameter Name="Data_Modif" Mode="In" Type="DateTime" />
+            <Parameter Name="Aprobare_GDPR" Mode="In" Type="Boolean" />
+            <Parameter Name="Detalii_GDPR" Mode="In" Type="String" />
+            <Parameter Name="Referinta_GDPR" Mode="In" Type="String" />
+            <Parameter Name="Posibilitate_Montaj" Mode="In" Type="Boolean" />
+            <Parameter Name="Detalii_Tip_Montaj" Mode="In" Type="String" />
+            <Parameter Name="Referinta_Montaj" Mode="In" Type="String" />
+            <Parameter Name="Prospect_Activ" Mode="In" Type="Boolean" />
+            <Parameter Name="Status_Prospect" Mode="In" Type="String" />
+            <Parameter Name="Cod_Status_Prospect" Mode="In" Type="Int32" />
+            <Parameter Name="Comentariu_Prospect" Mode="In" Type="String" />
+            <Parameter Name="Z_Bit_Field" Mode="In" Type="Boolean" />
+            <Parameter Name="Z_Int_Field" Mode="In" Type="Int32" />
+            <Parameter Name="Z_String_Field" Mode="In" Type="String" />
+            <Parameter Name="Z_Text_Field" Mode="In" Type="String" />
+            <Parameter Name="User_Alocat" Mode="In" Type="String" />
+            <Parameter Name="Data_Alocare" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spSeteazaActivInactivPasi">
+            <Parameter Name="IDparam" Mode="In" Type="Int32" />
+            <Parameter Name="Id_Prospect" Mode="In" Type="Int32" />
+            <Parameter Name="Pas_Activ" Mode="In" Type="Boolean" />
+            <Parameter Name="Id_User" Mode="In" Type="String" />
+            <Parameter Name="Data_Modif" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spSeteazaActivInactivProspect">
+            <Parameter Name="IDparam" Mode="In" Type="Int32" />
+            <Parameter Name="Prospect_Activ" Mode="In" Type="Boolean" />
+            <Parameter Name="Id_User" Mode="In" Type="String" />
+            <Parameter Name="Data_Modif" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spStergeProspectID">
+          <Parameter Name="IDparam" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spTransferProspect">
+            <Parameter Name="TipTransfer" Mode="In" Type="String" />
+            <Parameter Name="IDparam" Mode="In" Type="Int32" />
+            <Parameter Name="Id_User" Mode="In" Type="String" />
+            <Parameter Name="User_Alocat" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spAdaugaActivitateCurenta">
+            <Parameter Name="Nume_Activitate" Mode="In" Type="String" />
+            <Parameter Name="Cod_Activitate" Mode="In" Type="Int32" />
+            <Parameter Name="Detalii_Tip_Activitate" Mode="In" Type="String" />
+            <Parameter Name="Subiect_Activitate" Mode="In" Type="String" />
+            <Parameter Name="Referinta_Subiect" Mode="In" Type="String" />
+            <Parameter Name="Cod_Subiect" Mode="In" Type="Int32" />
+            <Parameter Name="Detalii_Subiect" Mode="In" Type="String" />
+            <Parameter Name="Nivel_Financiar_Subiect" Mode="In" Type="Decimal" />
+            <Parameter Name="Timp_Afectat_Subiect" Mode="In" Type="Byte" />
+            <Parameter Name="Data_Scadenta" Mode="In" Type="DateTime" />
+            <Parameter Name="Ora_Activitate" Mode="In" Type="Byte" />
+            <Parameter Name="Durata_Activitate" Mode="In" Type="Byte" />
+            <Parameter Name="Grad_Realizare" Mode="In" Type="Decimal" />
+            <Parameter Name="Prioritate_Activitate" Mode="In" Type="Byte" />
+            <Parameter Name="Stare_Activitate" Mode="In" Type="String" />
+            <Parameter Name="Cod_Stare_Activitate" Mode="In" Type="Int32" />
+            <Parameter Name="Comentariu_Activitate" Mode="In" Type="String" />
+            <Parameter Name="Index_Reprogramare_Activitate" Mode="In" Type="Int32" />
+            <Parameter Name="Index_Amanare_Activitate" Mode="In" Type="Int32" />
+            <Parameter Name="Activitate_Activa" Mode="In" Type="Boolean" />
+            <Parameter Name="Z_Bit_Field" Mode="In" Type="Boolean" />
+            <Parameter Name="Z_Int_Field" Mode="In" Type="Int32" />
+            <Parameter Name="Z_String_Field" Mode="In" Type="String" />
+            <Parameter Name="Z_Text_Field" Mode="In" Type="String" />
+            <Parameter Name="User_Alocat" Mode="In" Type="String" />
+            <Parameter Name="Data_Alocare" Mode="In" Type="DateTime" />
+            <Parameter Name="Id_User" Mode="In" Type="String" />
+            <Parameter Name="Data_Intro" Mode="In" Type="DateTime" />
+            <Parameter Name="Data_Modif" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spEditeazaActivitateCurenta">
+            <Parameter Name="IDparam" Mode="In" Type="Int32" />
+            <Parameter Name="Nume_Activitate" Mode="In" Type="String" />
+            <Parameter Name="Cod_Activitate" Mode="In" Type="Int32" />
+            <Parameter Name="Detalii_Tip_Activitate" Mode="In" Type="String" />
+            <Parameter Name="Subiect_Activitate" Mode="In" Type="String" />
+            <Parameter Name="Referinta_Subiect" Mode="In" Type="String" />
+            <Parameter Name="Cod_Subiect" Mode="In" Type="Int32" />
+            <Parameter Name="Detalii_Subiect" Mode="In" Type="String" />
+            <Parameter Name="Nivel_Financiar_Subiect" Mode="In" Type="Decimal" />
+            <Parameter Name="Timp_Afectat_Subiect" Mode="In" Type="Byte" />
+            <Parameter Name="Data_Scadenta" Mode="In" Type="DateTime" />
+            <Parameter Name="Ora_Activitate" Mode="In" Type="Byte" />
+            <Parameter Name="Durata_Activitate" Mode="In" Type="Byte" />
+            <Parameter Name="Grad_Realizare" Mode="In" Type="Decimal" />
+            <Parameter Name="Prioritate_Activitate" Mode="In" Type="Byte" />
+            <Parameter Name="Stare_Activitate" Mode="In" Type="String" />
+            <Parameter Name="Cod_Stare_Activitate" Mode="In" Type="Int32" />
+            <Parameter Name="Comentariu_Activitate" Mode="In" Type="String" />
+            <Parameter Name="Index_Reprogramare_Activitate" Mode="In" Type="Int32" />
+            <Parameter Name="Index_Amanare_Activitate" Mode="In" Type="Int32" />
+            <Parameter Name="Activitate_Activa" Mode="In" Type="Boolean" />
+            <Parameter Name="Z_Bit_Field" Mode="In" Type="Boolean" />
+            <Parameter Name="Z_Int_Field" Mode="In" Type="Int32" />
+            <Parameter Name="Z_String_Field" Mode="In" Type="String" />
+            <Parameter Name="Z_Text_Field" Mode="In" Type="String" />
+            <Parameter Name="User_Alocat" Mode="In" Type="String" />
+            <Parameter Name="Data_Alocare" Mode="In" Type="DateTime" />
+            <Parameter Name="Id_User" Mode="In" Type="String" />
+            <Parameter Name="Data_Intro" Mode="In" Type="DateTime" />
+            <Parameter Name="Data_Modif" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spEditeazaDataScadentaActivitate">
+            <Parameter Name="IDparam" Mode="In" Type="Int32" />
+            <Parameter Name="Data_Scadenta" Mode="In" Type="DateTime" />
+            <Parameter Name="Ora_Activitate" Mode="In" Type="Byte" />
+            <Parameter Name="Durata_Activitate" Mode="In" Type="Byte" />
+            <Parameter Name="Id_User" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spEditeazaDinamicCampActivitate">
+            <Parameter Name="IdName" Mode="In" Type="String" />
+            <Parameter Name="IdValue" Mode="In" Type="Int32" />
+            <Parameter Name="TypeField" Mode="In" Type="String" />
+            <Parameter Name="FieldName" Mode="In" Type="String" />
+            <Parameter Name="FieldValue" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spSeteazaActivInactivActivitate">
+            <Parameter Name="IDparam" Mode="In" Type="Int32" />
+            <Parameter Name="Activitate_Activa" Mode="In" Type="Boolean" />
+            <Parameter Name="Id_User" Mode="In" Type="String" />
+            <Parameter Name="Data_Modif" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spStergeActivitateCurenta">
+          <Parameter Name="IDparam" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spTransferActivitate">
+            <Parameter Name="TipTransfer" Mode="In" Type="String" />
+            <Parameter Name="IDparam" Mode="In" Type="Int32" />
+            <Parameter Name="Id_User" Mode="In" Type="String" />
+            <Parameter Name="User_Alocat" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Predef_SubTipuri_Activitati" EntityType="Db_CRM_Prospectare_Model.Predef_SubTipuri_Activitati" />
+          <EntitySet Name="Predef_Tipuri_Activitati" EntityType="Db_CRM_Prospectare_Model.Predef_Tipuri_Activitati" />
+          <AssociationSet Name="FK_SubTipuri_Activitati_SubTipuri_Activitati" Association="Db_CRM_Prospectare_Model.FK_SubTipuri_Activitati_SubTipuri_Activitati">
+            <End Role="Predef_Tipuri_Activitati" EntitySet="Predef_Tipuri_Activitati" />
+            <End Role="Predef_SubTipuri_Activitati" EntitySet="Predef_SubTipuri_Activitati" />
+          </AssociationSet>
+          <EntitySet Name="Activitati_Curente" EntityType="Db_CRM_Prospectare_Model.Activitati_Curente" />
+          <EntitySet Name="Predef_Durate_Activitati" EntityType="Db_CRM_Prospectare_Model.Predef_Durate_Activitati" />
+        </EntityContainer>
+        <EntityType Name="Predef_SubTipuri_Activitati">
+          <Key>
+            <PropertyRef Name="Id_SubAct" />
+          </Key>
+          <Property Name="Id_SubAct" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Act" Type="Int32" />
+          <Property Name="Nume_SubAct" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Predef_Tipuri_Activitati" Relationship="Db_CRM_Prospectare_Model.FK_SubTipuri_Activitati_SubTipuri_Activitati" FromRole="Predef_SubTipuri_Activitati" ToRole="Predef_Tipuri_Activitati" />
+        </EntityType>
+        <EntityType Name="Predef_Tipuri_Activitati">
+          <Key>
+            <PropertyRef Name="Id_Act" />
+          </Key>
+          <Property Name="Id_Act" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nume_Act" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Predef_SubTipuri_Activitati" Relationship="Db_CRM_Prospectare_Model.FK_SubTipuri_Activitati_SubTipuri_Activitati" FromRole="Predef_Tipuri_Activitati" ToRole="Predef_SubTipuri_Activitati" />
+        </EntityType>
+        <Association Name="FK_SubTipuri_Activitati_SubTipuri_Activitati">
+          <End Type="Db_CRM_Prospectare_Model.Predef_Tipuri_Activitati" Role="Predef_Tipuri_Activitati" Multiplicity="0..1" />
+          <End Type="Db_CRM_Prospectare_Model.Predef_SubTipuri_Activitati" Role="Predef_SubTipuri_Activitati" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Predef_Tipuri_Activitati">
+              <PropertyRef Name="Id_Act" />
+            </Principal>
+            <Dependent Role="Predef_SubTipuri_Activitati">
+              <PropertyRef Name="Id_Act" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Activitati_Curente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nume_Activitate" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Activitate" Type="Int32" />
+          <Property Name="Detalii_Tip_Activitate" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Subiect_Activitate" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Referinta_Subiect" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Subiect" Type="Int32" />
+          <Property Name="Detalii_Subiect" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Nivel_Financiar_Subiect" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Timp_Afectat_Subiect" Type="Byte" />
+          <Property Name="Data_Scadenta" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Ora_Activitate" Type="Byte" />
+          <Property Name="Durata_Activitate" Type="Byte" />
+          <Property Name="Grad_Realizare" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Prioritate_Activitate" Type="Byte" />
+          <Property Name="Stare_Activitate" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Cod_Stare_Activitate" Type="Int32" />
+          <Property Name="Comentariu_Activitate" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Index_Reprogramare_Activitate" Type="Int32" />
+          <Property Name="Index_Amanare_Activitate" Type="Int32" />
+          <Property Name="Activitate_Activa" Type="Boolean" />
+          <Property Name="Z_Bit_Field" Type="Boolean" />
+          <Property Name="Z_Int_Field" Type="Int32" />
+          <Property Name="Z_String_Field" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Z_Text_Field" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="User_Alocat" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Alocare" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Id_User" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Intro" Type="DateTime" Precision="0" />
+          <Property Name="Data_Modif" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Predef_Durate_Activitati">
+          <Key>
+            <PropertyRef Name="Id_Durata" />
+          </Key>
+          <Property Name="Id_Durata" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Durata_Activitate" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Db_CRM_Prospectare_ModelStoreContainer" CdmEntityContainer="CRM_Prospectare_Context">
+          <EntitySetMapping Name="Prospecte_Contact">
+            <EntityTypeMapping TypeName="Db_CRM_Prospectare_Model.Prospecte_Contact">
+              <MappingFragment StoreEntitySet="Prospecte_Contact">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Prospect" ColumnName="Id_Prospect" />
+                <ScalarProperty Name="Persoana_Decizie" ColumnName="Persoana_Decizie" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Regiune_Reper" ColumnName="Regiune_Reper" />
+                <ScalarProperty Name="Adresa_Text" ColumnName="Adresa_Text" />
+                <ScalarProperty Name="Cod_Postal" ColumnName="Cod_Postal" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Web_Site" ColumnName="Web_Site" />
+                <ScalarProperty Name="Adresa_Numar" ColumnName="Adresa_Numar" />
+                <ScalarProperty Name="Adresa_Strada" ColumnName="Adresa_Strada" />
+                <ScalarProperty Name="Adresa_Oras" ColumnName="Adresa_Oras" />
+                <ScalarProperty Name="Adresa_Unitate_Regionala" ColumnName="Adresa_Unitate_Regionala" />
+                <ScalarProperty Name="Adresa_SubUnitate_Regionala" ColumnName="Adresa_SubUnitate_Regionala" />
+                <ScalarProperty Name="Persoana_Decizie_Nume" ColumnName="Persoana_Decizie_Nume" />
+                <ScalarProperty Name="Persoana_Decizie_Prenume" ColumnName="Persoana_Decizie_Prenume" />
+                <ScalarProperty Name="Persoana_Decizie_Nume_Alt" ColumnName="Persoana_Decizie_Nume_Alt" />
+                <ScalarProperty Name="Persoana_Decizie_Prenume_Alt" ColumnName="Persoana_Decizie_Prenume_Alt" />
+                <ScalarProperty Name="Persoana_Decizie_Sex" ColumnName="Persoana_Decizie_Sex" />
+                <ScalarProperty Name="Persoana_Decizie_Functie" ColumnName="Persoana_Decizie_Functie" />
+                <ScalarProperty Name="Telefon_Alt" ColumnName="Telefon_Alt" />
+                <ScalarProperty Name="Email_Alt" ColumnName="Email_Alt" />
+                <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+                <ScalarProperty Name="Data_Intro" ColumnName="Data_Intro" />
+                <ScalarProperty Name="Data_Modif" ColumnName="Data_Modif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prospecte_ContactPlus">
+            <EntityTypeMapping TypeName="Db_CRM_Prospectare_Model.Prospecte_ContactPlus">
+              <MappingFragment StoreEntitySet="Prospecte_ContactPlus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Prospect" ColumnName="Id_Prospect" />
+                <ScalarProperty Name="Telefon_Secretariat_1" ColumnName="Telefon_Secretariat_1" />
+                <ScalarProperty Name="Telefon_Secretariat_2" ColumnName="Telefon_Secretariat_2" />
+                <ScalarProperty Name="Telefon_Secretariat_3" ColumnName="Telefon_Secretariat_3" />
+                <ScalarProperty Name="Email_Office" ColumnName="Email_Office" />
+                <ScalarProperty Name="Persoana_Decizie_PD2" ColumnName="Persoana_Decizie_PD2" />
+                <ScalarProperty Name="Telefon_PD2" ColumnName="Telefon_PD2" />
+                <ScalarProperty Name="Email_PD2" ColumnName="Email_PD2" />
+                <ScalarProperty Name="Persoana_Decizie_Nume_PD2" ColumnName="Persoana_Decizie_Nume_PD2" />
+                <ScalarProperty Name="Persoana_Decizie_Prenume_PD2" ColumnName="Persoana_Decizie_Prenume_PD2" />
+                <ScalarProperty Name="Persoana_Decizie_Nume_Alt_PD2" ColumnName="Persoana_Decizie_Nume_Alt_PD2" />
+                <ScalarProperty Name="Persoana_Decizie_Prenume_Alt_PD2" ColumnName="Persoana_Decizie_Prenume_Alt_PD2" />
+                <ScalarProperty Name="Persoana_Decizie_Sex_PD2" ColumnName="Persoana_Decizie_Sex_PD2" />
+                <ScalarProperty Name="Persoana_Decizie_Functie_PD2" ColumnName="Persoana_Decizie_Functie_PD2" />
+                <ScalarProperty Name="Telefon_Alt_PD2" ColumnName="Telefon_Alt_PD2" />
+                <ScalarProperty Name="Email_Alt_PD2" ColumnName="Email_Alt_PD2" />
+                <ScalarProperty Name="Persoana_Decizie_PD3" ColumnName="Persoana_Decizie_PD3" />
+                <ScalarProperty Name="Telefon_PD3" ColumnName="Telefon_PD3" />
+                <ScalarProperty Name="Email_PD3" ColumnName="Email_PD3" />
+                <ScalarProperty Name="Persoana_Decizie_Nume_PD3" ColumnName="Persoana_Decizie_Nume_PD3" />
+                <ScalarProperty Name="Persoana_Decizie_Prenume_PD3" ColumnName="Persoana_Decizie_Prenume_PD3" />
+                <ScalarProperty Name="Persoana_Decizie_Nume_Alt_PD3" ColumnName="Persoana_Decizie_Nume_Alt_PD3" />
+                <ScalarProperty Name="Persoana_Decizie_Prenume_Alt_PD3" ColumnName="Persoana_Decizie_Prenume_Alt_PD3" />
+                <ScalarProperty Name="Persoana_Decizie_Sex_PD3" ColumnName="Persoana_Decizie_Sex_PD3" />
+                <ScalarProperty Name="Persoana_Decizie_Functie_PD3" ColumnName="Persoana_Decizie_Functie_PD3" />
+                <ScalarProperty Name="Telefon_Alt_PD3" ColumnName="Telefon_Alt_PD3" />
+                <ScalarProperty Name="Email_Alt_PD3" ColumnName="Email_Alt_PD3" />
+                <ScalarProperty Name="Comentariu_Date_Contact_1" ColumnName="Comentariu_Date_Contact_1" />
+                <ScalarProperty Name="Comentariu_Date_Contact_2" ColumnName="Comentariu_Date_Contact_2" />
+                <ScalarProperty Name="Comentariu_Date_Contact_3" ColumnName="Comentariu_Date_Contact_3" />
+                <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+                <ScalarProperty Name="Data_Intro" ColumnName="Data_Intro" />
+                <ScalarProperty Name="Data_Modif" ColumnName="Data_Modif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prospecte_Pasi_Urmatori">
+            <EntityTypeMapping TypeName="Db_CRM_Prospectare_Model.Prospecte_Pasi_Urmatori">
+              <MappingFragment StoreEntitySet="Prospecte_Pasi_Urmatori">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Prospect" ColumnName="Id_Prospect" />
+                <ScalarProperty Name="Nume_Pas" ColumnName="Nume_Pas" />
+                <ScalarProperty Name="Cod_Nume_Pas" ColumnName="Cod_Nume_Pas" />
+                <ScalarProperty Name="Data_Scadenta_Pas" ColumnName="Data_Scadenta_Pas" />
+                <ScalarProperty Name="Stare_Pas" ColumnName="Stare_Pas" />
+                <ScalarProperty Name="Cod_Stare_Pas" ColumnName="Cod_Stare_Pas" />
+                <ScalarProperty Name="Index_Efectuare_Pas" ColumnName="Index_Efectuare_Pas" />
+                <ScalarProperty Name="Index_Neefectuare_Pas" ColumnName="Index_Neefectuare_Pas" />
+                <ScalarProperty Name="Index_Reprogramare_Pas" ColumnName="Index_Reprogramare_Pas" />
+                <ScalarProperty Name="Pas_Activ" ColumnName="Pas_Activ" />
+                <ScalarProperty Name="Ora_Pas" ColumnName="Ora_Pas" />
+                <ScalarProperty Name="Durata_Pas" ColumnName="Durata_Pas" />
+                <ScalarProperty Name="Grad_Realizare_Pas" ColumnName="Grad_Realizare_Pas" />
+                <ScalarProperty Name="Prioritate_Pas" ColumnName="Prioritate_Pas" />
+                <ScalarProperty Name="Raspuns_Pas" ColumnName="Raspuns_Pas" />
+                <ScalarProperty Name="Referinta_Raspuns_Pas" ColumnName="Referinta_Raspuns_Pas" />
+                <ScalarProperty Name="Cod_Raspuns_Pas" ColumnName="Cod_Raspuns_Pas" />
+                <ScalarProperty Name="Detalii_Raspuns_Pas" ColumnName="Detalii_Raspuns_Pas" />
+                <ScalarProperty Name="Nivel_Financiar_Subiect" ColumnName="Nivel_Financiar_Subiect" />
+                <ScalarProperty Name="Timp_Afectat_Subiect_Pas" ColumnName="Timp_Afectat_Subiect_Pas" />
+                <ScalarProperty Name="Obstacol_Pas" ColumnName="Obstacol_Pas" />
+                <ScalarProperty Name="Cod_Obstacol_Pas" ColumnName="Cod_Obstacol_Pas" />
+                <ScalarProperty Name="Comentariu_Obstacol_Pas" ColumnName="Comentariu_Obstacol_Pas" />
+                <ScalarProperty Name="Comentariu_Automat_Pas" ColumnName="Comentariu_Automat_Pas" />
+                <ScalarProperty Name="Info_Tipuri_Produse_Cautate" ColumnName="Info_Tipuri_Produse_Cautate" />
+                <ScalarProperty Name="Info_Detalii_Produse_Cautate" ColumnName="Info_Detalii_Produse_Cautate" />
+                <ScalarProperty Name="Info_Furnizori" ColumnName="Info_Furnizori" />
+                <ScalarProperty Name="Info_Furnizor_Principal" ColumnName="Info_Furnizor_Principal" />
+                <ScalarProperty Name="Info_Detalii_Furnizori" ColumnName="Info_Detalii_Furnizori" />
+                <ScalarProperty Name="Info_Tip_Motivatii" ColumnName="Info_Tip_Motivatii" />
+                <ScalarProperty Name="Info_Detalii_Motivatii" ColumnName="Info_Detalii_Motivatii" />
+                <ScalarProperty Name="Info_Alte_Info" ColumnName="Info_Alte_Info" />
+                <ScalarProperty Name="Conexe_Subiect" ColumnName="Conexe_Subiect" />
+                <ScalarProperty Name="Referinta_Conexe_Subiect" ColumnName="Referinta_Conexe_Subiect" />
+                <ScalarProperty Name="Cod_Conexe_Subiect" ColumnName="Cod_Conexe_Subiect" />
+                <ScalarProperty Name="Detalii_Conexe_Subiect" ColumnName="Detalii_Conexe_Subiect" />
+                <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+                <ScalarProperty Name="Data_Intro" ColumnName="Data_Intro" />
+                <ScalarProperty Name="Data_Modif" ColumnName="Data_Modif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prospecte_Profil">
+            <EntityTypeMapping TypeName="Db_CRM_Prospectare_Model.Prospecte_Profil">
+              <MappingFragment StoreEntitySet="Prospecte_Profil">
+                <ScalarProperty Name="Id_Prospect" ColumnName="Id_Prospect" />
+                <ScalarProperty Name="Tip_Prospect_PF_PJ" ColumnName="Tip_Prospect_PF_PJ" />
+                <ScalarProperty Name="Nume_Prospect" ColumnName="Nume_Prospect" />
+                <ScalarProperty Name="Cod_Prospect" ColumnName="Cod_Prospect" />
+                <ScalarProperty Name="Tara" ColumnName="Tara" />
+                <ScalarProperty Name="Domeniu" ColumnName="Domeniu" />
+                <ScalarProperty Name="Cod_Domeniu" ColumnName="Cod_Domeniu" />
+                <ScalarProperty Name="CA_Ultimul_An" ColumnName="CA_Ultimul_An" />
+                <ScalarProperty Name="Nr_Angajati" ColumnName="Nr_Angajati" />
+                <ScalarProperty Name="Sursa_Info_Prospect" ColumnName="Sursa_Info_Prospect" />
+                <ScalarProperty Name="Sursa_Info_Prospect_Alt" ColumnName="Sursa_Info_Prospect_Alt" />
+                <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+                <ScalarProperty Name="Data_Intro" ColumnName="Data_Intro" />
+                <ScalarProperty Name="Data_Modif" ColumnName="Data_Modif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prospecte_ProfilPlus">
+            <EntityTypeMapping TypeName="Db_CRM_Prospectare_Model.Prospecte_ProfilPlus">
+              <MappingFragment StoreEntitySet="Prospecte_ProfilPlus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Prospect" ColumnName="Id_Prospect" />
+                <ScalarProperty Name="Aprobare_GDPR" ColumnName="Aprobare_GDPR" />
+                <ScalarProperty Name="Detalii_GDPR" ColumnName="Detalii_GDPR" />
+                <ScalarProperty Name="Referinta_GDPR" ColumnName="Referinta_GDPR" />
+                <ScalarProperty Name="Posibilitate_Montaj" ColumnName="Posibilitate_Montaj" />
+                <ScalarProperty Name="Detalii_Tip_Montaj" ColumnName="Detalii_Tip_Montaj" />
+                <ScalarProperty Name="Referinta_Montaj" ColumnName="Referinta_Montaj" />
+                <ScalarProperty Name="Prospect_Activ" ColumnName="Prospect_Activ" />
+                <ScalarProperty Name="Status_Prospect" ColumnName="Status_Prospect" />
+                <ScalarProperty Name="Cod_Status_Prospect" ColumnName="Cod_Status_Prospect" />
+                <ScalarProperty Name="Comentariu_Prospect" ColumnName="Comentariu_Prospect" />
+                <ScalarProperty Name="Z_Bit_Field" ColumnName="Z_Bit_Field" />
+                <ScalarProperty Name="Z_Int_Field" ColumnName="Z_Int_Field" />
+                <ScalarProperty Name="Z_String_Field" ColumnName="Z_String_Field" />
+                <ScalarProperty Name="Z_Text_Field" ColumnName="Z_Text_Field" />
+                <ScalarProperty Name="User_Alocat" ColumnName="User_Alocat" />
+                <ScalarProperty Name="Data_Alocare" ColumnName="Data_Alocare" />
+                <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+                <ScalarProperty Name="Data_Intro" ColumnName="Data_Intro" />
+                <ScalarProperty Name="Data_Modif" ColumnName="Data_Modif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VwDashboardProspects">
+            <EntityTypeMapping TypeName="Db_CRM_Prospectare_Model.VwDashboardProspect">
+              <MappingFragment StoreEntitySet="VwDashboardProspect">
+                <ScalarProperty Name="Id_Vw" ColumnName="Id_Vw" />
+                <ScalarProperty Name="Id_Prospect" ColumnName="Id_Prospect" />
+                <ScalarProperty Name="Tip_Prospect_PF_PJ" ColumnName="Tip_Prospect_PF_PJ" />
+                <ScalarProperty Name="Nume_Prospect" ColumnName="Nume_Prospect" />
+                <ScalarProperty Name="Cod_Prospect" ColumnName="Cod_Prospect" />
+                <ScalarProperty Name="Tara" ColumnName="Tara" />
+                <ScalarProperty Name="Domeniu" ColumnName="Domeniu" />
+                <ScalarProperty Name="Cod_Domeniu" ColumnName="Cod_Domeniu" />
+                <ScalarProperty Name="CA_Ultimul_An" ColumnName="CA_Ultimul_An" />
+                <ScalarProperty Name="Nr_Angajati" ColumnName="Nr_Angajati" />
+                <ScalarProperty Name="Sursa_Info_Prospect" ColumnName="Sursa_Info_Prospect" />
+                <ScalarProperty Name="Sursa_Info_Prospect_Alt" ColumnName="Sursa_Info_Prospect_Alt" />
+                <ScalarProperty Name="Id_User_Profil" ColumnName="Id_User_Profil" />
+                <ScalarProperty Name="Data_Intro_Profil" ColumnName="Data_Intro_Profil" />
+                <ScalarProperty Name="Data_Modif_Profil" ColumnName="Data_Modif_Profil" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Prospect_Contact" ColumnName="Id_Prospect_Contact" />
+                <ScalarProperty Name="Persoana_Decizie" ColumnName="Persoana_Decizie" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Regiune_Reper" ColumnName="Regiune_Reper" />
+                <ScalarProperty Name="Adresa_Text" ColumnName="Adresa_Text" />
+                <ScalarProperty Name="Cod_Postal" ColumnName="Cod_Postal" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Web_Site" ColumnName="Web_Site" />
+                <ScalarProperty Name="Adresa_Numar" ColumnName="Adresa_Numar" />
+                <ScalarProperty Name="Adresa_Strada" ColumnName="Adresa_Strada" />
+                <ScalarProperty Name="Adresa_Oras" ColumnName="Adresa_Oras" />
+                <ScalarProperty Name="Adresa_Unitate_Regionala" ColumnName="Adresa_Unitate_Regionala" />
+                <ScalarProperty Name="Adresa_SubUnitate_Regionala" ColumnName="Adresa_SubUnitate_Regionala" />
+                <ScalarProperty Name="Persoana_Decizie_Nume" ColumnName="Persoana_Decizie_Nume" />
+                <ScalarProperty Name="Persoana_Decizie_Prenume" ColumnName="Persoana_Decizie_Prenume" />
+                <ScalarProperty Name="Persoana_Decizie_Nume_Alt" ColumnName="Persoana_Decizie_Nume_Alt" />
+                <ScalarProperty Name="Persoana_Decizie_Prenume_Alt" ColumnName="Persoana_Decizie_Prenume_Alt" />
+                <ScalarProperty Name="Persoana_Decizie_Sex" ColumnName="Persoana_Decizie_Sex" />
+                <ScalarProperty Name="Persoana_Decizie_Functie" ColumnName="Persoana_Decizie_Functie" />
+                <ScalarProperty Name="Telefon_Alt" ColumnName="Telefon_Alt" />
+                <ScalarProperty Name="Email_Alt" ColumnName="Email_Alt" />
+                <ScalarProperty Name="Id_User_Contact" ColumnName="Id_User_Contact" />
+                <ScalarProperty Name="Data_Intro_Contact" ColumnName="Data_Intro_Contact" />
+                <ScalarProperty Name="Data_Modif_Contact" ColumnName="Data_Modif_Contact" />
+                <ScalarProperty Name="Id_ContactPlus" ColumnName="Id_ContactPlus" />
+                <ScalarProperty Name="Id_Prospect_ContactPlus" ColumnName="Id_Prospect_ContactPlus" />
+                <ScalarProperty Name="Telefon_Secretariat_1" ColumnName="Telefon_Secretariat_1" />
+                <ScalarProperty Name="Telefon_Secretariat_2" ColumnName="Telefon_Secretariat_2" />
+                <ScalarProperty Name="Telefon_Secretariat_3" ColumnName="Telefon_Secretariat_3" />
+                <ScalarProperty Name="Email_Office" ColumnName="Email_Office" />
+                <ScalarProperty Name="Persoana_Decizie_PD2" ColumnName="Persoana_Decizie_PD2" />
+                <ScalarProperty Name="Telefon_PD2" ColumnName="Telefon_PD2" />
+                <ScalarProperty Name="Email_PD2" ColumnName="Email_PD2" />
+                <ScalarProperty Name="Persoana_Decizie_Nume_PD2" ColumnName="Persoana_Decizie_Nume_PD2" />
+                <ScalarProperty Name="Persoana_Decizie_Prenume_PD2" ColumnName="Persoana_Decizie_Prenume_PD2" />
+                <ScalarProperty Name="Persoana_Decizie_Nume_Alt_PD2" ColumnName="Persoana_Decizie_Nume_Alt_PD2" />
+                <ScalarProperty Name="Persoana_Decizie_Prenume_Alt_PD2" ColumnName="Persoana_Decizie_Prenume_Alt_PD2" />
+                <ScalarProperty Name="Persoana_Decizie_Sex_PD2" ColumnName="Persoana_Decizie_Sex_PD2" />
+                <ScalarProperty Name="Persoana_Decizie_Functie_PD2" ColumnName="Persoana_Decizie_Functie_PD2" />
+                <ScalarProperty Name="Telefon_Alt_PD2" ColumnName="Telefon_Alt_PD2" />
+                <ScalarProperty Name="Email_Alt_PD2" ColumnName="Email_Alt_PD2" />
+                <ScalarProperty Name="Persoana_Decizie_PD3" ColumnName="Persoana_Decizie_PD3" />
+                <ScalarProperty Name="Telefon_PD3" ColumnName="Telefon_PD3" />
+                <ScalarProperty Name="Email_PD3" ColumnName="Email_PD3" />
+                <ScalarProperty Name="Persoana_Decizie_Nume_PD3" ColumnName="Persoana_Decizie_Nume_PD3" />
+                <ScalarProperty Name="Persoana_Decizie_Prenume_PD3" ColumnName="Persoana_Decizie_Prenume_PD3" />
+                <ScalarProperty Name="Persoana_Decizie_Nume_Alt_PD3" ColumnName="Persoana_Decizie_Nume_Alt_PD3" />
+                <ScalarProperty Name="Persoana_Decizie_Prenume_Alt_PD3" ColumnName="Persoana_Decizie_Prenume_Alt_PD3" />
+                <ScalarProperty Name="Persoana_Decizie_Sex_PD3" ColumnName="Persoana_Decizie_Sex_PD3" />
+                <ScalarProperty Name="Persoana_Decizie_Functie_PD3" ColumnName="Persoana_Decizie_Functie_PD3" />
+                <ScalarProperty Name="Telefon_Alt_PD3" ColumnName="Telefon_Alt_PD3" />
+                <ScalarProperty Name="Email_Alt_PD3" ColumnName="Email_Alt_PD3" />
+                <ScalarProperty Name="Comentariu_Date_Contact_1" ColumnName="Comentariu_Date_Contact_1" />
+                <ScalarProperty Name="Comentariu_Date_Contact_2" ColumnName="Comentariu_Date_Contact_2" />
+                <ScalarProperty Name="Comentariu_Date_Contact_3" ColumnName="Comentariu_Date_Contact_3" />
+                <ScalarProperty Name="Id_User_ContactPlus" ColumnName="Id_User_ContactPlus" />
+                <ScalarProperty Name="Data_Intro_ContactPlus" ColumnName="Data_Intro_ContactPlus" />
+                <ScalarProperty Name="Data_Modif_ContactPlus" ColumnName="Data_Modif_ContactPlus" />
+                <ScalarProperty Name="Id_ProfilPlus" ColumnName="Id_ProfilPlus" />
+                <ScalarProperty Name="Id_Prospect_ProfilPlus" ColumnName="Id_Prospect_ProfilPlus" />
+                <ScalarProperty Name="Aprobare_GDPR" ColumnName="Aprobare_GDPR" />
+                <ScalarProperty Name="Detalii_GDPR" ColumnName="Detalii_GDPR" />
+                <ScalarProperty Name="Referinta_GDPR" ColumnName="Referinta_GDPR" />
+                <ScalarProperty Name="Posibilitate_Montaj" ColumnName="Posibilitate_Montaj" />
+                <ScalarProperty Name="Detalii_Tip_Montaj" ColumnName="Detalii_Tip_Montaj" />
+                <ScalarProperty Name="Referinta_Montaj" ColumnName="Referinta_Montaj" />
+                <ScalarProperty Name="Prospect_Activ" ColumnName="Prospect_Activ" />
+                <ScalarProperty Name="Status_Prospect" ColumnName="Status_Prospect" />
+                <ScalarProperty Name="Cod_Status_Prospect" ColumnName="Cod_Status_Prospect" />
+                <ScalarProperty Name="Comentariu_Prospect" ColumnName="Comentariu_Prospect" />
+                <ScalarProperty Name="Z_Bit_Field" ColumnName="Z_Bit_Field" />
+                <ScalarProperty Name="Z_Int_Field" ColumnName="Z_Int_Field" />
+                <ScalarProperty Name="Z_String_Field" ColumnName="Z_String_Field" />
+                <ScalarProperty Name="Z_Text_Field" ColumnName="Z_Text_Field" />
+                <ScalarProperty Name="User_Alocat" ColumnName="User_Alocat" />
+                <ScalarProperty Name="Data_Alocare" ColumnName="Data_Alocare" />
+                <ScalarProperty Name="Id_User_ProfilPlus" ColumnName="Id_User_ProfilPlus" />
+                <ScalarProperty Name="Data_Intro_ProfilPlus" ColumnName="Data_Intro_ProfilPlus" />
+                <ScalarProperty Name="Data_Modif_ProfilPlus" ColumnName="Data_Modif_ProfilPlus" />
+                <ScalarProperty Name="Id_Pasi" ColumnName="Id_Pasi" />
+                <ScalarProperty Name="Id_Prospect_Pasi" ColumnName="Id_Prospect_Pasi" />
+                <ScalarProperty Name="Nume_Pas" ColumnName="Nume_Pas" />
+                <ScalarProperty Name="Cod_Nume_Pas" ColumnName="Cod_Nume_Pas" />
+                <ScalarProperty Name="Data_Scadenta_Pas" ColumnName="Data_Scadenta_Pas" />
+                <ScalarProperty Name="Stare_Pas" ColumnName="Stare_Pas" />
+                <ScalarProperty Name="Cod_Stare_Pas" ColumnName="Cod_Stare_Pas" />
+                <ScalarProperty Name="Index_Efectuare_Pas" ColumnName="Index_Efectuare_Pas" />
+                <ScalarProperty Name="Index_Neefectuare_Pas" ColumnName="Index_Neefectuare_Pas" />
+                <ScalarProperty Name="Index_Reprogramare_Pas" ColumnName="Index_Reprogramare_Pas" />
+                <ScalarProperty Name="Pas_Activ" ColumnName="Pas_Activ" />
+                <ScalarProperty Name="Ora_Pas" ColumnName="Ora_Pas" />
+                <ScalarProperty Name="Durata_Pas" ColumnName="Durata_Pas" />
+                <ScalarProperty Name="Grad_Realizare_Pas" ColumnName="Grad_Realizare_Pas" />
+                <ScalarProperty Name="Prioritate_Pas" ColumnName="Prioritate_Pas" />
+                <ScalarProperty Name="Raspuns_Pas" ColumnName="Raspuns_Pas" />
+                <ScalarProperty Name="Referinta_Raspuns_Pas" ColumnName="Referinta_Raspuns_Pas" />
+                <ScalarProperty Name="Cod_Raspuns_Pas" ColumnName="Cod_Raspuns_Pas" />
+                <ScalarProperty Name="Detalii_Raspuns_Pas" ColumnName="Detalii_Raspuns_Pas" />
+                <ScalarProperty Name="Nivel_Financiar_Subiect" ColumnName="Nivel_Financiar_Subiect" />
+                <ScalarProperty Name="Timp_Afectat_Subiect_Pas" ColumnName="Timp_Afectat_Subiect_Pas" />
+                <ScalarProperty Name="Obstacol_Pas" ColumnName="Obstacol_Pas" />
+                <ScalarProperty Name="Cod_Obstacol_Pas" ColumnName="Cod_Obstacol_Pas" />
+                <ScalarProperty Name="Comentariu_Obstacol_Pas" ColumnName="Comentariu_Obstacol_Pas" />
+                <ScalarProperty Name="Comentariu_Automat_Pas" ColumnName="Comentariu_Automat_Pas" />
+                <ScalarProperty Name="Info_Tipuri_Produse_Cautate" ColumnName="Info_Tipuri_Produse_Cautate" />
+                <ScalarProperty Name="Info_Detalii_Produse_Cautate" ColumnName="Info_Detalii_Produse_Cautate" />
+                <ScalarProperty Name="Info_Furnizori" ColumnName="Info_Furnizori" />
+                <ScalarProperty Name="Info_Furnizor_Principal" ColumnName="Info_Furnizor_Principal" />
+                <ScalarProperty Name="Info_Detalii_Furnizori" ColumnName="Info_Detalii_Furnizori" />
+                <ScalarProperty Name="Info_Tip_Motivatii" ColumnName="Info_Tip_Motivatii" />
+                <ScalarProperty Name="Info_Detalii_Motivatii" ColumnName="Info_Detalii_Motivatii" />
+                <ScalarProperty Name="Info_Alte_Info" ColumnName="Info_Alte_Info" />
+                <ScalarProperty Name="Conexe_Subiect" ColumnName="Conexe_Subiect" />
+                <ScalarProperty Name="Referinta_Conexe_Subiect" ColumnName="Referinta_Conexe_Subiect" />
+                <ScalarProperty Name="Cod_Conexe_Subiect" ColumnName="Cod_Conexe_Subiect" />
+                <ScalarProperty Name="Detalii_Conexe_Subiect" ColumnName="Detalii_Conexe_Subiect" />
+                <ScalarProperty Name="Id_User_Pasi" ColumnName="Id_User_Pasi" />
+                <ScalarProperty Name="Data_Intro_Pasi" ColumnName="Data_Intro_Pasi" />
+                <ScalarProperty Name="Data_Modif_Pasi" ColumnName="Data_Modif_Pasi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spAdaugaPasUrmator" FunctionName="Db_CRM_Prospectare_Model.Store.spAdaugaPasUrmator" />
+          <FunctionImportMapping FunctionImportName="spAdaugaProspectProfil" FunctionName="Db_CRM_Prospectare_Model.Store.spAdaugaProspectProfil" />
+          <FunctionImportMapping FunctionImportName="spEditeazaDataScadentaPasi" FunctionName="Db_CRM_Prospectare_Model.Store.spEditeazaDataScadentaPasi" />
+          <FunctionImportMapping FunctionImportName="spEditeazaDinamicCampProspect" FunctionName="Db_CRM_Prospectare_Model.Store.spEditeazaDinamicCampProspect" />
+          <FunctionImportMapping FunctionImportName="spEditeazaProspectAdresa" FunctionName="Db_CRM_Prospectare_Model.Store.spEditeazaProspectAdresa" />
+          <FunctionImportMapping FunctionImportName="spEditeazaProspectPasi" FunctionName="Db_CRM_Prospectare_Model.Store.spEditeazaProspectPasi" />
+          <FunctionImportMapping FunctionImportName="spEditeazaProspectPD" FunctionName="Db_CRM_Prospectare_Model.Store.spEditeazaProspectPD" />
+          <FunctionImportMapping FunctionImportName="spEditeazaProspectProfil" FunctionName="Db_CRM_Prospectare_Model.Store.spEditeazaProspectProfil" />
+          <FunctionImportMapping FunctionImportName="spSeteazaActivInactivPasi" FunctionName="Db_CRM_Prospectare_Model.Store.spSeteazaActivInactivPasi" />
+          <FunctionImportMapping FunctionImportName="spSeteazaActivInactivProspect" FunctionName="Db_CRM_Prospectare_Model.Store.spSeteazaActivInactivProspect" />
+          <FunctionImportMapping FunctionImportName="spStergeProspectID" FunctionName="Db_CRM_Prospectare_Model.Store.spStergeProspectID" />
+          <FunctionImportMapping FunctionImportName="spTransferProspect" FunctionName="Db_CRM_Prospectare_Model.Store.spTransferProspect" />
+          <FunctionImportMapping FunctionImportName="spAdaugaActivitateCurenta" FunctionName="Db_CRM_Prospectare_Model.Store.spAdaugaActivitateCurenta" />
+          <FunctionImportMapping FunctionImportName="spEditeazaActivitateCurenta" FunctionName="Db_CRM_Prospectare_Model.Store.spEditeazaActivitateCurenta" />
+          <FunctionImportMapping FunctionImportName="spEditeazaDataScadentaActivitate" FunctionName="Db_CRM_Prospectare_Model.Store.spEditeazaDataScadentaActivitate" />
+          <FunctionImportMapping FunctionImportName="spEditeazaDinamicCampActivitate" FunctionName="Db_CRM_Prospectare_Model.Store.spEditeazaDinamicCampActivitate" />
+          <FunctionImportMapping FunctionImportName="spSeteazaActivInactivActivitate" FunctionName="Db_CRM_Prospectare_Model.Store.spSeteazaActivInactivActivitate" />
+          <FunctionImportMapping FunctionImportName="spStergeActivitateCurenta" FunctionName="Db_CRM_Prospectare_Model.Store.spStergeActivitateCurenta" />
+          <FunctionImportMapping FunctionImportName="spTransferActivitate" FunctionName="Db_CRM_Prospectare_Model.Store.spTransferActivitate" />
+          <EntitySetMapping Name="Predef_SubTipuri_Activitati">
+            <EntityTypeMapping TypeName="Db_CRM_Prospectare_Model.Predef_SubTipuri_Activitati">
+              <MappingFragment StoreEntitySet="Predef_SubTipuri_Activitati">
+                <ScalarProperty Name="Nume_SubAct" ColumnName="Nume_SubAct" />
+                <ScalarProperty Name="Id_Act" ColumnName="Id_Act" />
+                <ScalarProperty Name="Id_SubAct" ColumnName="Id_SubAct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Predef_Tipuri_Activitati">
+            <EntityTypeMapping TypeName="Db_CRM_Prospectare_Model.Predef_Tipuri_Activitati">
+              <MappingFragment StoreEntitySet="Predef_Tipuri_Activitati">
+                <ScalarProperty Name="Nume_Act" ColumnName="Nume_Act" />
+                <ScalarProperty Name="Id_Act" ColumnName="Id_Act" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Activitati_Curente">
+            <EntityTypeMapping TypeName="Db_CRM_Prospectare_Model.Activitati_Curente">
+              <MappingFragment StoreEntitySet="Activitati_Curente">
+                <ScalarProperty Name="Data_Modif" ColumnName="Data_Modif" />
+                <ScalarProperty Name="Data_Intro" ColumnName="Data_Intro" />
+                <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+                <ScalarProperty Name="Data_Alocare" ColumnName="Data_Alocare" />
+                <ScalarProperty Name="User_Alocat" ColumnName="User_Alocat" />
+                <ScalarProperty Name="Z_Text_Field" ColumnName="Z_Text_Field" />
+                <ScalarProperty Name="Z_String_Field" ColumnName="Z_String_Field" />
+                <ScalarProperty Name="Z_Int_Field" ColumnName="Z_Int_Field" />
+                <ScalarProperty Name="Z_Bit_Field" ColumnName="Z_Bit_Field" />
+                <ScalarProperty Name="Activitate_Activa" ColumnName="Activitate_Activa" />
+                <ScalarProperty Name="Index_Amanare_Activitate" ColumnName="Index_Amanare_Activitate" />
+                <ScalarProperty Name="Index_Reprogramare_Activitate" ColumnName="Index_Reprogramare_Activitate" />
+                <ScalarProperty Name="Comentariu_Activitate" ColumnName="Comentariu_Activitate" />
+                <ScalarProperty Name="Cod_Stare_Activitate" ColumnName="Cod_Stare_Activitate" />
+                <ScalarProperty Name="Stare_Activitate" ColumnName="Stare_Activitate" />
+                <ScalarProperty Name="Prioritate_Activitate" ColumnName="Prioritate_Activitate" />
+                <ScalarProperty Name="Grad_Realizare" ColumnName="Grad_Realizare" />
+                <ScalarProperty Name="Durata_Activitate" ColumnName="Durata_Activitate" />
+                <ScalarProperty Name="Ora_Activitate" ColumnName="Ora_Activitate" />
+                <ScalarProperty Name="Data_Scadenta" ColumnName="Data_Scadenta" />
+                <ScalarProperty Name="Timp_Afectat_Subiect" ColumnName="Timp_Afectat_Subiect" />
+                <ScalarProperty Name="Nivel_Financiar_Subiect" ColumnName="Nivel_Financiar_Subiect" />
+                <ScalarProperty Name="Detalii_Subiect" ColumnName="Detalii_Subiect" />
+                <ScalarProperty Name="Cod_Subiect" ColumnName="Cod_Subiect" />
+                <ScalarProperty Name="Referinta_Subiect" ColumnName="Referinta_Subiect" />
+                <ScalarProperty Name="Subiect_Activitate" ColumnName="Subiect_Activitate" />
+                <ScalarProperty Name="Detalii_Tip_Activitate" ColumnName="Detalii_Tip_Activitate" />
+                <ScalarProperty Name="Cod_Activitate" ColumnName="Cod_Activitate" />
+                <ScalarProperty Name="Nume_Activitate" ColumnName="Nume_Activitate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Predef_Durate_Activitati">
+            <EntityTypeMapping TypeName="Db_CRM_Prospectare_Model.Predef_Durate_Activitati">
+              <MappingFragment StoreEntitySet="Predef_Durate_Activitati">
+                <ScalarProperty Name="Durata_Activitate" ColumnName="Durata_Activitate" />
+                <ScalarProperty Name="Id_Durata" ColumnName="Id_Durata" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,62 @@
+﻿@using CRMnAppMVC.Models
+
+<div>
+    @*div NavMenu - the 4 buttons Prospectare, Ofertare, Agenda, Rapoarte*@
+
+    <div class="row">
+        @*div NavMenu-row-1*@
+
+        <div class="col-sm-3" id="Button_Prospectare">
+            @*div NavMenu-r1-c1*@
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("PROSPECTARE", "TabelOperatiuni", "Operatiuni") </li>
+            </ul>
+        </div> @*end div NavMenu-r1-c1*@
+
+        <div class="col-sm-4 col-sm-offset-1 ">
+            @*div NavMenu-r1-c2*@
+            @*--Sales Tower--*@
+            <div id="MyTopMenuLogo">
+                <a href='@Url.Action("AgendaZilei", "Agenda")'>
+                    <div class="d-flex justify-content-center"> <img src='@Url.Content("~/Content/Images/LogoCRM_v1_1.jpg")' class=" center-block img-rounded"></div>
+                </a>
+            </div>
+        </div> @*end div NavMenu-r1-c2*@
+
+        <div class="col-sm-3 col-sm-offset-1" id="Button_Ofertare">
+            @*div NavMenu-r1-c3*@
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("OFERTARE", "ManualUtilizare", "Home")</li>
+            </ul>
+        </div> @*end div NavMenu-r1-c3*@
+    </div> @*end div NavMenu-row-1*@
+
+    <div class="row col-sm-12">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        @*NavMenu-row-3*@
+
+        <div class="col-sm-2 col-sm-offset-3" id="Button_Agenda">
+            @*div NavMenu-r3-c1*@
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Agenda", "AgendaZilei", "Agenda")</li>
+            </ul>
+        </div> @*end div NavMenu-r3-c1*@
+
+        <div class="col-sm-2">
+            @*div NavMenu-r3-c-2*@       @*DATA:*@
+            <div id="MyTopMenuDataAzi"> @DateTime.Now.ToString("dd.MM.yy")</div>
+        </div> @*end div NavMenu-r3-c2*@
+
+        <div class="col-sm-2" id="Button_Rapoarte">
+            @*div NavMenu-r3-c-3*@
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Rapoarte", "RapoarteProspecte", "Home")</li>
+            </ul>
+        </div> @*end div NavMenu-r3-c3*@
+
+    </div> @*end div NavMenu-row-3*@
+
+</div>  @*end div NavMenu*@

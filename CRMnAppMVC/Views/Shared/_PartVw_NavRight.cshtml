@@ -1,0 +1,36 @@
+﻿@using CRMnAppMVC.Models
+
+@* inside _Layout inside  div NavRight*@
+
+<div id="MyTopMenuNavRight">
+    @*div MyTopMenuNavRightt*@
+
+    <div class="row">
+        <ul class="nav navbar-right">
+            <li>
+                <span style="background-color:lightgoldenrodyellow; color:blueviolet; font-weight:bold">
+                    User Name
+                </span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <hr />
+    </div>
+
+    <div class="row">
+        <div class="col-12-sm">
+            <ul class="nav navbar-right">
+                <li class="dropdown small">
+                    <a href="#" class="dropdown-toggle"
+                       data-toggle="dropdown"><b>&#9919;</b><b>Optiuni</b><b class="caret"></b></a>
+                    <ul class="dropdown-menu small">
+                        <li class="text-sm-left">@Html.ActionLink("User Info", "AgendaZilei", "Agenda")</li>
+                        <li class="text-sm-left">@Html.ActionLink("Predefinite", "AgendaZilei", "Agenda")</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>  @* end div MyTopMenuNavRightt*@

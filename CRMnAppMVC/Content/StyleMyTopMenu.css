@@ -1,0 +1,119 @@
+﻿.MyTopMenu {
+    font-size: 0.8em;
+    /*--var-menu-text-color: deeppink;*/
+}
+
+    .MyTopMenu .navbar-inverse {
+        border-top: none;
+        border-bottom: none;
+        border-color: none;
+        background-color: var(--main-bk-color);
+        margin: auto;
+        color: orangered;
+    }
+
+    .MyTopMenu nav, .MyTopMenu navbar {
+        margin: 0;
+    }
+
+    .MyTopMenu ul {
+        margin: 0.25em auto;
+    }
+
+        .MyTopMenu ul li {
+            padding: 0;
+            margin: 0 auto;
+            background-color: transparent;
+        }
+
+    .MyTopMenu li a {
+        padding: 0.25em;
+        margin: auto;
+        background-color: transparent;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .MyTopMenu a {
+        color: orangered; /*(--var-menu-text-color)*/
+    }
+
+#MyTopMenuDataAzi {
+    color: white;
+    background-color: black;
+    padding: 0.25em;
+    font-weight: bold;
+    margin: 0.25em auto;
+    text-align: center;
+    border-radius: 0.5em;
+}
+
+#MyTopMenuLogo {
+    padding: 0.25em;
+}
+
+#MyTopMenuNavRight li {
+    background-color: transparent;
+}
+
+.MyTopMenu .dropdown-menu li a {
+    text-align: left;
+    background-color: orangered;
+    color: white;
+    font-size: 0.85em;
+}
+
+.MyTopMenu .dropdown-menu a:hover {
+    background-color: darkorange;
+}
+
+.MyTopMenu .dropdown-toggle > b {
+    font-size: 1.2em;
+}
+
+#Button_Prospectare, #Button_Ofertare, #Button_Rapoarte, #Button_Agenda {
+display: flex;
+align-content: center;
+}
+
+#Button_Prospectare li, #Button_Ofertare li, #Button_Rapoarte li, #Button_Agenda li {
+    border: solid;
+    border-radius: 0.5em;
+}
+
+#Button_Prospectare li a, #Button_Ofertare li a, #Button_Rapoarte li a, #Button_Agenda li a {
+    color: white;
+    font-weight: bold;
+}
+#Button_Prospectare li a:hover, #Button_Ofertare li a:hover, #Button_Rapoarte li a:hover, #Button_Agenda li a:hover {
+    color: white;
+    font-weight: bolder;
+}
+#Button_Prospectare li:hover, #Button_Ofertare li:hover, #Button_Rapoarte li:hover, #Button_Agenda li:hover {
+background-color: darkorange;
+}
+#Button_Prospectare li {
+    border-color: black;
+    color: white;
+    background-color: dimgray;
+}
+
+#Button_Ofertare li {
+    border-color: black;
+    color: white;
+    background-color: dimgray;
+}
+
+#Button_Agenda li {
+    border-color: black;
+    color: white;
+    background-color: dimgray;
+}
+
+#Button_Rapoarte li {
+border-color: black;
+color: white;
+background-color: dimgray;
+}

@@ -1,0 +1,60 @@
+﻿@using GridMvc.Html;
+@using CRMnAppMVC.Models;
+<link href="~/Content/StyleMyAgenda.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "AgendaZilei";
+}
+@model IEnumerable<ActiuneCRM>
+
+
+<div class="jumbotron small well-sm MyAgendaMenu">
+
+    @Html.Partial("_PartVw_AgendaMeniu")
+
+    <div class="row">
+        <div class="col-sm-10">
+            <div class="col-sm-2 col-sm-offset-5">
+                <h5>
+                    <b style="color:orangered;">
+                        AGENDA ZILEI
+                    </b>
+                </h5>
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <h6>
+                <b class="pull-right" style="color:darkslategrey">
+                    Numar Actiuni:&nbsp; <span style="color:white; background-color:black">
+                        &nbsp;@Model.Count() &nbsp;
+                    </span> &nbsp;
+                </b>
+            </h6>
+        </div>
+    </div>
+
+</div>
+@*Render Grid.Mvc:*@
+<div class="jumbotron small well-sm">
+
+    @Html.Grid(Model).Columns(columns =>
+{
+
+    columns.Add(a  => a.Id,true).Titled("").SetWidth(1).Filterable(true); // coloana ascunsa -param 2 al fctiei Add este invisible=true
+    columns.Add(a => a.TipActiune).Titled("&#9998").SetWidth(6).Filterable(true).Css("MyBrightText");
+    // @*Css(@String.Concat("Color-", "AP")??? @Model.Single(a => a.Id == GridMvc.Columns(1).TipActiune.ToString())*@
+    columns.Add(a  => a.NumeActiune).Titled("Actiune /Pas Urmator").SetWidth(100).Filterable(true);
+    columns.Add(a  => a.SubiectActiune).Titled("Subiect").SetWidth(100).Filterable(true).Sanitized(false).Encoded(false)
+    .RenderValueAs(a  => Html.ActionLink(a.TextFieldNotNull(a.SubiectActiune),"EditeazaActiune",new { id = a.Id, panel = a.TipActiune },"Agenda").ToHtmlString());  //Html.ActionLink --are parm Metoda, contrller etc
+    // aici trebuie introdusa spEditeazaActivitate
+    columns.Add(a  => a.PrioritateActiune).Titled("Prioritate").SetWidth(20).Filterable(true).RenderValueAs(a  => a.DrawNumberField(a.PrioritateActiune)).Css("MyStars");
+    columns.Add(a  => a.OraActiune).Titled("Ora").SetWidth(4).Filterable(true);
+    columns.Add(a  => a.DurataActiune).Titled("Timp").SetWidth(4).Filterable(true).RenderValueAs(a  => a.DurataActiune+"'");
+    columns.Add(a  => a.ComentariuActiune).Titled("Comentariu").SetWidth(200).Filterable(true);
+    columns.Add(a => a.MesajActiune).Titled("Stare").SetWidth(12).Filterable(true)
+    .Css(@Model.Count()>0 ? (@Model.First().MesajActiune=="Reprogrameaza!" ? "MyRedTextBox" : "MyGreyTextBox") : "MyGreyTextBox").Sanitized(false).Encoded(false)
+    .RenderValueAs(a => Html.ActionLink(a.TextFieldNotNull(a.MesajActiune),"EditeazaActiune", new { id = a.Id, panel=a.TipActiune }, "Agenda").ToHtmlString());
+
+}).WithPaging(7).Sortable().Filterable().EmptyText("No data found!").WithMultipleFilters()
+
+</div>

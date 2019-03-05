@@ -1,0 +1,459 @@
+﻿@model IEnumerable<CRMnAppMVC.VwDashboardClient>
+
+@{
+    ViewBag.Title = "DashboardClient";
+    //Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DashboardClient</title>
+
+    <link href="~/Content/StyleDashboardClienti.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div>
+        @*DIV DASBOARD*@
+        <h4> -- DASHBOARD -- Prospect Client:  <span>&nbsp; @Html.DisplayFor(model => model.First().Nume_Client)&nbsp; </span></h4>
+        <hr />
+        <div class="container">
+            @*DIV CONTAINER*@
+
+            <div class="row">
+                <div class="col-md-6">
+                    <span style="background-color:lightblue ; font-size:1.5em">&#9998</span>
+                    @Html.ActionLink("Editare", "EditProfil", new { @id=Model.First().ID_PRE_Client_Profil }) @*new {id = Request.QueryString["id"]}*@
+                </div><div class="col-md-6">
+                    <span style="background-color:lightblue ; font-size:1.5em">&#9998</span>
+                    @Html.ActionLink("Editare", "EditContact", new { @id = Model.First().ID_PRE_Client_Profil })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    @*DIV PROFIL*@
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Tip_Client_PF_PJ_Profil)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Tip_Client_PF_PJ_Profil)
+                        </dd>
+
+                        @*<dt>
+                                @Html.DisplayNameFor(model => model.First().Nume_Client)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.First().Nume_Client)
+                            </dd>*@
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Cod_Client)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Cod_Client)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Tara)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Tara)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Domeniu)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Domeniu)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Cod_Domeniu)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Cod_Domeniu)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().CA_Ultimul_An)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().CA_Ultimul_An)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Nr_Angajati)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Nr_Angajati)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Sursa_Info_Client)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Sursa_Info_Client)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().ID_USER)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().ID_USER)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Sursa_Info_Client_Alt)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Sursa_Info_Client_Alt)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Data_Intro)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Data_Intro)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Data_Modif)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Data_Modif)
+                        </dd>
+                    </dl>
+                </div> @*DIV PROFIL*@
+
+                <div class="col-md-6">
+                    @*DIV CONTACT -- COLOANA 2*@
+                    <dl class="dl-horizontal">
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Persoana_Decizie)
+                        </dt>
+
+                        <dd>
+                            <span style="font-style:oblique">( @Html.DisplayFor(model => model.First().Persoana_Decizie_Sex) )&nbsp; </span> @Html.DisplayFor(model => model.First().Persoana_Decizie)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Telefon)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Telefon)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Regiune_Reper)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Regiune_Reper)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Adresa_Text)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Adresa_Text)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Cod_Postal)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Cod_Postal)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Email)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Email)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Web_Site)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Web_Site)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Adresa_Numar)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Adresa_Numar)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Adresa_Strada)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Adresa_Strada)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Adresa_Oras)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Adresa_Oras)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Adresa_Unitate_Regionala)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Adresa_Unitate_Regionala)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Adresa_SubUnitate_Regionala)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Adresa_SubUnitate_Regionala)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Persoana_Decizie_Nume)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Persoana_Decizie_Nume)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Persoana_Decizie_Prenume)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Persoana_Decizie_Prenume)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Persoana_Decizie_Nume_Alt)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Persoana_Decizie_Nume_Alt)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Persoana_Decizie_Prenume_Alt)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Persoana_Decizie_Prenume_Alt)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Persoana_Decizie_Sex)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Persoana_Decizie_Sex)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Persoana_Decizie_Functie)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Persoana_Decizie_Functie)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Telefon_Alt)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Telefon_Alt)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.First().Email_Alt)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.First().Email_Alt)
+                        </dd>
+
+                        @*<dt>
+                                @Html.DisplayNameFor(model => model.First().ID_USER_Contact)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.First().ID_USER_Contact)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.First().Data_Intro_Contact)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.First().Data_Intro_Contact)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.First().Data_Modif_Contact)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.First().Data_Modif_Contact)
+                            </dd>*@
+                    </dl>
+
+                </div>@*DIV CONTACT*@
+
+            </div> @*DIV ROW 1*@
+
+            <div class="row">
+                <div class="col-md-12">
+                    @*DIV INTERLOCUTOR*@
+                    <h4> --Tabel: <span>Agenda discutii:</span></h4>
+
+                    @foreach (var c in Model.Reverse())
+                    {
+                        <dl class="dl-horizontal">
+                            @*<dt>@Html.ActionLink("Editare", "EditInterlocutor", new { @id = Model.First().ID_PRE_Client_Profil@*, Model.First().ID_Discutie)</dt>*@                                                      
+                            
+
+                            <dt class="classDiscutieNoua">
+                                @Html.DisplayNameFor(model => model.ID_Discutie)
+                                
+                            </dt>
+
+                            <dd>
+                                @*@Ajax.ActionLink(c.ID_Discutie.ToString(), "EditInterlocutor", UpdateTargetId)*@
+                                @*@Html.DisplayFor(model => c.ID_Discutie)*@
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Data_Discutie)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => c.Data_Discutie)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Obs_Tipuri_Produse_Cautate)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => c.Obs_Tipuri_Produse_Cautate)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Obs_Furnizori_Actuali_Client)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => c.Obs_Furnizori_Actuali_Client)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Obs_Dureri_Client)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => c.Obs_Dureri_Client)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Obs_Alte_Observatii)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => c.Obs_Alte_Observatii)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Durata_Discutie_Minute)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => c.Durata_Discutie_Minute)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Tip_Discutie)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => c.Tip_Discutie)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Tip_STADIU_DISCUTIE)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => c.Tip_STADIU_DISCUTIE)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.ID_USER_Interlocutor)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => c.ID_USER_Interlocutor)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Data_Intro_Interlocutor)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => c.Data_Intro_Interlocutor)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Data_Modif_Interlocutor)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => c.Data_Modif_Interlocutor)
+                            </dd>
+
+                        </dl>
+                    }
+                </div> @*DIV INTERLOCUTOR*@
+            </div>@*DIV ROW 2*@
+        </div> @*DIV container GRID*@
+
+    </div> @*DIV DASHBOARD*@
+    <p>
+        @*@Html.ActionLink("Edit", "EditProfil", new { id = Model.First().ID_PRE_Client }) |*@
+        @Html.ActionLink(">>Tabel Operatiuni", "TabelOperatiuni")
+    </p>
+</body>
+</html>

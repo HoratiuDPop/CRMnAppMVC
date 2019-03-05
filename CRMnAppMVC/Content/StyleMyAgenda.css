@@ -1,0 +1,59 @@
+﻿body {
+}
+
+.MyAgendaMenu {
+    padding-bottom: 1em;
+    margin: 0;
+    border-bottom: solid;
+    border-color:var(--main-bk-color);
+}
+
+.MyBrightText {
+    color: orangered;
+    font-weight: bold;
+    /*--var-menu-text-color: deeppink;*/
+}
+
+.MyRedText {
+    color: red;
+    font-weight: bold;
+    /*--var-menu-text-color: deeppink;*/
+}
+
+.MyGreyText {
+    color: darkslategrey;
+    font-weight: normal;
+    /*--var-menu-text-color: deeppink;*/
+}
+
+.MyStars {
+    color: red;
+    font-weight: bold;
+    background-color: rgba(253, 219, 73,0.5);
+    font-size: 1em;
+}
+
+.MyRedTextBox {
+    background-color: rgba(253, 0, 0, 0.3);
+    /*--var-menu-text-color: deeppink;*/
+}
+
+.MyGreyTextBox {
+    background-color: rgba(50, 50, 60, 0.1);
+}
+.Color-AC {
+    color: darkorange;
+    font-weight: bold;
+}
+.Color-AP {
+    color: orangered;
+    font-weight: bold;
+}
+.Color-AO {
+    color: greenyellow;
+    font-weight: bold;
+}
+.Color-Dlg {
+    color: darkslategrey;
+    font-weight: normal;
+}

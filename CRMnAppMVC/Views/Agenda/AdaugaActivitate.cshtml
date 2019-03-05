@@ -1,0 +1,324 @@
+﻿@model CRMnAppMVC.Activitati_Curente
+
+@{
+    ViewBag.Title = "AdaugaActivitatei";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AdaugaActivitate</title>
+</head>
+<body>
+    <div class="jumbotron small well-sm">
+        <h5>Adauga Activitate</h5>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken() @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="col-sm-offset-10  col-sm-2 ">
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-4">
+                            <input type="submit" value="Adauga" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+            </div> @*//end row_1*@
+
+            <div class="row">
+                <div class="col-sm-6">
+                    @if (ViewBag.Nume_Activitate != null)
+                    {
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Nume_Activitate, htmlAttributes: new { @class = "control-label col-sm-4" })
+                            <div class="col-sm-6">
+                                @Html.DropDownListFor(m=>m.Nume_Activitate,ViewBag.Nume_Activitate as SelectList,"Selecteaza",
+                                new { @class = "form-control", style = "width: 10em" })
+                                @Html.ValidationMessageFor(model => model.Nume_Activitate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Detalii_Tip_Activitate, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.DropDownListFor(m=>m.Detalii_Tip_Activitate, new SelectList(""),"Detalii",
+                            new { @class = "form-control", style = "width: 10em" })
+                            @Html.ValidationMessageFor(model => model.Detalii_Tip_Activitate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>@*//end row_2*@
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Subiect_Activitate, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.EditorFor(model => model.Subiect_Activitate, new { htmlAttributes = new { @class = "form-control", style = "width: 24em" } })
+                            @Html.ValidationMessageFor(model => model.Subiect_Activitate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Data_Scadenta, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.TextBoxFor(model => model.Data_Scadenta, new { @class = "form-control",@Value=DateTime.Now.Date })
+                            @Html.ValidationMessageFor(model => model.Data_Scadenta, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>@*//end row_3*@
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Ora_Activitate, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.EditorFor(model => model.Ora_Activitate, new { htmlAttributes = new { @class = "form-control", @min = "8", @max = "20", style = "width: 6em" } })
+                            @Html.ValidationMessageFor(model => model.Ora_Activitate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Durata_Activitate, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.DropDownListFor(m=>m.Durata_Activitate,ViewBag.Durata_Activitate as SelectList,"Selecteaza",
+        new { @class = "form-control", style = "width: 6em" })
+                            @*@Html.EditorFor(model => model.Durata_Activitate, new { htmlAttributes = new { @class = "form-control", style = "width: 4em" } })*@
+                            @Html.ValidationMessageFor(model => model.Durata_Activitate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>@*//end row_4*@
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Comentariu_Activitate, htmlAttributes: new { @class = "control-label col-sm-2" })
+                        <div class="col-sm-10">
+                            @Html.EditorFor(model => model.Comentariu_Activitate, new { htmlAttributes = new { @class = "form-control",style = "width: 44em" } })
+                            @Html.ValidationMessageFor(model => model.Comentariu_Activitate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>@*//end row_5*@
+            @*// /*-- end  visible rows --*/*@
+
+            <div class="row ">
+                @*d-none*@
+                <div class="col-sm-12">
+                    @*hidden d-none*@
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Referinta_Subiect, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.EditorFor(model => model.Referinta_Subiect, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Referinta_Subiect, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Cod_Subiect, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.EditorFor(model => model.Cod_Subiect, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Cod_Subiect, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Detalii_Subiect, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.EditorFor(model => model.Detalii_Subiect, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Detalii_Subiect, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Nivel_Financiar_Subiect, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.EditorFor(model => model.Nivel_Financiar_Subiect, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Nivel_Financiar_Subiect, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Timp_Afectat_Subiect, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.EditorFor(model => model.Timp_Afectat_Subiect, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Timp_Afectat_Subiect, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Grad_Realizare, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.EditorFor(model => model.Grad_Realizare, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Grad_Realizare, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Prioritate_Activitate, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.EditorFor(model => model.Prioritate_Activitate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Prioritate_Activitate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Stare_Activitate, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.EditorFor(model => model.Stare_Activitate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Stare_Activitate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Cod_Stare_Activitate, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.EditorFor(model => model.Cod_Stare_Activitate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Cod_Stare_Activitate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Index_Reprogramare_Activitate, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.EditorFor(model => model.Index_Reprogramare_Activitate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Index_Reprogramare_Activitate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Index_Amanare_Activitate, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.EditorFor(model => model.Index_Amanare_Activitate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Index_Amanare_Activitate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Activitate_Activa, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.Activitate_Activa)
+                                @Html.ValidationMessageFor(model => model.Activitate_Activa, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Z_Bit_Field, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.Z_Bit_Field)
+                                @Html.ValidationMessageFor(model => model.Z_Bit_Field, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Z_Int_Field, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.EditorFor(model => model.Z_Int_Field, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Z_Int_Field, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Z_String_Field, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.EditorFor(model => model.Z_String_Field, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Z_String_Field, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Z_Text_Field, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.EditorFor(model => model.Z_Text_Field, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Z_Text_Field, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.User_Alocat, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.EditorFor(model => model.User_Alocat, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.User_Alocat, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Data_Alocare, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.EditorFor(model => model.Data_Alocare, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Data_Alocare, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Id_User, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.EditorFor(model => model.Id_User, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Id_User, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Data_Intro, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.EditorFor(model => model.Data_Intro, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Data_Intro, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Data_Modif, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.EditorFor(model => model.Data_Modif, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Data_Modif, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div> @* /* end hidden rows*/ *@
+
+        </div> @* /* end form-h */ *@
+                }
+            </div>@* /* end jumbo class */ *@
+
+            <div>
+                @Html.ActionLink("<-- Agenda", "AgendaZilei")
+            </div>
+
+            <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $("#Nume_Activitate").change(function () {
+
+                        var numeActivitate = $(this).val();
+                        debugger
+                        $.ajax({
+                            type: "post",
+                            url: "/100/Agenda/GetSubActivitatiPartVw?numeActivitate=" + numeActivitate,
+                            contentType: "html",
+                            success: function (response) {
+                                debugger
+                                $("#Detalii_Tip_Activitate").empty();
+                                $("#Detalii_Tip_Activitate").append(response);
+                            }
+                        })
+                    })
+                });
+            </script>
+</body>
+</html>

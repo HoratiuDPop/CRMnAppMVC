@@ -1,0 +1,26 @@
+﻿@using CRMnAppMVC.Models
+<link href="~/Content/StyleMyAgenda.css" rel="stylesheet" />
+<div>
+    @*div NavMenu - the 4 buttons Prospectare, Ofertare, Agenda, Rapoarte*@
+
+    <div class="row">
+        <div class="col-sm-2">
+            @Html.ActionLink("Adauga Activitate (+)", "AdaugaActivitate", "Agenda");
+        </div>
+        <div class="col-sm-2">
+            @Html.ActionLink("Preluare Prospecte (+)", "AgendaZilei", "Agenda");
+        </div>
+        <div class="col-sm-2">
+            @Html.ActionLink("Intrari Noi Personale (in)", "AgendaIntrateNoi", "Agenda");
+        </div>
+        <div class="col-sm-2">
+            @Html.ActionLink("Arhiva Actiuni (out)", "AgendaArhivaActiuni", "Agenda");
+        </div>
+        <div class="col-sm-2">
+            @Html.ActionLink("Agenda de Maine (->)", "AgendaZilei", "Agenda");
+        </div>
+        <div class="col-sm-2">
+            @Html.ActionLink("Agende Viitoare (>>)", "AgendaZilei", "Agenda");
+        </div>
+    </div>
+</div>

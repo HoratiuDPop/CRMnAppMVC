@@ -1,0 +1,34 @@
+﻿@using CRMnAppMVC.Models
+
+<div>
+    @*div NavCR*@
+
+    @{
+        //string host = HttpContext.Current.Request.Url.Host;
+        //TabelOperatiuni
+        string currentMethod = HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString();
+    }
+
+    @if (currentMethod != "TabelOperatiuni")
+    {
+        <div class=" row">
+            @*div NavCR-row-1*@
+
+            <div class="col-sm-8">
+                @*div NavCR-r1-c1*@
+                @Html.Partial("_PartVw_NavMenu")
+            </div> @* end div NavCR-r1-c1*@
+
+            <div class="col-sm-4">
+                @*div NavCR-r1-c2*@
+                @Html.Partial("_PartVw_ChartProspecte")
+            </div> @* end div NavCR-r1-c2*@
+
+        </div> @*end div NavCR-row-1*@
+    }
+    else
+    {
+        @Html.Partial("_PartVw_NavFilters")
+    }
+
+</div> @*end div NavCR*@

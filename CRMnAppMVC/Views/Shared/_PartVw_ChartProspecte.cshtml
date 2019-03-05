@@ -1,0 +1,36 @@
+﻿@using CRMnAppMVC.Models
+
+@{ 
+    var ponderiProspectare = CrmPonderiProspecte.CrmPonderiProspectare();
+    Dictionary<string, CrmPonderiProspecte> ChartProspecte = new Dictionary<string, CrmPonderiProspecte>();
+    foreach (KeyValuePair<int, CrmPonderiProspecte> kvpItem in ponderiProspectare)
+    {
+        CrmPonderiProspecte item = new CrmPonderiProspecte(kvpItem.Value.IdCategory, kvpItem.Value.Category, kvpItem.Value.TotalItems);
+        ChartProspecte.Add(kvpItem.Value.Category,item);
+    }
+}
+<div id="ChartProspecte">
+    <div class="table-responsive">
+        <table class="table">
+        <tr>&nbsp;</tr>
+            @foreach (KeyValuePair<string, CrmPonderiProspecte> c in ChartProspecte)
+            {
+
+                <tr>
+                    <td class="ChatProspecte_Categories">
+                        @Html.DisplayFor(modelItem => c.Key)
+                    </td>
+                    <td class="ChatProspecte_TotalItem">
+                        @c.Value.TotalItems @*--o linie are 5% --rezulta 20 linii =20x50=100%*@
+                    </td>
+                    <td class="ChatProspecte_Lines">
+                        @for (int i = 0; i < CrmPonderiProspecte.CrmCategoryLines(c.Value.Category); i++)
+                        {
+                            <text>|</text>
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

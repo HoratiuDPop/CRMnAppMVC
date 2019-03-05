@@ -1,0 +1,44 @@
+﻿.ProspectareFilters {
+    background-color: var(--main-bk-color);
+    color: var(--main-color);
+}
+.ProspectareFilters div {
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+.ProspectareFilters div .form-control {
+    width: 8em;
+    color: var(--main-color);
+    font-size: small;
+    padding: 0;
+    margin: 0;
+    background-color: var(--main-bk-color);
+    align-content: flex-end;
+    float: right;
+    margin-left: 3em;
+}
+
+.ColorBackFilterRed {
+    background-color: var(--main-bk-color);
+}
+.ColorBackFilterBlue {
+    background-color: var(--main-bk-color);
+}
+.ColorBackFilterGreen {
+    background-color: var(--main-bk-color);
+}
+.ColorBackFilterOrange {
+    background-color: var(--main-bk-color);
+}
+.ColorBackFilterWhite {
+    background-color: var(--main-bk-color);
+}
+.ColorBackFilterBlack {
+    background-color: var(--main-bk-color);
+}
+.CrmLogo .img-responsive {
+    margin:0 auto;
+}
+ButtonFiltrare{
+}
